@@ -106,6 +106,110 @@ export const register: Register = on => {
 
 const HOOKS = { modules: ['./register.tsx'] }
 
+const REPO_URL = `https://github.com/${AUTHOR}/looks`
+const SITE_URL = `https://${AUTHOR}.github.io/looks/`
+
+const creditLine = look => {
+  if (look.credit) {
+    return `Colors adapted from the VS Code theme [${look.credit.extension}](https://github.com/${look.credit.repo}) by ${look.credit.author} (${look.credit.license}).`
+  }
+
+  if (ORIGINALS.includes(look.id)) {
+    return 'An original look, made for this gallery.'
+  }
+
+  return `Uses the ${PALETTE_CREDITS[look.id][0]} palette, made by ${PALETTE_CREDITS[look.id][1]}.`
+}
+
+const installLines = name => [
+  '## Install',
+  '',
+  'In a terminal session:',
+  '',
+  '```',
+  `/plugin install ${name} --marketplace ${AUTHOR}/looks`,
+  '```',
+  '',
+  `In the Claude desktop app, add the marketplace \`${AUTHOR}/looks\` from the Plugins list first. The steps are in the [repository's README](${REPO_URL}#install).`,
+  '',
+]
+
+// What each plugin does, reads and sends, in plain words.
+const microReadme = look =>
+  [
+    `# look-${look.id}`,
+    '',
+    `${look.name}: a ${look.mode} theme for the Claude desktop and mobile apps. It is one look from [${AUTHOR}/looks](${REPO_URL}); the [gallery](${SITE_URL}) shows all ${LOOKS.length}.`,
+    '',
+    creditLine(look),
+    '',
+    '## What it does',
+    '',
+    'When a session starts it asks the app to apply this look: a set of colors and a soft gradient backdrop. When the app asks for the backdrop, it draws that gradient as a small SVG. Themes only draw in the desktop and mobile apps; in a terminal it does nothing.',
+    '',
+    '## What it reads and sends',
+    '',
+    'It reads nothing. Its colors are part of its code, and it reads no files, environment variables or credentials, and nothing from your conversation.',
+    '',
+    'It sends nothing. It makes no network requests, runs no programs and writes no files.',
+    '',
+    '## The calls and hooks it uses',
+    '',
+    "- `$.theme.set`, once at `session.start`, hands this look's colors to the app on your machine.",
+    "- A `ui.render` hook on `Backdrop` draws this look's gradient through `$.ui.resolve`. It answers only for this look's own scene and passes every other plugin's scene through untouched.",
+    '',
+    ...installLines(`look-${look.id}`),
+    '## License',
+    '',
+    `MIT, see the [repository](${REPO_URL}). Credit for the colors is in [CREDITS.md](${REPO_URL}/blob/main/CREDITS.md).`,
+    '',
+  ].join('\n')
+
+const bundleReadme = () =>
+  [
+    `# looks`,
+    '',
+    `All ${LOOKS.length} looks for the Claude desktop and mobile apps in one plugin, switched with \`/look\`. From [${AUTHOR}/looks](${REPO_URL}); the [gallery](${SITE_URL}) shows every look. Credit for every palette and theme is in [CREDITS.md](${REPO_URL}/blob/main/CREDITS.md).`,
+    '',
+    '## What it does',
+    '',
+    'When a session starts it adds a `/look` command and applies the look you chose last (Catppuccin Mocha the first time). `/look` lists the looks, `/look <name>` switches to one, and `/look next` steps to the next. When the app asks for the backdrop, it draws the current look\'s gradient as a small SVG. Themes only draw in the desktop and mobile apps; in a terminal the command still works but nothing is drawn.',
+    '',
+    '## What it reads and sends',
+    '',
+    "It reads one saved value: the id of the look you chose last, from this plugin's own store on your machine. It reads no files, environment variables or credentials, and nothing from your conversation.",
+    '',
+    "It sends nothing. It makes no network requests and runs no programs. The only thing it writes is that one saved value, in its own store, when you switch looks.",
+    '',
+    '## The calls and hooks it uses',
+    '',
+    '- `$.command.register` adds the `/look` command, and a `command.run` hook answers it with text. It answers only `/look`.',
+    '- `$.store.get` and `$.store.set` read and write the one saved value above.',
+    "- `$.theme.set` hands the chosen look's colors to the app on your machine.",
+    "- A `ui.render` hook on `Backdrop` draws the look's gradient through `$.ui.resolve`. It answers only for this plugin's own scenes and passes every other plugin's scene through untouched.",
+    '',
+    ...installLines('looks'),
+    "Don't install it together with a single look (`look-<name>`): a session shows one theme, so they would set it against each other.",
+    '',
+    '## License',
+    '',
+    `MIT, see the [repository](${REPO_URL}).`,
+    '',
+  ].join('\n')
+
+// The icon is drawn by scripts/export-icons.mjs into src/icons/, and copied in here.
+const missingIcons = []
+const copyIcon = (id, dir) => {
+  const from = join(ROOT, 'src', 'icons', `${id}.png`)
+
+  if (existsSync(from)) {
+    cpSync(from, join(dir, '.claude-plugin', 'icon.png'))
+  } else {
+    missingIcons.push(id)
+  }
+}
+const bundleData = []
+
 // Start clean so a look removed from src/ leaves nothing behind.
 rmSync(join(ROOT, 'plugins'), { recursive: true, force: true })
 
@@ -129,7 +233,10 @@ for (const look of LOOKS) {
   write(join(dir, '.claude-plugin', 'plugin.json'), json({ name, version: VERSION, description, author: { name: AUTHOR } }))
   write(join(dir, 'hooks', 'hooks.json'), json(HOOKS))
   write(join(dir, 'hooks', 'register.tsx'), microRegister(look, theme))
+  write(join(dir, 'README.md'), microReadme(look))
+  copyIcon(look.id, dir)
   entries.push({ name, source: `./plugins/${name}`, description })
+  bundleData.push({ id: look.id, name: look.name, mode: look.mode, sky: look.sky, glow: look.def.roles.accent, colors: theme })
 }
 
 if (failures.length > 0) {
@@ -137,16 +244,21 @@ if (failures.length > 0) {
   process.exit(1)
 }
 
-// The bundle: every look and a /look switcher, with the helper files it needs.
+// The bundle: every look and a /look switcher, as one module with the looks' computed colors inside.
 const bundleDir = join(ROOT, 'plugins', BUNDLE)
 const bundleDescription = `All ${LOOKS.length} looks for the Claude desktop and mobile apps, switched with /look.`
 
 write(join(bundleDir, '.claude-plugin', 'plugin.json'), json({ name: BUNDLE, version: VERSION, description: bundleDescription, author: { name: AUTHOR } }))
 write(join(bundleDir, 'hooks', 'hooks.json'), json(HOOKS))
-cpSync(join(ROOT, 'src', 'bundle-register.tsx'), join(bundleDir, 'hooks', 'register.tsx'))
+write(
+  join(bundleDir, 'hooks', 'register.tsx'),
+  readFileSync(join(ROOT, 'src', 'bundle-register.tsx'), 'utf8').replace('__LOOKS__', () => JSON.stringify(bundleData)),
+)
+write(join(bundleDir, 'README.md'), bundleReadme())
+copyIcon(BUNDLE, bundleDir)
 
-for (const file of ['make-colors.js', 'make-colors.d.ts', 'themes.js', 'themes.d.ts', 'imported.js', 'imported.d.ts']) {
-  cpSync(join(ROOT, 'src', file), join(bundleDir, 'hooks', file))
+if (missingIcons.length > 0) {
+  console.warn(`No icon yet for ${missingIcons.length} plugins (run node scripts/export-icons.mjs): ${missingIcons.slice(0, 4).join(', ')}${missingIcons.length > 4 ? ', ...' : ''}`)
 }
 
 write(

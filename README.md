@@ -110,6 +110,8 @@ The build checks each look and refuses one the desktop app would not paint. It w
 
 The banner and the featured strip are PNGs, drawn at 2x by headless Chrome so they look the same in every browser. If you change which looks they show (`src/featured.js`) or a look's colors, redraw them with `node scripts/export-png.mjs` after building. It needs Google Chrome installed.
 
+Each plugin's icon is drawn the same way, once, into `src/icons/` with `node scripts/export-icons.mjs`, and the build copies it into the plugin as `.claude-plugin/icon.png`. Redraw them after changing a look's colors.
+
 Two things keep a look readable:
 
 - Keep each mode's surfaces close together, a few percent of lightness apart. The darker the page, the less room there is between it and the menus.

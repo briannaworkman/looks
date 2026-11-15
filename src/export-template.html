@@ -66,6 +66,23 @@ html.export .pv { box-shadow: none; }
 #hero { position: relative; width: 1280px; height: 440px; border-radius: 20px; overflow: hidden;
   background: radial-gradient(60% 60% at 50% 45%, rgba(139, 124, 255, .22), transparent), linear-gradient(135deg, #14161d, #0c0d12); }
 #hero .pv { position: absolute; border-radius: 14px; box-shadow: 0 16px 44px rgba(0, 0, 0, .5); }
+
+/* Plugin icons: a square, the look's own backdrop with a polaroid of it on top (one look), or three polaroids fanned (the bundle). */
+#icon, #iconb { position: relative; width: 256px; height: 256px; overflow: hidden; }
+#icon { background: radial-gradient(60% 60% at 80% 12%, color-mix(in srgb, var(--glow) 22%, transparent), transparent), linear-gradient(180deg, var(--sky0), var(--sky1) 55%, var(--sky2)); }
+#iconb { background: radial-gradient(70% 60% at 50% 40%, rgba(139, 124, 255, .25), transparent), linear-gradient(135deg, #14161d, #0c0d12); }
+.polaroid { position: absolute; background: #fcfbf7; box-shadow: 0 2px 3px rgba(0, 0, 0, .3), 0 14px 26px rgba(0, 0, 0, .42); }
+.polaroid .pv { border-radius: 0; box-shadow: none; }
+.polaroid .dots { display: flex; justify-content: center; }
+.polaroid .dots i { display: block; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .2); }
+#icon .polaroid { left: 31px; top: 36px; width: 194px; padding: 9px 9px 12px; rotate: -5deg; }
+#icon .polaroid .pv { width: 176px; }
+#icon .dots { gap: 6px; margin-top: 12px; }
+#icon .dots i { width: 24px; height: 24px; }
+#iconb .polaroid { width: 128px; padding: 6px 6px 8px; }
+#iconb .polaroid .pv { width: 116px; }
+#iconb .dots { gap: 4px; margin-top: 7px; }
+#iconb .dots i { width: 15px; height: 15px; }
 </style>
 <script>
 const LOOKS = __DATA__;
@@ -98,14 +115,28 @@ function preview(l) {
 
 document.addEventListener("DOMContentLoaded", () => {
 /* Export mode: #render=<id> draws one preview at 640px, #hero=<id>,<id>,<id> draws the banner. */
-const exportMode = location.hash.match(/^#(render|hero)=([a-z0-9,-]+)$/);
+const exportMode = location.hash.match(/^#(render|hero|icon|iconb)=([a-z0-9,-]+)$/);
 if (exportMode) {
   document.documentElement.classList.add("export");
   const ids = exportMode[2].split(",");
   const root = document.createElement("div");
+  const dots = l => `<div class="dots">${[l.c.accent, l.c.danger, l.c.success, l.c.warning, l.c.pro].map(h => `<i style="background:${h}"></i>`).join("")}</div>`;
   if (exportMode[1] === "render") {
     root.id = "export-one";
     root.innerHTML = preview(LOOKS.find(l => l.id === ids[0]));
+  } else if (exportMode[1] === "icon") {
+    const l = LOOKS.find(x => x.id === ids[0]);
+    root.id = "icon";
+    root.setAttribute("style", vars(l));
+    root.innerHTML = `<div class="polaroid">${preview(l)}${dots(l)}</div>`;
+  } else if (exportMode[1] === "iconb") {
+    root.id = "iconb";
+    // left, right, then center last so it sits on top
+    const place = [[ids[0], 8, 84, -10], [ids[2], 120, 84, 10], [ids[1], 64, 52, 0]];
+    root.innerHTML = place.map(([id, x, y, r]) => {
+      const l = LOOKS.find(v => v.id === id);
+      return `<div class="polaroid" style="left:${x}px;top:${y}px;rotate:${r}deg">${preview(l)}${dots(l)}</div>`;
+    }).join("");
   } else {
     root.id = "hero";
     // left, right, then center last so it sits on top; position and tilt as in the old SVG banner

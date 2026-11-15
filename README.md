@@ -110,6 +110,10 @@ Two things keep a look readable:
 - Keep each mode's surfaces close together, a few percent of lightness apart. The darker the page, the less room there is between it and the menus.
 - Keep the gradient dark (or light) and low in contrast, since text sits on top of it under frosted panels.
 
+## Publish the gallery site
+
+`docs/index.html` is one static page with no dependencies beyond two web fonts, built from `src/site/`. To serve it on GitHub Pages, open the repository's **Settings**, then **Pages**, set the source to **Deploy from a branch**, and choose the `main` branch and the `/docs` folder. It is then live at `https://<your-username>.github.io/looks/`. Any static host works the same way: point it at `docs/`.
+
 ## Credits
 
 Every look's origin, and the credit its colors are owed, is in [CREDITS.md](CREDITS.md): the published palettes, the themes adapted from VS Code extensions (with each one's author, source repository and license), the original looks, and the color helper.

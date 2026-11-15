@@ -1,6 +1,6 @@
 // Draws the README's banner and the featured previews as high-resolution PNGs,
-// by opening docs/index.html in headless Chrome and screenshotting its export
-// mode at 2x. Run it after `node scripts/build.mjs`.
+// by opening src/export-template.html (filled with the looks' data, in a
+// temporary file) in headless Chrome and screenshotting it at 2x.
 //
 //   node scripts/export-png.mjs
 //
@@ -9,14 +9,16 @@
 // groups does not, and the page's own CSS gives real frosted-glass blur.
 
 import { execFileSync } from 'node:child_process'
-import { existsSync, mkdirSync, statSync } from 'node:fs'
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 
 import { FEATURED, HERO } from '../src/featured.js'
+import { LOOKS } from '../src/themes.js'
+import { galleryEntry } from './resolve.mjs'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
-const PAGE = pathToFileURL(join(ROOT, 'docs', 'index.html')).href
 const CANDIDATES = [
   process.env.CHROME,
   '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
@@ -32,11 +34,14 @@ if (!chrome) {
   process.exit(1)
 }
 
-if (!existsSync(join(ROOT, 'docs', 'index.html'))) {
-  console.error('docs/index.html is missing. Run `node scripts/build.mjs` first.')
-  process.exit(1)
-}
 mkdirSync(join(ROOT, 'gallery', 'featured'), { recursive: true })
+
+// The page that draws the previews, filled with the data, in a temporary file.
+const scratch = mkdtempSync(join(tmpdir(), 'looks-export-'))
+const pagePath = join(scratch, 'index.html')
+
+writeFileSync(pagePath, readFileSync(join(ROOT, 'src', 'export-template.html'), 'utf8').replace('__DATA__', () => JSON.stringify(LOOKS.map(galleryEntry))))
+const PAGE = pathToFileURL(pagePath).href
 
 const shoot = (hash, width, height, out) => {
   execFileSync(
@@ -62,3 +67,5 @@ shoot(`hero=${HERO.join(',')}`, 1280, 440, join(ROOT, 'docs', 'hero.png'))
 for (const id of FEATURED) {
   shoot(`render=${id}`, 640, 400, join(ROOT, 'gallery', 'featured', `${id}.png`))
 }
+
+rmSync(scratch, { recursive: true, force: true })

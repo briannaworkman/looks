@@ -180,7 +180,7 @@ const lookById = id => {
 }
 const resolved = new Map(LOOKS.map(each => [each.id, resolveColors(each)]))
 
-// One preview image per look, a banner, and the searchable page.
+// One preview image per look, and the site (docs/index.html).
 rmSync(join(ROOT, 'gallery', 'previews'), { recursive: true, force: true })
 
 for (const each of LOOKS) {
@@ -189,7 +189,7 @@ for (const each of LOOKS) {
 for (const id of [...HERO, ...FEATURED]) lookById(id) // fail early on a name that is not a look
 write(
   join(ROOT, 'docs', 'index.html'),
-  readFileSync(join(ROOT, 'src', 'gallery-template.html'), 'utf8').replace('__DATA__', () => JSON.stringify(LOOKS.map(galleryEntry))),
+  readFileSync(join(ROOT, 'src', 'site', 'index.template.html'), 'utf8').replace('__DATA__', () => JSON.stringify(LOOKS.map(galleryEntry))),
 )
 
 // A grid of preview images, three to a row. HTML, because markdown cannot size an image.

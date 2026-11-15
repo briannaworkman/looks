@@ -1,184 +1,212 @@
-<title>Looks Gallery</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Looks: 95 themes for the Claude desktop and mobile apps</title>
+<meta name="description" content="Every look for the Claude desktop and mobile apps on one proof sheet, drawn in its own colors. Circle the ones you like, then copy the line that installs one.">
+<meta name="theme-color" content="#d7d8d3">
+<meta property="og:title" content="Looks: 95 themes for the Claude desktop and mobile apps">
+<meta property="og:description" content="Every look on one proof sheet, drawn in its own colors. Pick one and copy its install line.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://briannaworkman.github.io/looks/hero.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230f0f10'/%3E%3Crect x='6' y='9' width='20' height='14' rx='1.5' fill='%23eeede8'/%3E%3Cellipse cx='16' cy='16' rx='11' ry='9' fill='none' stroke='%23d6362b' stroke-width='2.2'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600&display=swap">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Overpass+Mono:wght@400;600&display=swap">
 <style>
-/* Layout: a quiet neutral page so the previews carry all the color. A sticky
-   toolbar over a card grid, one mock Claude window per look, and a detail view. */
+/* A proof sheet on a light table. Paper, black film, amber edge print, and one
+   grease-pencil red kept for circles and focus. All color other than these comes
+   from the looks themselves. */
 :root {
-  --bg: #eceef2;
-  --surface: #ffffff;
-  --ink: #14171c;
-  --ink2: #4a5262;
-  --line: #d5d9e1;
-  --accent: #4a3fd0;
-  --accent-ink: #ffffff;
-  --shadow: 0 1px 2px rgba(20, 23, 28, .08), 0 8px 24px rgba(20, 23, 28, .06);
-  --display: "Space Grotesk", "Inter", system-ui, sans-serif;
-  --body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --table: #d7d8d3;
+  --table-lit: #e6e7e2;
+  --paper: #eeede8;
+  --ink: #141414;
+  --ink2: #50535a;
+  --rule: #b9bab4;
+  --film: #0f0f10;
+  --film2: #1b1b1d;
+  --amber: #eaa94a;
+  --on-film: #e9e8e3;
+  --on-film2: #a9a9a6;
+  --pencil: #d6362b;
+  --ui: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --code: "Overpass Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --ease: cubic-bezier(.22, 1, .36, 1);
+  --cols: 6;
+  color-scheme: light;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0d0f13; --surface: #171a20; --ink: #eceef3; --ink2: #a3abb9; --line: #2a303a;
-    --accent: #a094ff; --accent-ink: #0d0f13;
-    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px rgba(0, 0, 0, .35);
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #0d0f13; --surface: #171a20; --ink: #eceef3; --ink2: #a3abb9; --line: #2a303a;
-  --accent: #a094ff; --accent-ink: #0d0f13;
-  --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px rgba(0, 0, 0, .35);
-  color-scheme: dark;
-}
-
 * { box-sizing: border-box; }
+html { background: var(--table); scrollbar-color: #9b9c96 var(--table); }
 body {
-  background: var(--bg); color: var(--ink); font: 400 15px/1.5 var(--body);
-  padding-block: 0 56px;
-  padding-left: max(16px, env(safe-area-inset-left, 0px));
-  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  margin: 0; min-height: 100vh; color: var(--ink); font: 400 15px/1.5 var(--ui);
+  background: radial-gradient(120% 70% at 50% -10%, var(--table-lit), var(--table) 70%);
+  padding: 26px max(14px, env(safe-area-inset-right, 0px)) 48px max(14px, env(safe-area-inset-left, 0px));
+  caret-color: var(--pencil);
 }
-body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); }
-a { color: var(--accent); }
+::selection { background: var(--pencil); color: #fff; }
+a { color: inherit; text-decoration-color: var(--pencil); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:hover { text-decoration-color: var(--ink); }
 button, input, select { font: inherit; color: inherit; }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.wrap { max-width: 1320px; margin: 0 auto; }
+button { cursor: pointer; }
+:focus-visible { outline: 2px solid #fff; box-shadow: 0 0 0 4px var(--pencil); border-radius: 2px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-/* ---- toolbar ---- */
-.top {
-  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--bg);
-  padding-block: 22px 14px; border-bottom: 1px solid var(--line);
+/* ---- the sheet ---- */
+.sheet {
+  max-width: 1480px; margin: 0 auto; background: var(--paper); padding: 34px clamp(16px, 3vw, 40px) 36px;
+  box-shadow: 0 1px 0 #fff inset, 0 2px 4px rgba(20, 20, 20, .10), 0 26px 60px rgba(20, 20, 20, .14);
 }
-.top-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; margin-bottom: 16px; }
-h1 { font: 600 28px/1.1 var(--display); letter-spacing: -.01em; margin: 0; }
-.lede { margin: 0; color: var(--ink2); font-size: 14px; flex: 1 1 340px; min-width: 0; }
-.controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
-.search { position: relative; flex: 1 1 240px; min-width: 0; max-width: 420px; }
-.search svg { position: absolute; left: 12px; top: 50%; translate: 0 -50%; width: 16px; height: 16px; color: var(--ink2); pointer-events: none; }
-.search input {
-  width: 100%; height: 40px; padding: 0 12px 0 36px; border-radius: 10px;
-  background: var(--surface); border: 1px solid var(--line);
-}
-.search input::placeholder { color: var(--ink2); opacity: .8; }
-.seg { display: inline-flex; padding: 3px; gap: 2px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
-.seg button { height: 32px; padding: 0 12px; border: 0; border-radius: 7px; background: none; color: var(--ink2); cursor: pointer; font-weight: 500; font-size: 13.5px; }
-.seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
-.sel { height: 40px; padding: 0 10px; border-radius: 10px; background: var(--surface); border: 1px solid var(--line); font-size: 13.5px; cursor: pointer; }
-.count { margin-left: auto; color: var(--ink2); font-size: 13px; font-variant-numeric: tabular-nums; }
+.head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 20px 56px; align-items: end; padding-bottom: 24px; }
+.mark { margin: 0; font: 800 clamp(64px, 9vw, 96px)/.86 var(--ui); font-stretch: 66%; letter-spacing: -.02em; }
+.roll { margin: 10px 0 0; font: 400 12px/1.4 var(--code); letter-spacing: .02em; color: var(--ink2); font-variant-numeric: tabular-nums; }
+.lede { margin: 16px 0 0; max-width: 56ch; font-size: 16px; text-wrap: pretty; }
+.controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 26px; justify-content: flex-start; }
+.find { position: relative; flex: 1 1 100%; min-width: 0; }
+.find input { width: 100%; height: 40px; padding: 0 2px 0 26px; background: none; border: 0; border-bottom: 2px solid var(--ink); border-radius: 0; font-size: 16px; }
+.find input::placeholder { color: var(--ink2); opacity: 1; }
+.find svg { position: absolute; left: 0; top: 50%; translate: 0 -55%; width: 17px; height: 17px; }
+.seg { display: flex; gap: 18px; }
+.seg button { padding: 6px 0; border: 0; background: none; font-weight: 600; font-size: 15px; color: var(--ink2); text-decoration: underline; text-decoration-color: transparent; text-decoration-thickness: 3px; text-underline-offset: 6px; transition: color .15s, text-decoration-color .15s; }
+.seg button:hover { color: var(--ink); }
+.seg button[aria-pressed="true"] { color: var(--ink); text-decoration-color: var(--pencil); }
+.sel { height: 40px; padding: 0 22px 0 0; border: 0; border-bottom: 2px solid var(--ink); border-radius: 0; background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%23141414' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1.5 1.5 6 6l4.5-4.5'/%3E%3C/svg%3E") no-repeat right 2px center; -webkit-appearance: none; appearance: none; font-size: 15px; font-weight: 500; }
+.keep { padding: 6px 0; border: 0; background: none; font-weight: 600; font-size: 15px; display: inline-flex; align-items: center; gap: 8px; text-decoration: underline; text-decoration-color: transparent; text-decoration-thickness: 3px; text-underline-offset: 6px; }
+.keep[aria-pressed="true"] { text-decoration-color: var(--pencil); }
+.keep .ring { width: 17px; height: 12px; }
+.keep .n { font-family: var(--code); font-weight: 600; font-size: 13px; font-variant-numeric: tabular-nums; }
 
-/* ---- grid ---- */
-.grid { display: grid; gap: 30px 24px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); padding-top: 26px; }
-.card { all: unset; box-sizing: border-box; display: block; cursor: pointer; border-radius: 14px; min-width: 0; }
-.card:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
-.card .pv { transition: transform .18s ease, box-shadow .18s ease; }
-.card:hover .pv { transform: translateY(-2px); box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 14px 32px rgba(0, 0, 0, .18); }
-.meta { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding: 12px 2px 0; }
-.meta-text { min-width: 0; }
-.name { font: 600 16px/1.25 var(--display); margin: 0; overflow-wrap: anywhere; }
-.by { color: var(--ink2); font-size: 13px; margin: 2px 0 0; overflow-wrap: anywhere; }
-.dots { display: flex; gap: 5px; flex: none; padding-top: 3px; }
-.dots i { width: 11px; height: 11px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(128, 128, 128, .35); }
-.empty { grid-column: 1 / -1; text-align: center; padding: 70px 0; color: var(--ink2); }
-.empty button { margin-top: 12px; height: 36px; padding: 0 14px; border-radius: 9px; border: 1px solid var(--line); background: var(--surface); cursor: pointer; }
+/* ---- the strips ---- */
+.strips { display: grid; grid-template-columns: repeat(var(--cols), minmax(0, 1fr)); row-gap: 16px; padding-top: 4px; }
+.fr { position: relative; background: var(--film); padding: 15px 6px 0; min-width: 0; }
+.fr::before, .fr::after { content: ""; position: absolute; left: 0; right: 0; height: 15px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='15'%3E%3Crect x='6' y='4.5' width='8' height='6' rx='1.6' fill='%23eeede8'/%3E%3C/svg%3E") 0 0 / 20px 15px repeat-x; }
+.fr::before { top: 0; }
+.fr::after { bottom: 0; }
+.fr-open { display: block; width: 100%; padding: 0; border: 0; background: none; text-align: left; }
+.fr-img { position: relative; display: block; line-height: 0; cursor: zoom-in; }
+.fr-meta { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; padding: 6px 1px 19px; color: var(--on-film2); font: 600 11px/1.2 var(--ui); font-stretch: 78%; letter-spacing: .07em; text-transform: uppercase; }
+.fr-meta .no { font: 600 11px/1.2 var(--code); color: var(--amber); letter-spacing: .04em; font-variant-numeric: tabular-nums; flex: none; }
+.fr-meta .nm { overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; line-height: 1.15; overflow-wrap: anywhere; min-width: 0; text-align: right; margin-left: 38px; }
+.fr:hover .nm, .fr.open .nm { color: var(--on-film); }
+.fr.open::before { content: ""; }
+.fr.open .tab { position: absolute; left: 50%; bottom: -16px; translate: -50% 0; width: 22px; height: 16px; background: var(--film2); clip-path: polygon(0 0, 100% 0, 50% 100%); z-index: 2; }
+.mark-btn { position: absolute; left: 30px; bottom: 16px; width: 24px; height: 22px; padding: 0; border: 0; border-radius: 11px; background: none; color: var(--on-film2); display: grid; place-items: center; z-index: 3; line-height: 0; transition: color .15s, background .15s; }
+.mark-btn::before { content: ""; position: absolute; inset: -11px -8px; }
+.mark-btn svg { width: 15px; height: 11px; }
+.mark-btn:hover { color: #fff; }
+.fr.circled .mark-btn { background: var(--pencil); color: #fff; }
+.circle { position: absolute; inset: -9% -7%; width: 114%; height: 118%; pointer-events: none; overflow: visible; z-index: 2; rotate: var(--rot, 0deg); }
+.circle path { fill: none; stroke: var(--pencil); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 0; }
+.fr.drawing .circle path { animation: draw .55s var(--ease) both; }
+@keyframes draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+.none { grid-column: 1 / -1; padding: 60px 0 40px; text-align: center; color: var(--ink2); }
+.none button { margin-top: 10px; padding: 8px 14px; border: 2px solid var(--ink); background: none; font-weight: 600; }
 
-/* ---- the mock Claude window. Every size is in cqw so the preview scales from a card to the detail view. ---- */
-.pv {
-  container-type: inline-size; position: relative; aspect-ratio: 16 / 10; width: 100%;
-  border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); isolation: isolate;
-}
-.pv-sky { position: absolute; inset: 0; background:
-  radial-gradient(60% 70% at 85% 15%, color-mix(in srgb, var(--glow) 16%, transparent), transparent),
-  linear-gradient(180deg, var(--sky0) 0%, var(--sky1) 50%, var(--sky2) 100%); }
-.pv-win { position: absolute; inset: 0; display: flex; flex-direction: column; color: var(--tp); font: 400 2.15cqw/1.35 var(--body); }
+/* ---- the print, tipped in under the strip ---- */
+.print { grid-column: 1 / -1; background: var(--film2); color: var(--on-film); padding: 26px clamp(16px, 2.4vw, 32px) 26px; display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 28px 40px; margin-top: -1px; scroll-margin-top: 12px; }
+.print-img { align-self: start; padding: 10px; background: var(--paper); box-shadow: 0 10px 28px rgba(0, 0, 0, .45); }
+.print-side { min-width: 0; display: flex; flex-direction: column; gap: 18px; overflow-wrap: anywhere; }
+.print h2 { margin: 0; font: 800 clamp(34px, 4vw, 48px)/.95 var(--ui); font-stretch: 70%; letter-spacing: -.01em; text-wrap: balance; overflow-wrap: anywhere; }
+.print .by { margin: 8px 0 0; color: var(--on-film2); font: 400 13px/1.4 var(--code); }
+.print .credit { margin: 0; font-size: 14.5px; color: var(--on-film); max-width: 52ch; }
+.print .credit a { text-decoration-color: var(--amber); }
+.wedge { display: flex; flex-wrap: wrap; gap: 12px 18px; }
+.wedge .grp { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.wedge .chips { display: flex; }
+.wedge .chip { width: 54px; flex: none; padding: 0; border: 0; background: none; text-align: left; color: inherit; }
+.wedge .chip i { display: block; height: 38px; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .22); }
+.wedge .chip b { display: block; margin-top: 4px; font: 500 11px/1.2 var(--code); color: var(--amber); letter-spacing: 0; text-transform: uppercase; }
+.wedge .chip:hover b { color: #fff; }
+.wedge .cap { font-size: 12px; color: var(--on-film2); font-weight: 600; letter-spacing: .02em; }
+.cmd { display: grid; grid-template-columns: minmax(0, 1fr); gap: 5px; min-width: 0; }
+.cmd label { font-size: 13px; color: var(--on-film2); font-weight: 500; }
+.cmd .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: stretch; min-width: 0; }
+.cmd code { flex: 1 1 250px; min-width: 0; padding: 10px 11px; background: var(--film); border: 1px solid #36363a; font: 400 12.5px/1.4 var(--code); color: var(--on-film); white-space: pre-wrap; overflow-wrap: anywhere; user-select: all; }
+.btn { flex: none; min-height: 40px; padding: 0 14px; border: 1px solid #5a5a5f; background: none; color: var(--on-film); font-weight: 600; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; }
+.btn:hover { border-color: var(--on-film); }
+.btn.go { background: var(--on-film); color: var(--film); border-color: var(--on-film); }
+.btn.go:hover { background: #fff; }
+.btn svg { width: 16px; height: 16px; flex: none; }
+.btn[aria-pressed="true"] { border-color: var(--pencil); }
+.print-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+.print :focus-visible { outline-color: #fff; box-shadow: 0 0 0 4px var(--pencil); }
+
+/* ---- the loupe ---- */
+.loupe { position: fixed; left: 0; top: 0; width: 208px; height: 208px; margin: -104px 0 0 -104px; border-radius: 50%; overflow: hidden; pointer-events: none; z-index: 40; background: var(--film); box-shadow: 0 0 0 5px var(--film), 0 0 0 6px rgba(255, 255, 255, .5), 0 14px 34px rgba(0, 0, 0, .4); display: none; }
+.loupe.on { display: block; }
+.loupe-in { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+@media (hover: none), (pointer: coarse) { .loupe { display: none !important; } .fr-img { cursor: pointer; } }
+
+/* ---- foot ---- */
+.foot { margin-top: 30px; padding-top: 16px; border-top: 2px solid var(--ink); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 32px; font-size: 13.5px; color: var(--ink2); }
+.foot p { margin: 0; max-width: 64ch; }
+.foot nav { display: flex; gap: 20px; font-weight: 600; color: var(--ink); }
+
+/* ---- the mock Claude window; every size is in cqw so it scales from a frame to a print ---- */
+.pv { container-type: inline-size; position: relative; aspect-ratio: 3 / 2; width: 100%; overflow: hidden; isolation: isolate; line-height: normal; text-align: left; }
+.pv-sky { position: absolute; inset: 0; background: radial-gradient(60% 70% at 85% 15%, color-mix(in srgb, var(--glow) 16%, transparent), transparent), linear-gradient(180deg, var(--sky0) 0%, var(--sky1) 50%, var(--sky2) 100%); }
+.pv-win { position: absolute; inset: 0; display: flex; flex-direction: column; color: var(--tp); font: 400 2.2cqw/1.35 var(--ui); font-stretch: 100%; }
 .pv-win * { margin: 0; }
-.pv-bar {
-  height: 5.6cqw; flex: none; display: flex; align-items: center; gap: 1cqw; padding: 0 2cqw;
-  background: color-mix(in srgb, var(--s0) 45%, transparent); backdrop-filter: blur(1.1cqw);
-  border-bottom: .12cqw solid color-mix(in srgb, var(--tm) 18%, transparent);
-}
+.pv-bar { height: 5.8cqw; flex: none; display: flex; align-items: center; gap: 1cqw; padding: 0 2cqw; background: color-mix(in srgb, var(--s0) 45%, transparent); backdrop-filter: blur(1.1cqw); border-bottom: .12cqw solid color-mix(in srgb, var(--tm) 18%, transparent); }
 .pv-bar .d { width: 1.15cqw; height: 1.15cqw; border-radius: 50%; background: color-mix(in srgb, var(--tm) 45%, transparent); }
 .pv-bar .t { margin-left: 1.6cqw; font-size: 2cqw; color: var(--ts); }
 .pv-bar .sp { flex: 1; }
 .pv-bar .ic { width: 1.7cqw; height: 1.7cqw; border-radius: .4cqw; box-shadow: inset 0 0 0 .2cqw color-mix(in srgb, var(--tm) 55%, transparent); }
-.pv-chat { flex: 1; min-height: 0; width: 64cqw; margin: 0 auto; padding-top: 3.2cqw; display: flex; flex-direction: column; gap: 2cqw; overflow: hidden; }
-.pv-user {
-  align-self: flex-end; max-width: 80%; padding: 1.3cqw 2.2cqw; border-radius: 2.2cqw;
-  background: color-mix(in srgb, var(--s2) 70%, transparent); backdrop-filter: blur(1.1cqw);
-  box-shadow: inset 0 0 0 .12cqw color-mix(in srgb, var(--tm) 20%, transparent);
-}
+.pv-chat { flex: 1; min-height: 0; width: 64cqw; margin: 0 auto; padding-top: 4.2cqw; display: flex; flex-direction: column; gap: 2.4cqw; overflow: hidden; }
+.pv-user { align-self: flex-end; max-width: 80%; padding: 1.3cqw 2.2cqw; border-radius: 2.2cqw; background: color-mix(in srgb, var(--s2) 70%, transparent); backdrop-filter: blur(1.1cqw); box-shadow: inset 0 0 0 .12cqw color-mix(in srgb, var(--tm) 20%, transparent); }
 .pv-tool { display: flex; gap: 1.2cqw; align-items: baseline; color: var(--tm); }
 .pv-tool b { font-weight: 500; color: var(--ts); }
 .pv-tool .a { color: var(--ga); } .pv-tool .r { color: var(--gd); }
 .pv-ai strong { font-weight: 600; }
-.pv-code {
-  padding: 1.5cqw 2.2cqw; border-radius: 1.7cqw; font: 400 1.95cqw/1.55 var(--mono); white-space: pre; overflow: hidden;
-  background: color-mix(in srgb, var(--s1) 72%, transparent); backdrop-filter: blur(1.1cqw);
-  box-shadow: inset 0 0 0 .12cqw color-mix(in srgb, var(--tm) 20%, transparent);
-}
-.pv-code .k { color: var(--ac); } .pv-code .n { color: var(--dg); } .pv-code .v { color: var(--wn); }
-.pv-code .s { color: var(--sc); } .pv-code .l { color: var(--pr); }
-.pv-composer {
-  flex: none; width: 64cqw; height: 6.4cqw; margin: 0 auto; border-radius: 3.2cqw; display: flex; align-items: center; gap: 1.8cqw; padding: 0 1.6cqw 0 2.4cqw;
-  background: color-mix(in srgb, var(--s1) 62%, transparent); backdrop-filter: blur(1.1cqw);
-  box-shadow: inset 0 0 0 .14cqw color-mix(in srgb, var(--tm) 26%, transparent);
-}
-.pv-composer .plus { color: var(--tm); font-size: 3cqw; line-height: 1; }
+.pv-code { padding: 1.5cqw 2.2cqw; border-radius: 1.7cqw; font: 400 1.95cqw/1.55 var(--code); white-space: pre; overflow: hidden; background: color-mix(in srgb, var(--s1) 72%, transparent); backdrop-filter: blur(1.1cqw); box-shadow: inset 0 0 0 .12cqw color-mix(in srgb, var(--tm) 20%, transparent); }
+.pv-code .k { color: var(--ac); } .pv-code .n { color: var(--dg); } .pv-code .v { color: var(--wn); } .pv-code .s { color: var(--sc); } .pv-code .l { color: var(--pr); }
+.pv-composer { flex: none; width: 64cqw; height: 6.4cqw; margin: 0 auto; border-radius: 3.2cqw; display: flex; align-items: center; gap: 1.8cqw; padding: 0 1.6cqw 0 2.4cqw; background: color-mix(in srgb, var(--s1) 62%, transparent); backdrop-filter: blur(1.1cqw); box-shadow: inset 0 0 0 .14cqw color-mix(in srgb, var(--tm) 26%, transparent); }
 .pv-composer .ph { flex: 1; color: var(--tm); }
-.pv-composer .send { width: 3.6cqw; height: 3.6cqw; border-radius: 50%; display: grid; place-items: center; background: var(--fill); color: var(--on); font-size: 2cqw; font-weight: 600; }
-.pv-foot { flex: none; width: 64cqw; margin: 0 auto; padding: 1cqw 1cqw 1.6cqw; text-align: right; font-size: 1.75cqw; color: var(--tm); }
+.pv-composer .plus { width: 2.4cqw; height: 2.4cqw; flex: none; color: var(--tm); }
+.pv-composer .send { width: 3.6cqw; height: 3.6cqw; border-radius: 50%; display: grid; place-items: center; background: var(--fill); color: var(--on); }
+.pv-composer .send svg { width: 2cqw; height: 2cqw; }
+.pv-foot { flex: none; width: 64cqw; margin: 0 auto; padding: 1cqw 1cqw 1.8cqw; text-align: right; font-size: 1.75cqw; color: var(--tm); }
+.pv.flat .pv-bar, .pv.flat .pv-user, .pv.flat .pv-code, .pv.flat .pv-composer { backdrop-filter: none; }
+.pv.flat .pv-win { font-size: 3.2cqw; }
+.pv.flat .pv-bar { height: 4.6cqw; }
+.pv.flat .pv-bar .t, .pv.flat .pv-bar .ic, .pv.flat .pv-foot, .pv.flat .pv-chat > p.pv-ai:nth-of-type(1) { display: none; }
+.pv.flat .pv-chat { width: 80cqw; padding-top: 3.4cqw; gap: 3cqw; }
+.pv.flat .pv-user { padding: 1.6cqw 3cqw; border-radius: 3cqw; font-size: 2.7cqw; white-space: nowrap; }
+.pv.flat .pv-tool { gap: 1.6cqw; font-size: 2.9cqw; }
+.pv.flat .pv-chat > p.pv-ai { font-size: 2.9cqw; }
+.pv.flat .pv-code { font-size: 2.4cqw; line-height: 1.5; padding: 1.8cqw 3cqw; border-radius: 2.2cqw; }
+.pv.flat .pv-composer { width: 80cqw; height: 8cqw; border-radius: 4cqw; padding: 0 2cqw 0 3cqw; gap: 2.4cqw; margin-bottom: 7cqw; }
+.pv.flat .pv-composer .plus { width: 3.2cqw; height: 3.2cqw; }
+.pv.flat .pv-composer .send { width: 5.4cqw; height: 5.4cqw; }
+.pv.flat .pv-composer .send svg { width: 3cqw; height: 3cqw; }
+.pv-roles { position: absolute; left: 0; right: 0; bottom: 0; height: 4.2cqw; display: none; }
+.pv.flat .pv-roles { display: flex; }
+.pv-roles i { flex: 1; display: block; }
 
-/* ---- detail view ---- */
-.veil { position: fixed; inset: 0; z-index: 50; background: rgba(8, 10, 14, .62); backdrop-filter: blur(6px); overflow-y: auto; padding: max(20px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(20px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
-.sheet { max-width: 1100px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 22px; display: grid; gap: 24px; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); box-shadow: 0 30px 80px rgba(0, 0, 0, .45); }
-.sheet .pv { box-shadow: none; border: 1px solid var(--line); }
-.side { min-width: 0; display: flex; flex-direction: column; gap: 16px; }
-.side h2 { font: 600 24px/1.15 var(--display); margin: 0; overflow-wrap: anywhere; }
-.tags { display: flex; flex-wrap: wrap; gap: 6px; }
-.tag { font-size: 12px; font-weight: 500; padding: 2px 9px; border-radius: 99px; border: 1px solid var(--line); color: var(--ink2); }
-.credit { margin: 0; color: var(--ink2); font-size: 13.5px; }
-.sw-group h3 { margin: 0 0 6px; font-size: 11.5px; letter-spacing: .07em; text-transform: uppercase; color: var(--ink2); font-weight: 600; }
-.sw { display: grid; grid-template-columns: repeat(auto-fill, minmax(112px, 1fr)); gap: 6px; }
-.sw div { display: flex; align-items: center; gap: 8px; min-width: 0; font-size: 12px; }
-.sw i { width: 20px; height: 20px; border-radius: 6px; flex: none; box-shadow: inset 0 0 0 1px rgba(128, 128, 128, .4); }
-.sw span { min-width: 0; line-height: 1.2; } .sw small { display: block; font: 400 11px/1.2 var(--mono); color: var(--ink2); }
-.cmd { display: grid; gap: 4px; }
-.cmd label { font-size: 12.5px; color: var(--ink2); }
-.cmd .row { display: flex; gap: 8px; align-items: stretch; }
-.cmd code { flex: 1; min-width: 0; padding: 9px 10px; border-radius: 9px; background: var(--bg); border: 1px solid var(--line); font: 400 12px/1.4 var(--mono); overflow-x: auto; white-space: nowrap; user-select: all; }
-.btn { flex: none; height: auto; min-height: 36px; padding: 0 12px; border-radius: 9px; border: 1px solid var(--line); background: var(--surface); cursor: pointer; font-size: 13px; font-weight: 500; }
-.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
-.nav { display: flex; gap: 8px; margin-top: auto; padding-top: 4px; }
-.nav .btn { flex: 1; }
-.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-
-@media (max-width: 820px) { .sheet { grid-template-columns: 1fr; } }
-@media (max-width: 560px) { .count { margin-left: 0; width: 100%; } h1 { font-size: 24px; } .search { max-width: none; } }
-@media (prefers-reduced-motion: reduce) { .card .pv { transition: none; } .card:hover .pv { transform: none; } }
-
-/* Export mode, used only to render the README's PNGs (scripts/export-png.mjs). */
-html.export, html.export body { margin: 0; padding: 0; background: transparent; overflow: hidden; }
-html.export body::before { display: none; }
-html.export .pv { box-shadow: none; }
-#export-one .pv { width: 640px; border-radius: 14px; }
-#hero { position: relative; width: 1280px; height: 440px; border-radius: 20px; overflow: hidden;
-  background: radial-gradient(60% 60% at 50% 45%, rgba(139, 124, 255, .22), transparent), linear-gradient(135deg, #14161d, #0c0d12); }
-#hero .pv { position: absolute; border-radius: 14px; box-shadow: 0 16px 44px rgba(0, 0, 0, .5); }
+@media (max-width: 1260px) { :root { --cols: 5; } }
+@media (max-width: 1100px) { .print { grid-template-columns: 1fr; } .print-img { max-width: 700px; } }
+@media (max-width: 1040px) { :root { --cols: 4; } .head { grid-template-columns: 1fr; } }
+@media (max-width: 780px) { :root { --cols: 3; } .print { grid-template-columns: 1fr; } }
+@media (max-width: 540px) { :root { --cols: 2; } .sheet { padding-top: 22px; } .head { padding-bottom: 16px; gap: 14px; } .mark { font-size: 58px; } .roll { margin-top: 8px; } .lede { margin-top: 10px; font-size: 14.5px; line-height: 1.45; } .controls { gap: 6px 18px; } .seg { gap: 14px; } .find input, .sel { height: 36px; } }
+@media (prefers-reduced-motion: reduce) { .fr.drawing .circle path { animation: none; } * { transition: none !important; scroll-behavior: auto !important; } }
 </style>
-
-<div class="wrap">
-  <header class="top">
-    <div class="top-head">
-      <h1>Looks Gallery</h1>
-      <p class="lede">Every look for the Claude desktop app, previewed as a conversation in its own colors, with the gradient backdrop and frosted panels the app draws. Previews are mock-ups built from each look's colors, not screenshots. <a href="https://github.com/briannaworkman/looks" target="_blank" rel="noopener">Get them on GitHub</a>.</p>
+</head>
+<body>
+<div class="sheet">
+  <header class="head">
+    <div>
+      <h1 class="mark">LOOKS</h1>
+      <p class="roll" id="roll"></p>
+      <p class="lede">Every look for the Claude desktop and mobile apps, drawn in its own colors. Circle the ones you like, then open a frame for its print: exact colors, who made it, and the line that installs it. New here? <a href="https://github.com/briannaworkman/looks#install" target="_blank" rel="noopener">See how installing works</a>.</p>
     </div>
-    <div class="controls">
-      <label class="search"><span class="sr">Search looks</span>
-        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="m13 13 4 4"/></svg>
-        <input id="q" type="search" placeholder="Search by name or author" autocomplete="off">
+    <div class="controls" role="search">
+      <label class="find"><span class="sr">Find a look</span>
+        <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="7.5" cy="7.5" r="5.2"/><path d="m11.5 11.5 4.5 4.5"/></svg>
+        <input id="q" type="search" placeholder="Find a look or an author" autocomplete="off" spellcheck="false">
       </label>
-      <div class="seg" id="modeSeg" role="group" aria-label="Light or dark">
+      <div class="seg" id="mode" role="group" aria-label="Light or dark">
         <button type="button" data-v="all" aria-pressed="true">All</button>
         <button type="button" data-v="dark" aria-pressed="false">Dark</button>
         <button type="button" data-v="light" aria-pressed="false">Light</button>
@@ -189,181 +217,295 @@ html.export .pv { box-shadow: none; }
         <option value="vscode">VS Code themes</option>
         <option value="original">Original looks</option>
       </select>
-      <select class="sel" id="sort" aria-label="Sort">
-        <option value="featured">Sort: Featured</option>
-        <option value="az">Sort: A to Z</option>
+      <select class="sel" id="sort" aria-label="Order">
+        <option value="proof">Proof order</option>
+        <option value="az">A to Z</option>
       </select>
-      <span class="count" id="count" aria-live="polite"></span>
+      <button type="button" class="keep" id="keep" aria-pressed="false">
+        <svg class="ring" viewBox="0 0 24 17" fill="none" stroke="var(--pencil)" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 9C3 3.5 9 1.5 14 2 20 2.6 22.5 7 20 11.5 17.5 15.5 9 16 5 13.5 2.6 12 2.5 9 4.5 6.5"/></svg>
+        Circled <span class="n" id="keepN">0</span>
+      </button>
     </div>
   </header>
-  <main class="grid" id="grid"></main>
-</div>
 
-<div class="veil" id="veil" hidden>
-  <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="dName"></div>
+  <main>
+    <h2 class="sr">Frames</h2>
+    <p class="sr" id="count" aria-live="polite"></p>
+    <p class="sr" id="live" role="status"></p>
+    <div class="strips" id="strips"></div>
+    <noscript><p class="none">The frames are drawn with JavaScript. Every look is also listed in the repository's gallery.</p></noscript>
+  </main>
+
+  <footer class="foot">
+    <p>Previews are renderings built from each look's colors, not captures from the app, which picks some colors itself. Credit for every palette and theme is in the credits file.</p>
+    <nav aria-label="Project">
+      <a href="https://github.com/briannaworkman/looks" target="_blank" rel="noopener">Repository</a>
+      <a href="https://github.com/briannaworkman/looks/blob/main/CREDITS.md" target="_blank" rel="noopener">Credits</a>
+    </nav>
+  </footer>
 </div>
+<div class="loupe" id="loupe" aria-hidden="true"><div class="loupe-in" id="loupeIn"></div></div>
 
 <script>
 const LOOKS = [{"id":"mocha","name":"Catppuccin Mocha","mode":"dark","origin":"palette","by":"Catppuccin","palette":"Catppuccin Mocha","license":null,"repo":null,"ext":null,"sky":["#11111b","#2a2540","#1e1e2e"],"glow":"#cba6f7","c":{"s0":"#1e1e2e","s1":"#222233","s2":"#262738","s3":"#2a2b3c","tp":"#cdd6f4","ts":"#bac2de","tm":"#a6adc8","accent":"#b98aec","danger":"#f37398","success":"#00a30b","warning":"#d79500","pro":"#71a4f2","fill":"#984ed2","on":"#ffffff","gitAdd":"#a6e3a1","gitDel":"#f38ba8"}},{"id":"latte","name":"Catppuccin Latte","mode":"light","origin":"palette","by":"Catppuccin","palette":"Catppuccin Latte","license":null,"repo":null,"ext":null,"sky":["#dce0e8","#e6e1f2","#eff1f5"],"glow":"#8839ef","c":{"s0":"#e6e9ef","s1":"#eff1f5","s2":"#f4f5f8","s3":"#f4f5f8","tp":"#3d3f57","ts":"#555870","tm":"#5f6278","accent":"#6224ac","danger":"#9a0025","success":"#226013","warning":"#75430d","pro":"#0045b5","fill":"#8e41f6","on":"#f4f5f8","gitAdd":"#40a02b","gitDel":"#d20f39"}},{"id":"nord","name":"Nord","mode":"dark","origin":"palette","by":"Arctic Ice Studio","palette":"Nord","license":null,"repo":null,"ext":null,"sky":["#242933","#2f3a4d","#2e3440"],"glow":"#88c0d0","c":{"s0":"#2e3440","s1":"#313845","s2":"#333a47","s3":"#353d4a","tp":"#eceff4","ts":"#d8dee9","tm":"#aab4c6","accent":"#6ab0c3","danger":"#d38d96","success":"#719351","warning":"#ca9a52","pro":"#b897b1","fill":"#0187a3","on":"#000000","gitAdd":"#a3be8c","gitDel":"#bf616a"}},{"id":"dracula","name":"Dracula","mode":"dark","origin":"palette","by":"the Dracula Theme project","palette":"Dracula","license":null,"repo":null,"ext":null,"sky":["#1e1f29","#34304a","#282a36"],"glow":"#bd93f9","c":{"s0":"#282a36","s1":"#2c2e3b","s2":"#303240","s3":"#343645","tp":"#f8f8f2","ts":"#d6d6e2","tm":"#a9afd1","accent":"#ba84ff","danger":"#ff6f6d","success":"#00a241","warning":"#d79353","pro":"#fa61be","fill":"#9b3aec","on":"#ffffff","gitAdd":"#50fa7b","gitDel":"#ff5555"}},{"id":"tokyo-night","name":"Tokyo Night","mode":"dark","origin":"palette","by":"enkia","palette":"Tokyo Night","license":null,"repo":null,"ext":null,"sky":["#13141c","#232846","#1a1b26"],"glow":"#7aa2f7","c":{"s0":"#1a1b26","s1":"#1e202e","s2":"#222536","s3":"#262a3a","tp":"#c0caf5","ts":"#a9b1d6","tm":"#8f98bd","accent":"#79a1f6","danger":"#f5748c","success":"#639900","warning":"#c99b59","pro":"#b18bf6","fill":"#466fe3","on":"#ffffff","gitAdd":"#9ece6a","gitDel":"#f7768e"}},{"id":"gruvbox","name":"Gruvbox Dark","mode":"dark","origin":"palette","by":"Pavel Pertsev (morhetz)","palette":"Gruvbox (dark)","license":null,"repo":null,"ext":null,"sky":["#1d2021","#3a3228","#282828"],"glow":"#fe8019","c":{"s0":"#282828","s1":"#2c2b2a","s2":"#302f2d","s3":"#343230","tp":"#ebdbb2","ts":"#d5c4a1","tm":"#a89984","accent":"#f97b0e","danger":"#ff705f","success":"#8b8d00","warning":"#d5970b","pro":"#d6899e","fill":"#b85c00","on":"#ffffff","gitAdd":"#b8bb26","gitDel":"#fb4934"}},{"id":"rose-pine","name":"Rosé Pine","mode":"dark","origin":"palette","by":"the Rosé Pine project","palette":"Rosé Pine","license":null,"repo":null,"ext":null,"sky":["#12101c","#2b2234","#191724"],"glow":"#ebbcba","c":{"s0":"#191724","s1":"#1d1b2a","s2":"#211f2f","s3":"#252336","tp":"#e0def4","ts":"#c8c5de","tm":"#908caa","accent":"#e18686","danger":"#f17598","success":"#4c9968","warning":"#db923d","pro":"#b292da","fill":"#c34b4d","on":"#ffffff","gitAdd":"#8fc7a0","gitDel":"#eb6f92"}},{"id":"everforest","name":"Everforest","mode":"dark","origin":"palette","by":"sainnhe","palette":"Everforest (dark)","license":null,"repo":null,"ext":null,"sky":["#1e2326","#2b3a35","#272e33"],"glow":"#83c092","c":{"s0":"#272e33","s1":"#2a3237","s2":"#2d353a","s3":"#2f383d","tp":"#e0d5b8","ts":"#c4b99f","tm":"#a3afa6","accent":"#6bb881","danger":"#e98082","success":"#75933b","warning":"#bf9e6a","pro":"#cf8bad","fill":"#00914e","on":"#000000","gitAdd":"#a7c080","gitDel":"#e67e80"}},{"id":"solarized-dark","name":"Solarized Dark","mode":"dark","origin":"palette","by":"Ethan Schoonover","palette":"Solarized (dark)","license":null,"repo":null,"ext":null,"sky":["#00212b","#073642","#002b36"],"glow":"#268bd2","c":{"s0":"#002b36","s1":"#03303b","s2":"#06353f","s3":"#093a44","tp":"#eee8d5","ts":"#b5bdbc","tm":"#93a1a1","accent":"#68abdf","danger":"#f37976","success":"#7e9100","warning":"#ca9c14","pro":"#9b9dd6","fill":"#127fc6","on":"#000000","gitAdd":"#859900","gitDel":"#dc322f"}},{"id":"solarized-light","name":"Solarized Light","mode":"light","origin":"palette","by":"Ethan Schoonover","palette":"Solarized (light)","license":null,"repo":null,"ext":null,"sky":["#e6dfc8","#f1e9d0","#fdf6e3"],"glow":"#268bd2","c":{"s0":"#eee8d5","s1":"#f5eedb","s2":"#fdf6e3","s3":"#fdf6e3","tp":"#073642","ts":"#3f5a63","tm":"#506870","accent":"#035489","danger":"#931c1b","success":"#4b5800","warning":"#6b4a00","pro":"#44488d","fill":"#127fc6","on":"#000000","gitAdd":"#859900","gitDel":"#dc322f"}},{"id":"frappe","name":"Catppuccin Frappé","mode":"dark","origin":"palette","by":"Catppuccin","palette":"Catppuccin Frappé","license":null,"repo":null,"ext":null,"sky":["#1e2030","#35324e","#292c3c"],"glow":"#ca9ee6","c":{"s0":"#292c3c","s1":"#2d3040","s2":"#303444","s3":"#343748","tp":"#c6d0f5","ts":"#b5bfe2","tm":"#a5adce","accent":"#c08ae0","danger":"#e78284","success":"#579b00","warning":"#c79b5d","pro":"#7ea1ee","fill":"#9f4ec4","on":"#ffffff","gitAdd":"#a6d189","gitDel":"#e78284"}},{"id":"macchiato","name":"Catppuccin Macchiato","mode":"dark","origin":"palette","by":"Catppuccin","palette":"Catppuccin Macchiato","license":null,"repo":null,"ext":null,"sky":["#181926","#2e2a48","#24273a"],"glow":"#c6a0f6","c":{"s0":"#24273a","s1":"#282b3e","s2":"#2b2e42","s3":"#2e3145","tp":"#cad3f5","ts":"#b8c0e0","tm":"#a5adcb","accent":"#b989f1","danger":"#e68090","success":"#3e9f00","warning":"#c49d62","pro":"#79a2f2","fill":"#994ad8","on":"#ffffff","gitAdd":"#a6da95","gitDel":"#ed8796"}},{"id":"one-dark","name":"One Dark","mode":"dark","origin":"palette","by":"the Atom project","palette":"One Dark","license":null,"repo":null,"ext":null,"sky":["#1b1e24","#2b3140","#282c34"],"glow":"#61afef","c":{"s0":"#282c34","s1":"#2c313a","s2":"#2f343e","s3":"#323742","tp":"#d7dae0","ts":"#abb2bf","tm":"#9ca3b0","accent":"#5dabea","danger":"#e68189","success":"#629830","warning":"#c39d61","pro":"#cd7fe4","fill":"#007dcd","on":"#000000","gitAdd":"#98c379","gitDel":"#e06c75"}},{"id":"kanagawa","name":"Kanagawa","mode":"dark","origin":"palette","by":"rebelot","palette":"Kanagawa","license":null,"repo":null,"ext":null,"sky":["#16161d","#2a2a37","#1f1f28"],"glow":"#7e9cd8","c":{"s0":"#1f1f28","s1":"#23232d","s2":"#262631","s3":"#292935","tp":"#dcd7ba","ts":"#c8c093","tm":"#a6a48c","accent":"#89a4d8","danger":"#ea7e8a","success":"#6b971f","warning":"#c19d67","pro":"#ac9ac5","fill":"#5876bc","on":"#000000","gitAdd":"#98bb6c","gitDel":"#e46876"}},{"id":"ayu-mirage","name":"Ayu Mirage","mode":"dark","origin":"palette","by":"the Ayu project","palette":"Ayu Mirage","license":null,"repo":null,"ext":null,"sky":["#171b24","#232b3d","#1f2430"],"glow":"#ffcc66","c":{"s0":"#1f2430","s1":"#232834","s2":"#262b37","s3":"#292e3a","tp":"#d9d7ce","ts":"#b8b9b8","tm":"#8f96a6","accent":"#d19900","danger":"#eb8173","success":"#6a9700","warning":"#dd8f55","pro":"#b189fb","fill":"#997200","on":"#000000","gitAdd":"#bae67e","gitDel":"#f28779"}},{"id":"github-dark","name":"GitHub Dark","mode":"dark","origin":"palette","by":"GitHub (Primer)","palette":"GitHub Dark","license":null,"repo":null,"ext":null,"sky":["#010409","#12203a","#0d1117"],"glow":"#58a6ff","c":{"s0":"#0d1117","s1":"#11161d","s2":"#151b23","s3":"#191f27","tp":"#e6edf3","ts":"#c1c9d2","tm":"#8b949e","accent":"#59a7ff","danger":"#fe7068","success":"#00a330","warning":"#d19821","pro":"#b787f9","fill":"#0076e6","on":"#000000","gitAdd":"#3fb950","gitDel":"#f85149"}},{"id":"github-light","name":"GitHub Light","mode":"light","origin":"palette","by":"GitHub (Primer)","palette":"GitHub Light","license":null,"repo":null,"ext":null,"sky":["#e6ebf1","#e8f0fb","#f6f8fa"],"glow":"#0969da","c":{"s0":"#eff2f5","s1":"#f6f8fa","s2":"#fbfcfd","s3":"#fbfcfd","tp":"#1f2328","ts":"#424a53","tm":"#59636e","accent":"#004ba7","danger":"#931c22","success":"#136129","warning":"#6f4706","pro":"#5b2daa","fill":"#0073ee","on":"#000000","gitAdd":"#1a7f37","gitDel":"#cf222e"}},{"id":"gruvbox-light","name":"Gruvbox Light","mode":"light","origin":"palette","by":"Pavel Pertsev (morhetz)","palette":"Gruvbox (light)","license":null,"repo":null,"ext":null,"sky":["#e3d3a5","#efdfae","#fbf1c7"],"glow":"#d65d0e","c":{"s0":"#ebdbb2","s1":"#f2e5bc","s2":"#fbf1c7","s3":"#fbf1c7","tp":"#3c3836","ts":"#504945","tm":"#5f554e","accent":"#833600","danger":"#98110d","success":"#575301","warning":"#72450a","pro":"#7a3360","fill":"#c25200","on":"#ffffff","gitAdd":"#79740e","gitDel":"#cc241d"}},{"id":"rose-pine-dawn","name":"Rosé Pine Dawn","mode":"light","origin":"palette","by":"the Rosé Pine project","palette":"Rosé Pine Dawn","license":null,"repo":null,"ext":null,"sky":["#ebe0d6","#f4e6e4","#faf4ed"],"glow":"#d7827e","c":{"s0":"#f2e9e1","s1":"#f8f1ea","s2":"#fffaf3","s3":"#fffaf3","tp":"#463f64","ts":"#5c5879","tm":"#625e7e","accent":"#84322d","danger":"#743d4d","success":"#3a5942","warning":"#724516","pro":"#594673","fill":"#c0504b","on":"#fffaf3","gitAdd":"#5f8f6b","gitDel":"#b4637a"}},{"id":"night-owl","name":"Night Owl","mode":"dark","origin":"palette","by":"Sarah Drasner","palette":"Night Owl","license":null,"repo":null,"ext":null,"sky":["#010e1a","#0b2a4a","#011627"],"glow":"#82aaff","c":{"s0":"#011627","s1":"#041b2d","s2":"#072033","s3":"#0a2438","tp":"#d6deeb","ts":"#b2c0d6","tm":"#8da3b8","accent":"#75a0ff","danger":"#f97470","success":"#6b9700","warning":"#cf975c","pro":"#c185ea","fill":"#3e68f8","on":"#ffffff","gitAdd":"#addb67","gitDel":"#ef5350"}},{"id":"synthwave","name":"Synthwave '84","mode":"dark","origin":"palette","by":"Robb Owen","palette":"SynthWave '84","license":null,"repo":null,"ext":null,"sky":["#1a1226","#3a2060","#241b2f"],"glow":"#ff7edb","c":{"s0":"#241b2f","s1":"#281f34","s2":"#2c2338","s3":"#30273c","tp":"#f4eef8","ts":"#d1c8e0","tm":"#a99cbf","accent":"#fa5ad1","danger":"#ff6d71","success":"#009f6d","warning":"#cd9c00","pro":"#00bbb5","fill":"#cf00a2","on":"#fffcff","gitAdd":"#72f1b8","gitDel":"#fe4450"}},{"id":"monokai","name":"Monokai","mode":"dark","origin":"palette","by":"Wimer Hazenberg","palette":"Monokai","license":null,"repo":null,"ext":null,"sky":["#1c1d19","#34352a","#272822"],"glow":"#66d9ef","c":{"s0":"#272822","s1":"#2b2c26","s2":"#2e2f29","s3":"#31322c","tp":"#f8f8f2","ts":"#d6d6ca","tm":"#a9a690","accent":"#00b8d1","danger":"#f76f98","success":"#6b9700","warning":"#c1a200","pro":"#b188ff","fill":"#00889d","on":"#000000","gitAdd":"#a6e22e","gitDel":"#f92672"}},{"id":"amber-crt","name":"Amber CRT","mode":"dark","origin":"original","by":"This gallery","palette":null,"license":null,"repo":null,"ext":null,"sky":["#0b0804","#2a1c08","#120e08"],"glow":"#ffb000","c":{"s0":"#120e08","s1":"#16110a","s2":"#19140c","s3":"#1d170e","tp":"#ffd48a","ts":"#e0b070","tm":"#b58d52","accent":"#d89500","danger":"#ff7152","success":"#5a9b00","warning":"#d09900","pro":"#b788f4","fill":"#9f6f00","on":"#000000","gitAdd":"#8fcf5a","gitDel":"#ff6b4a"}},{"id":"tokyo-night-storm","name":"Tokyo Night Storm","mode":"dark","origin":"palette","by":"enkia","palette":"Tokyo Night (Storm)","license":null,"repo":null,"ext":null,"sky":["#16192a","#2a3050","#1f2335"],"glow":"#7aa2f7","c":{"s0":"#1f2335","s1":"#232739","s2":"#272b3d","s3":"#2a2f41","tp":"#c0caf5","ts":"#a9b1d6","tm":"#9aa3c9","accent":"#79a1f6","danger":"#f5748c","success":"#639900","warning":"#c99b59","pro":"#b18bf6","fill":"#466fe3","on":"#ffffff","gitAdd":"#9ece6a","gitDel":"#f7768e"}},{"id":"nightfox","name":"Nightfox","mode":"dark","origin":"palette","by":"EdenEast","palette":"Nightfox","license":null,"repo":null,"ext":null,"sky":["#131a24","#22304a","#192330"],"glow":"#719cd6","c":{"s0":"#192330","s1":"#1d2735","s2":"#202a38","s3":"#242e3c","tp":"#cdcecf","ts":"#aeafb0","tm":"#9aa1ab","accent":"#80a6d9","danger":"#df849b","success":"#5c947a","warning":"#bda05d","pro":"#b191e0","fill":"#4b79bd","on":"#000000","gitAdd":"#81b29a","gitDel":"#c94f6d"}},{"id":"oxocarbon","name":"Oxocarbon","mode":"dark","origin":"palette","by":"the Oxocarbon project","palette":"Oxocarbon (based on the IBM Carbon colors)","license":null,"repo":null,"ext":null,"sky":["#0b0b0b","#262a35","#161616"],"glow":"#78a9ff","c":{"s0":"#161616","s1":"#1b1b1b","s2":"#1f1f1f","s3":"#232323","tp":"#f2f4f8","ts":"#dde1e6","tm":"#a8a8a8","accent":"#72a3f8","danger":"#ff6d72","success":"#00a246","warning":"#cc9c00","pro":"#b586ff","fill":"#3a71e5","on":"#000000","gitAdd":"#42be65","gitDel":"#fa4d56"}},{"id":"material-ocean","name":"Material Ocean","mode":"dark","origin":"palette","by":"the Material Theme project","palette":"Material Theme Ocean","license":null,"repo":null,"ext":null,"sky":["#090b10","#1a2040","#0f111a"],"glow":"#82aaff","c":{"s0":"#0f111a","s1":"#131620","s2":"#171a25","s3":"#1b1e29","tp":"#cdd3f0","ts":"#a6accd","tm":"#8f95b8","accent":"#75a0ff","danger":"#fd6c82","success":"#6d9700","warning":"#dd9200","pro":"#c185ea","fill":"#3e68f8","on":"#ffffff","gitAdd":"#c3e88d","gitDel":"#ff5370"}},{"id":"zenburn","name":"Zenburn","mode":"dark","origin":"palette","by":"Jani Nurminen","palette":"Zenburn","license":null,"repo":null,"ext":null,"sky":["#232323","#3a3a35","#2f2f2f"],"glow":"#8cd0d3","c":{"s0":"#2f2f2f","s1":"#333333","s2":"#363636","s3":"#393939","tp":"#e6e6d6","ts":"#dcdccc","tm":"#aeae9e","accent":"#42b7bd","danger":"#cb9292","success":"#709170","warning":"#cb9b39","pro":"#d485bb","fill":"#008a91","on":"#000000","gitAdd":"#7f9f7f","gitDel":"#cc9393"}},{"id":"deep-sea","name":"Deep Sea","mode":"dark","origin":"original","by":"This gallery","palette":null,"license":null,"repo":null,"ext":null,"sky":["#06101a","#0f3042","#0a1822"],"glow":"#4fd1c5","c":{"s0":"#0a1822","s1":"#0d1c27","s2":"#10202b","s3":"#132430","tp":"#d4eaf0","ts":"#adc8d0","tm":"#86a5b0","accent":"#00bcb1","danger":"#f77676","success":"#00a248","warning":"#d99414","pro":"#a98dfc","fill":"#008b85","on":"#000000","gitAdd":"#7bd88f","gitDel":"#ff7d7d"}},{"id":"mint-chocolate","name":"Mint Chocolate","mode":"dark","origin":"original","by":"This gallery","palette":null,"license":null,"repo":null,"ext":null,"sky":["#120d0a","#2f221b","#1b1410"],"glow":"#7ee0c0","c":{"s0":"#1b1410","s1":"#1f1813","s2":"#231b16","s3":"#271e19","tp":"#f1e3d8","ts":"#d3c0b2","tm":"#ac9788","accent":"#00bf96","danger":"#f97566","success":"#4a9e00","warning":"#d99420","pro":"#d984b2","fill":"#008e71","on":"#000000","gitAdd":"#9be07a","gitDel":"#ff7a6b"}},{"id":"ayu-light","name":"Ayu Light","mode":"light","origin":"palette","by":"the Ayu project","palette":"Ayu Light","license":null,"repo":null,"ext":null,"sky":["#e8eaec","#f4ebdd","#fcfcfc"],"glow":"#f2882b","c":{"s0":"#f1f2f3","s1":"#f8f9fa","s2":"#fcfcfc","s3":"#fcfcfc","tp":"#3a3e43","ts":"#51565c","tm":"#5f656c","accent":"#794000","danger":"#8d2829","success":"#3d5c00","warning":"#704709","pro":"#623691","fill":"#b36000","on":"#ffffff","gitAdd":"#6a9a00","gitDel":"#e65050"}},{"id":"everforest-light","name":"Everforest Light","mode":"light","origin":"palette","by":"sainnhe","palette":"Everforest (light)","license":null,"repo":null,"ext":null,"sky":["#e6e2cc","#ede8cc","#fdf6e3"],"glow":"#35a77c","c":{"s0":"#efebd4","s1":"#f4f0d9","s2":"#fdf6e3","s3":"#fdf6e3","tp":"#3b464d","ts":"#4f5d65","tm":"#5a666c","accent":"#006046","danger":"#9b0309","success":"#4c5700","warning":"#6f4802","pro":"#8b0074","fill":"#008f68","on":"#000000","gitAdd":"#8da101","gitDel":"#f85552"}},{"id":"nord-snow","name":"Nord Snow","mode":"light","origin":"palette","by":"Arctic Ice Studio","palette":"Nord (its Snow Storm colors, arranged as a light look here)","license":null,"repo":null,"ext":null,"sky":["#d8dee9","#e1e7f1","#eceff4"],"glow":"#5e81ac","c":{"s0":"#e5e9f0","s1":"#eceff4","s2":"#f4f6fa","s3":"#f4f6fa","tp":"#2e3440","ts":"#434c5e","tm":"#4f5a6e","accent":"#395272","danger":"#7a3b41","success":"#43592f","warning":"#6f4625","pro":"#664264","fill":"#597ba6","on":"#000000","gitAdd":"#7a9b5e","gitDel":"#bf616a"}},{"id":"paper","name":"Paper Notebook","mode":"light","origin":"original","by":"This gallery","palette":null,"license":null,"repo":null,"ext":null,"sky":["#e6dcc6","#f0e6d0","#faf5e9"],"glow":"#2f5d8c","c":{"s0":"#efe6d3","s1":"#f4ecdc","s2":"#faf5e9","s3":"#faf5e9","tp":"#2a241d","ts":"#544a3d","tm":"#6a5f50","accent":"#2b537d","danger":"#8b2b23","success":"#375c28","warning":"#724605","pro":"#5c417f","fill":"#457db5","on":"#000000","gitAdd":"#4e7d3a","gitDel":"#b3392f"}},{"id":"sakura","name":"Sakura","mode":"light","origin":"original","by":"This gallery","palette":null,"license":null,"repo":null,"ext":null,"sky":["#efd9e0","#f6e6ea","#fdf6f8"],"glow":"#c2527a","c":{"s0":"#f3e4e8","s1":"#f9eef1","s2":"#fdf6f8","s3":"#fdf6f8","tp":"#3a2831","ts":"#573f49","tm":"#69505a","accent":"#822f4c","danger":"#892b35","success":"#395941","warning":"#6f4711","pro":"#554188","fill":"#bc4c75","on":"#ffffff","gitAdd":"#5e8f6a","gitDel":"#c23b4b"}},{"id":"winter-is-coming-dark-blue","name":"Winter is Coming (Dark Blue)","mode":"dark","origin":"vscode","by":"johnpapa","palette":null,"license":"MIT","repo":"johnpapa/vscode-winteriscoming","ext":"johnpapa.winteriscoming","sky":["#000910","#012237","#011627"],"glow":"#0476a3","c":{"s0":"#011627","s1":"#011a2f","s2":"#011f37","s3":"#02233e","tp":"#a7dbf7","ts":"#82b0c9","tm":"#6c95ad","accent":"#68aed1","danger":"#f97470","success":"#00a14d","warning":"#d49700","pro":"#c185ea","fill":"#0083b5","on":"#000000","gitAdd":"#22da6e","gitDel":"#ef5350"}},{"id":"winter-is-coming-light","name":"Winter is Coming (Light)","mode":"light","origin":"vscode","by":"johnpapa","palette":null,"license":"MIT","repo":"johnpapa/vscode-winteriscoming","ext":"johnpapa.winteriscoming","sky":["#e8e8e8","#dbe5e9","#ffffff"],"glow":"#03648a","c":{"s0":"#f4f4f4","s1":"#fafafa","s2":"#ffffff","s3":"#ffffff","tp":"#133c69","ts":"#37597f","tm":"#4d6c8d","accent":"#055879","danger":"#990e0f","success":"#006045","warning":"#664d0d","pro":"#5320c0","fill":"#1983b0","on":"#000000","gitAdd":"#08916a","gitDel":"#ef5350"}},{"id":"one-monokai","name":"One Monokai","mode":"dark","origin":"vscode","by":"azemoh","palette":null,"license":"MIT","repo":"azemoh/vscode-one-monokai","ext":"azemoh.one-monokai","sky":["#1b1d23","#2d384e","#282c34"],"glow":"#528bff","c":{"s0":"#282c34","s1":"#2c3039","s2":"#2f343d","s3":"#323741","tp":"#e8eaed","ts":"#bec0c5","tm":"#a3a6ab","accent":"#71a1ff","danger":"#e6837f","success":"#629830","warning":"#c39d61","pro":"#cd7fe4","fill":"#356bf7","on":"#ffffff","gitAdd":"#98c379","gitDel":"#c24038"}},{"id":"palenight-theme","name":"Palenight Theme","mode":"dark","origin":"vscode","by":"whizkydee","palette":null,"license":"MIT","repo":"whizkydee/vscode-palenight-theme","ext":"whizkydee.material-palenight-theme","sky":["#1d202c","#373651","#292d3e"],"glow":"#9575cd","c":{"s0":"#292d3e","s1":"#2c3143","s2":"#2f3448","s3":"#32374c","tp":"#eaedf1","ts":"#c0c3ca","tm":"#a5a8b1","accent":"#ab97d9","danger":"#f97470","success":"#6d9700","warning":"#d49700","pro":"#72a0ff","fill":"#8564bb","on":"#ffffff","gitAdd":"#a9c77d","gitDel":"#ef5350"}},{"id":"cobalt2","name":"Cobalt2","mode":"dark","origin":"vscode","by":"wesbos","palette":null,"license":"MIT","repo":"wesbos/cobalt2-vscode","ext":"wesbos.theme-cobalt2","sky":["#112432","#164061","#193549"],"glow":"#058aff","c":{"s0":"#193549","s1":"#1b394f","s2":"#1d3e55","s3":"#1f425a","tp":"#ffffff","ts":"#ccd3d7","tm":"#adb7be","accent":"#5aa7fc","danger":"#ed7d7d","success":"#29a200","warning":"#d59700","pro":"#ef54fa","fill":"#0077e2","on":"#000000","gitAdd":"#3ad900","gitDel":"#a22929"}},{"id":"andromeda","name":"Andromeda","mode":"dark","origin":"vscode","by":"EliverLara","palette":null,"license":"MIT","repo":"EliverLara/Andromeda","ext":"EliverLara.andromeda","sky":["#16181d","#1e3f42","#23262e"],"glow":"#00e8c5","c":{"s0":"#23262e","s1":"#272a33","s2":"#2a2e37","s3":"#2d313b","tp":"#e4dfe6","ts":"#b9b6be","tm":"#9f9da5","accent":"#00bea1","danger":"#ff705a","success":"#4a9e00","warning":"#e58b21","pro":"#ff5eb3","fill":"#008d7a","on":"#000000","gitAdd":"#96e072","gitDel":"#fc644d"}},{"id":"atom-one-light","name":"Atom One Light","mode":"light","origin":"vscode","by":"akamud","palette":null,"license":"MIT","repo":"akamud/vscode-theme-onelight","ext":"akamud.vscode-theme-onelight","sky":["#e3e3e3","#dfe2ef","#fafafa"],"glow":"#5871ef","c":{"s0":"#efefef","s1":"#f5f5f5","s2":"#fafafa","s3":"#fafafa","tp":"#383a42","ts":"#55575d","tm":"#606268","accent":"#3644a1","danger":"#8d2820","success":"#275f23","warning":"#6f4805","pro":"#5e3a8d","fill":"#526ae7","on":"#ffffff","gitAdd":"#3f8f3a","gitDel":"#c8372d"}},{"id":"noctis","name":"Noctis","mode":"dark","origin":"vscode","by":"liviuschera","palette":null,"license":"MIT","repo":"liviuschera/noctis","ext":"liviuschera.noctis","sky":["#020f10","#043438","#052529"],"glow":"#009999","c":{"s0":"#052529","s1":"#062c30","s2":"#073238","s3":"#08383e","tp":"#dae6e7","ts":"#abbbbd","tm":"#8ea1a3","accent":"#65b3b1","danger":"#ec8069","success":"#00a063","warning":"#e08f2b","pro":"#e67ca1","fill":"#008b8b","on":"#000000","gitAdd":"#16b673","gitDel":"#e34e1c"}},{"id":"noctis-lux","name":"Noctis Lux","mode":"light","origin":"vscode","by":"liviuschera","palette":null,"license":"MIT","repo":"liviuschera/noctis","ext":"liviuschera.noctis","sky":["#fce8c0","#e4e7d0","#fef8ec"],"glow":"#009494","c":{"s0":"#fdf0d6","s1":"#fdf4e2","s2":"#fef8ec","s3":"#fef8ec","tp":"#003f47","ts":"#2f6062","tm":"#416d6c","accent":"#005d5e","danger":"#8f2800","success":"#006136","warning":"#754313","pro":"#940050","fill":"#008b8b","on":"#000000","gitAdd":"#009456","gitDel":"#ff4000"}},{"id":"jellyfish","name":"JellyFish","mode":"dark","origin":"vscode","by":"PawelBorkar","palette":null,"license":"Apache-2.0","repo":"pawelborkar/vscode-jellyfish","ext":"PawelBorkar.jellyfish","sky":["#000012","#210031","#00002c"],"glow":"#ff0055","c":{"s0":"#00002c","s1":"#000034","s2":"#00003c","s3":"#000043","tp":"#ffffff","ts":"#c7c7d1","tm":"#9494a6","accent":"#ff6c81","danger":"#ff6f68","success":"#00a314","warning":"#e48d04","pro":"#c185ea","fill":"#e00048","on":"#ffffff","gitAdd":"#00ff22","gitDel":"#ff0000"}},{"id":"darcula","name":"Darcula","mode":"dark","origin":"vscode","by":"rokoroku","palette":null,"license":"MIT","repo":"rokoroku/vscode-theme-darcula","ext":"rokoroku.vscode-theme-darcula","sky":["#151515","#1f303b","#242424"],"glow":"#007dd1","c":{"s0":"#242424","s1":"#282828","s2":"#2c2c2c","s3":"#303030","tp":"#dedede","ts":"#b5b5b5","tm":"#9c9c9c","accent":"#64aae7","danger":"#ec7d85","success":"#2da100","warning":"#c39d61","pro":"#c185ea","fill":"#007cd0","on":"#000000","gitAdd":"#8ccf7e","gitDel":"#e5646e"}},{"id":"vue-theme","name":"Vue Theme","mode":"dark","origin":"vscode","by":"mariorodeghiero","palette":null,"license":"MIT","repo":"mariorodeghiero/vue-theme-vscode","ext":"mariorodeghiero.vue-theme","sky":["#001317","#03464b","#002b36"],"glow":"#19f9d8","c":{"s0":"#002b36","s1":"#00313e","s2":"#003846","s3":"#003e4d","tp":"#ebebeb","ts":"#b7c1c3","tm":"#97a7aa","accent":"#00bea3","danger":"#ec7d85","success":"#2da100","warning":"#c39d61","pro":"#c185ea","fill":"#008d7b","on":"#000000","gitAdd":"#8ccf7e","gitDel":"#e5646e"}},{"id":"min-dark","name":"Min Dark","mode":"dark","origin":"vscode","by":"miguelsolorio","palette":null,"license":"MIT","repo":"misolori/min-theme","ext":"miguelsolorio.min-theme","sky":["#101010","#2b303b","#1f1f1f"],"glow":"#7aa2f7","c":{"s0":"#1f1f1f","s1":"#232323","s2":"#272727","s3":"#2b2b2b","tp":"#d7d7d7","ts":"#afafaf","tm":"#959595","accent":"#79a1f6","danger":"#ec7d85","success":"#2da100","warning":"#c39d61","pro":"#c185ea","fill":"#466fe3","on":"#ffffff","gitAdd":"#8ccf7e","gitDel":"#e5646e"}},{"id":"min-light","name":"Min Light","mode":"light","origin":"vscode","by":"miguelsolorio","palette":null,"license":"MIT","repo":"misolori/min-theme","ext":"miguelsolorio.min-theme","sky":["#e8e8e8","#e0e6f1","#ffffff"],"glow":"#2f6fdb","c":{"s0":"#f4f4f4","s1":"#fafafa","s2":"#ffffff","s3":"#ffffff","tp":"#212121","ts":"#4f4f4f","tm":"#616161","accent":"#204c9c","danger":"#92201f","success":"#345e00","warning":"#77420d","pro":"#633297","fill":"#3374e0","on":"#000000","gitAdd":"#77cc00","gitDel":"#d32f2f"}},{"id":"absent-contrast-rainglow","name":"Absent Contrast (rainglow)","mode":"dark","origin":"vscode","by":"daylerees","palette":null,"license":"MIT","repo":"rainglow/vscode","ext":"daylerees.rainglow","sky":["#060708","#112125","#0e1114"],"glow":"#228a96","c":{"s0":"#0e1114","s1":"#111519","s2":"#15191e","s3":"#181d22","tp":"#bdc6cf","ts":"#969ea6","tm":"#888f96","accent":"#70b0b7","danger":"#fc6f7c","success":"#709600","warning":"#d59628","pro":"#c185ea","fill":"#1f8894","on":"#000000","gitAdd":"#a7da1e","gitDel":"#ba0e2e"}},{"id":"absent-light-rainglow","name":"Absent Light (rainglow)","mode":"light","origin":"vscode","by":"daylerees","palette":null,"license":"MIT","repo":"rainglow/vscode","ext":"daylerees.rainglow","sky":["#e8e8e8","#dfe9ea","#ffffff"],"glow":"#228a96","c":{"s0":"#f4f4f4","s1":"#fafafa","s2":"#ffffff","s3":"#ffffff","tp":"#333c45","ts":"#515961","tm":"#5d646c","accent":"#085b65","danger":"#9a0022","success":"#305e00","warning":"#724603","pro":"#5e3a8d","fill":"#1f8894","on":"#000000","gitAdd":"#59a50b","gitDel":"#ba0e2e"}},{"id":"slack-theme-aubergine","name":"Slack Theme Aubergine","mode":"light","origin":"vscode","by":"felipe-mendes","palette":null,"license":"MIT","repo":"felipemendes/slack-theme","ext":"felipe-mendes.slack-theme","sky":["#e8e8e8","#f2dee4","#ffffff"],"glow":"#e01e5a","c":{"s0":"#f4f4f4","s1":"#fafafa","s2":"#ffffff","s3":"#ffffff","tp":"#383a42","ts":"#56575e","tm":"#616369","accent":"#980035","danger":"#931e1c","success":"#405b09","warning":"#6f480a","pro":"#5320c0","fill":"#db1556","on":"#ffffff","gitAdd":"#91b859","gitDel":"#e53935"}},{"id":"slack-theme-aubergine-felipe-mendes","name":"Slack Theme Aubergine","mode":"light","origin":"vscode","by":"felipe-mendes","palette":null,"license":"MIT","repo":"felipemendes/slack-theme","ext":"felipe-mendes.slack-theme","sky":["#e8e8e8","#f4e2e4","#ffffff"],"glow":"#f4475a","c":{"s0":"#f4f4f4","s1":"#fafafa","s2":"#ffffff","s3":"#ffffff","tp":"#000000","ts":"#363636","tm":"#666666","accent":"#9a001f","danger":"#931e1c","success":"#405b09","warning":"#734505","pro":"#5320c0","fill":"#e10037","on":"#ffffff","gitAdd":"#91b859","gitDel":"#e53935"}},{"id":"electron","name":"Electron","mode":"dark","origin":"vscode","by":"kuscamara","palette":null,"license":"MIT","repo":"kcmr/electron-theme-vscode","ext":"kuscamara.electron","sky":["#151a23","#28334a","#212836"],"glow":"#537cd1","c":{"s0":"#212836","s1":"#242c3b","s2":"#273040","s3":"#2a3345","tp":"#dde2ed","ts":"#b4b9c5","tm":"#9aa0ac","accent":"#80a4e3","danger":"#ec7d85","success":"#369b72","warning":"#c09d6e","pro":"#c185ea","fill":"#4d75ca","on":"#000000","gitAdd":"#308e68","gitDel":"#e5646e"}},{"id":"macos-modern-dark-ventura-xcode-civic","name":"MacOS Modern Dark - Ventura Xcode Civic","mode":"dark","origin":"vscode","by":"davidbwaters","palette":null,"license":"MIT","repo":"davidbwaters/macos-modern-vscode-theme","ext":"davidbwaters.macos-modern-theme","sky":["#131313","#21303f","#232222"],"glow":"#128cff","c":{"s0":"#232222","s1":"#272626","s2":"#2b2a2a","s3":"#2f2e2e","tp":"#ffffff","ts":"#cfcece","tm":"#a3a2a2","accent":"#5ba7fb","danger":"#fa736e","success":"#00a32a","warning":"#d59700","pro":"#c185ea","fill":"#0077e1","on":"#000000","gitAdd":"#4dbf57","gitDel":"#e21515"}},{"id":"macos-modern-light-ventura-xcode","name":"MacOS Modern Light - Ventura Xcode","mode":"light","origin":"vscode","by":"davidbwaters","palette":null,"license":"MIT","repo":"davidbwaters/macos-modern-vscode-theme","ext":"davidbwaters.macos-modern-theme","sky":["#e8e8e8","#dce9f5","#ffffff"],"glow":"#0887ff","c":{"s0":"#f4f4f4","s1":"#fafafa","s2":"#ffffff","s3":"#ffffff","tp":"#363b45","ts":"#545961","tm":"#60646b","accent":"#004d9f","danger":"#9b0200","success":"#275f23","warning":"#6f4805","pro":"#5e3a8d","fill":"#0076e5","on":"#000000","gitAdd":"#3f8f3a","gitDel":"#ff0000"}},{"id":"mayukai-mirage","name":"Mayukai Mirage","mode":"dark","origin":"vscode","by":"GulajavaMinistudio","palette":null,"license":"MIT","repo":"GulajavaMinistudio/Mayukai-Theme","ext":"GulajavaMinistudio.mayukaithemevsc","sky":["#090b10","#332c2a","#141824"],"glow":"#ffb454","c":{"s0":"#141824","s1":"#171b29","s2":"#1a1f2e","s3":"#1c2233","tp":"#cbcebc","ts":"#a3a69b","tm":"#93978e","accent":"#e09000","danger":"#ff6e6d","success":"#6b9700","warning":"#db9300","pro":"#af8fea","fill":"#a56b00","on":"#000000","gitAdd":"#a6cc70","gitDel":"#ff6666"}},{"id":"narutodark","name":"NarutoDark","mode":"dark","origin":"vscode","by":"Thomaz","palette":null,"license":"MIT","repo":"Thomaz-Peres/Theme","ext":"Thomaz.preparing","sky":["#05050c","#0b1b34","#0d0d1d"],"glow":"#007acc","c":{"s0":"#0d0d1d","s1":"#101023","s2":"#121228","s3":"#14142d","tp":"#ffffff","ts":"#cacacd","tm":"#9999a0","accent":"#65aae6","danger":"#ec7d85","success":"#2da100","warning":"#c39d61","pro":"#c185ea","fill":"#077dcf","on":"#000000","gitAdd":"#8ccf7e","gitDel":"#e5646e"}},{"id":"pink-cat-boo","name":"Pink Cat Boo","mode":"dark","origin":"vscode","by":"ftsamoyed","palette":null,"license":"MIT","repo":"ftsamoyed/PinkCatBoo","ext":"ftsamoyed.theme-pink-cat-boo","sky":["#14161e","#3d2f3c","#202330"],"glow":"#fe7c8e","c":{"s0":"#202330","s1":"#232735","s2":"#272a3a","s3":"#292d3e","tp":"#fff0f5","ts":"#cec3ca","tm":"#a19aa2","accent":"#ff6b82","danger":"#ec7d85","success":"#2da100","warning":"#c39d61","pro":"#c185ea","fill":"#e0004a","on":"#ffffff","gitAdd":"#8ccf7e","gitDel":"#e5646e"}},{"id":"gitpod-dark","name":"Gitpod Dark","mode":"dark","origin":"vscode","by":"gitpod","palette":null,"license":"MIT","repo":"gitpod-io/gitpod-vscode-theme","ext":"gitpod.gitpod-theme","sky":["#070605","#2b1d0a","#12100c"],"glow":"#d67400","c":{"s0":"#12100c","s1":"#17140f","s2":"#1c1913","s3":"#201d15","tp":"#d4d4d4","ts":"#a9a9a8","tm":"#8f8e8d","accent":"#e28c44","danger":"#ec7d85","success":"#2da100","warning":"#c39d61","pro":"#c185ea","fill":"#b16200","on":"#ffffff","gitAdd":"#8ccf7e","gitDel":"#e5646e"}},{"id":"gitpod-light","name":"Gitpod Light","mode":"light","origin":"vscode","by":"gitpod","palette":null,"license":"MIT","repo":"gitpod-io/gitpod-vscode-theme","ext":"gitpod.gitpod-theme","sky":["#e8e8e8","#f0e6db","#ffffff"],"glow":"#cc6e00","c":{"s0":"#f4f4f4","s1":"#fafafa","s2":"#ffffff","s3":"#ffffff","tp":"#000000","ts":"#363636","tm":"#666666","accent":"#784000","danger":"#8d2820","success":"#275f23","warning":"#6f4805","pro":"#5e3a8d","fill":"#b36000","on":"#ffffff","gitAdd":"#3f8f3a","gitDel":"#c8372d"}},{"id":"lunar-pink","name":"Lunar Pink","mode":"dark","origin":"vscode","by":"nicolasdschmidt","palette":null,"license":"MIT","repo":"tronfy/lunar-pink","ext":"nicolasdschmidt.lunar-pink","sky":["#080808","#2b1224","#131313"],"glow":"#c90b93","c":{"s0":"#131313","s1":"#171717","s2":"#1b1b1b","s3":"#1f1f1f","tp":"#dddddd","ts":"#b1b1b1","tm":"#959595","accent":"#ea73bf","danger":"#ff6f68","success":"#16a300","warning":"#cb9c00","pro":"#7ba2f0","fill":"#ce1898","on":"#ffffff","gitAdd":"#2ae609","gitDel":"#ff0000"}},{"id":"black","name":"Black","mode":"dark","origin":"vscode","by":"Jaakko","palette":null,"license":"Unlicense","repo":"Jaakkko/vscode-black-theme","ext":"Jaakko.black","sky":["#010101","#161c1d","#000000"],"glow":"#a8dadc","c":{"s0":"#000000","s1":"#040404","s2":"#080808","s3":"#0c0c0c","tp":"#bfd4e1","ts":"#95a5b0","tm":"#7b8891","accent":"#3bb8bc","danger":"#dc84a4","success":"#2da100","warning":"#c39d61","pro":"#c185ea","fill":"#008a90","on":"#000000","gitAdd":"#caffbf","gitDel":"#d97397"}},{"id":"hack-the-box","name":"Hack The Box","mode":"dark","origin":"vscode","by":"silofy","palette":null,"license":"MIT","repo":"silofy/hackthebox","ext":"silofy.hackthebox","sky":["#0a0f16","#263825","#141d2b"],"glow":"#9fef00","c":{"s0":"#141d2b","s1":"#172131","s2":"#192536","s3":"#1b283b","tp":"#cbd3e3","ts":"#a3abba","tm":"#8a92a1","accent":"#7db900","danger":"#ff6f69","success":"#649900","warning":"#de9100","pro":"#c47cff","fill":"#568a00","on":"#000000","gitAdd":"#9fef00","gitDel":"#ff3e3e"}},{"id":"bear-theme","name":"Bear Theme","mode":"dark","origin":"vscode","by":"dahong","palette":null,"license":"MIT","repo":"shaodahong/theme-bear","ext":"dahong.theme-bear","sky":["#111113","#392d29","#1f2023"],"glow":"#e6844f","c":{"s0":"#1f2023","s1":"#232427","s2":"#27282c","s3":"#2a2b2f","tp":"#ded9c7","ts":"#b4b0a3","tm":"#9a978c","accent":"#e98651","danger":"#e88651","success":"#249d75","warning":"#c39d61","pro":"#ee75a2","fill":"#bd5700","on":"#ffffff","gitAdd":"#24936e","gitDel":"#e6844f"}},{"id":"night-pink","name":"Night Pink","mode":"dark","origin":"vscode","by":"SamRC","palette":null,"license":"MIT","repo":"samRC/night-pink","ext":"SamRC.night-pink","sky":["#0a0a0a","#322128","#181818"],"glow":"#e06196","c":{"s0":"#181818","s1":"#1c1c1c","s2":"#202020","s3":"#242424","tp":"#ffc1ef","ts":"#cc9cc0","tm":"#ad85a2","accent":"#e97aa6","danger":"#f67676","success":"#2da100","warning":"#c39d61","pro":"#c185ea","fill":"#cd3178","on":"#ffffff","gitAdd":"#8ccf7e","gitDel":"#f35e5e"}},{"id":"vim-dark-medium","name":"Vim Dark Medium","mode":"dark","origin":"vscode","by":"HarryHopkinson","palette":null,"license":"MIT","repo":"Harry-Hopkinson/vim-vscode-theme","ext":"HarryHopkinson.vim-theme","sky":["#191919","#2c3535","#282828"],"glow":"#47888b","c":{"s0":"#282828","s1":"#2c2c2c","s2":"#303030","s3":"#343434","tp":"#f0e4c6","ts":"#c4bba3","tm":"#a9a18e","accent":"#80aeae","danger":"#ff705f","success":"#589a3d","warning":"#d4971d","pro":"#c991a5","fill":"#448588","on":"#000000","gitAdd":"#8ec07c","gitDel":"#fb4934"}},{"id":"vim-light-medium","name":"Vim Light Medium","mode":"light","origin":"vscode","by":"HarryHopkinson","palette":null,"license":"MIT","repo":"Harry-Hopkinson/vim-vscode-theme","ext":"HarryHopkinson.vim-theme","sky":["#f8e69c","#f0e1a4","#fbf1c7"],"glow":"#9e7d29","c":{"s0":"#f9ecb2","s1":"#faefbd","s2":"#fbf1c7","s3":"#fbf1c7","tp":"#393534","ts":"#585248","tm":"#6b6454","accent":"#644d07","danger":"#9c0006","success":"#275f23","warning":"#6f4707","pro":"#783757","fill":"#94741b","on":"#000000","gitAdd":"#3f8f3a","gitDel":"#9d0006"}},{"id":"halcyon","name":"Halcyon","mode":"dark","origin":"vscode","by":"brittanychiang","palette":null,"license":"MIT","repo":"bchiang7/halcyon-vscode","ext":"brittanychiang.halcyon-vscode","sky":["#12161f","#3a3a3a","#1d2433"],"glow":"#ffcc66","c":{"s0":"#1d2433","s1":"#202838","s2":"#232b3d","s3":"#262f42","tp":"#dadde5","ts":"#b1b5be","tm":"#979ba5","accent":"#d19900","danger":"#ed7c83","success":"#6a9700","warning":"#db9300","pro":"#ae8df2","fill":"#997200","on":"#000000","gitAdd":"#bae67e","gitDel":"#ef6b73"}},{"id":"firefly-pro","name":"FireFly Pro","mode":"dark","origin":"vscode","by":"ankitcode","palette":null,"license":"Apache-2.0","repo":"ankitmlive/firefly-theme","ext":"ankitcode.firefly","sky":["#040609","#1a2114","#0a0f17"],"glow":"#859900","c":{"s0":"#0a0f17","s1":"#0c131d","s2":"#0f1622","s3":"#111a27","tp":"#bbc3e2","ts":"#949cb5","tm":"#858da4","accent":"#9fad58","danger":"#ff6f67","success":"#709533","warning":"#cd9a42","pro":"#1aaff4","fill":"#718300","on":"#000000","gitAdd":"#91b362","gitDel":"#ff3333"}},{"id":"codestackr-theme","name":"codeSTACKr Theme","mode":"dark","origin":"vscode","by":"codestackr","palette":null,"license":"MIT","repo":"codestackr/codestackr-vscode-theme","ext":"codestackr.codestackr-theme","sky":["#04080b","#291e1e","#09131b"],"glow":"#ff652f","c":{"s0":"#09131b","s1":"#0b1721","s2":"#0d1c27","s3":"#0f1f2d","tp":"#ffffff","ts":"#c9cbcd","tm":"#989c9f","accent":"#ff7345","danger":"#ec7d85","success":"#2da100","warning":"#c39d61","pro":"#c185ea","fill":"#cb4700","on":"#ffffff","gitAdd":"#8ccf7e","gitDel":"#e5646e"}},{"id":"firefox-dark","name":"Firefox Dark","mode":"dark","origin":"vscode","by":"Heron","palette":null,"license":"MIT","repo":"firefox-theme/visual-studio-code","ext":"Heron.firefox-devtools-theme","sky":["#1b1b1e","#263649","#2a2a2e"],"glow":"#0a84ff","c":{"s0":"#2a2a2e","s1":"#2e2e32","s2":"#323237","s3":"#35353a","tp":"#e7e7e8","ts":"#bebebf","tm":"#a4a4a6","accent":"#5ba6ff","danger":"#ea8080","success":"#2ca100","warning":"#d29820","pro":"#f35ddf","fill":"#0075e9","on":"#000000","gitAdd":"#86de74","gitDel":"#cc3d3d"}},{"id":"firefox-light","name":"Firefox Light","mode":"light","origin":"vscode","by":"Heron","palette":null,"license":"MIT","repo":"firefox-theme/visual-studio-code","ext":"Heron.firefox-devtools-theme","sky":["#e8e8e8","#e8dbf1","#ffffff"],"glow":"#8000d7","c":{"s0":"#f4f4f4","s1":"#fafafa","s2":"#ffffff","s3":"#ffffff","tp":"#3b3b3f","ts":"#58585c","tm":"#646467","accent":"#6c00b4","danger":"#9b000d","success":"#275f23","warning":"#724600","pro":"#5e3a8d","fill":"#9a28ff","on":"#ffffff","gitAdd":"#3f8f3a","gitDel":"#a4000f"}},{"id":"xcode-classic-dark","name":"Xcode Classic (Dark)","mode":"dark","origin":"vscode","by":"MateoCERQUETELLA","palette":null,"license":"MIT","repo":"MateoCerquetella/xcode-theme","ext":"MateoCERQUETELLA.xcode-12-theme","sky":["#1b1c1f","#2d3642","#292a30"],"glow":"#4984ba","c":{"s0":"#292a30","s1":"#2d2e34","s2":"#313239","s3":"#34353d","tp":"#e7e7e8","ts":"#bdbdbf","tm":"#a3a3a6","accent":"#7ca9d0","danger":"#fa736e","success":"#2da100","warning":"#d59700","pro":"#c185ea","fill":"#427db3","on":"#000000","gitAdd":"#8ccf7e","gitDel":"#e21514"}},{"id":"snazzy-operator","name":"Snazzy Operator","mode":"dark","origin":"vscode","by":"aaronthomas","palette":null,"license":"MIT","repo":"aaronthomas/vscode-snazzy-operator","ext":"aaronthomas.vscode-snazzy-operator","sky":["#1b1c24","#2e3e50","#282a36"],"glow":"#57c7ff","c":{"s0":"#282a36","s1":"#2b2e3b","s2":"#2f313f","s3":"#323443","tp":"#eff0eb","ts":"#c3c4c3","tm":"#a8a9aa","accent":"#00b1f2","danger":"#fc716d","success":"#00a14e","warning":"#c39d61","pro":"#f864bb","fill":"#0083b7","on":"#000000","gitAdd":"#5af78e","gitDel":"#ff5c57"}},{"id":"dark-low-contrast","name":"Dark Low Contrast","mode":"dark","origin":"vscode","by":"EvgeniyPetukhov","palette":null,"license":"MIT","repo":"evgeniyp/vscode-dark-low-contrast","ext":"EvgeniyPetukhov.dark-low-contrast","sky":["#0f0f0f","#1d2a33","#1e1e1e"],"glow":"#197bbd","c":{"s0":"#1e1e1e","s1":"#222222","s2":"#262626","s3":"#2a2a2a","tp":"#d5d5d5","ts":"#adadad","tm":"#949494","accent":"#6cabdb","danger":"#d19086","success":"#179f68","warning":"#c0a11f","pro":"#cc89c1","fill":"#1f7fc1","on":"#000000","gitAdd":"#109c66","gitDel":"#c97260"}},{"id":"pitch-black","name":"Pitch Black","mode":"dark","origin":"vscode","by":"viktorqvarfordt","palette":null,"license":"MIT","repo":"ViktorQvarfordt/vscode-pitch-black-theme","ext":"viktorqvarfordt.vscode-pitch-black-theme","sky":["#010101","#101520","#000000"],"glow":"#7aa2f7","c":{"s0":"#000000","s1":"#040404","s2":"#080808","s3":"#0c0c0c","tp":"#d4d4d4","ts":"#a5a5a5","tm":"#888888","accent":"#79a1f6","danger":"#ec7d85","success":"#2da100","warning":"#c39d61","pro":"#c185ea","fill":"#466fe3","on":"#ffffff","gitAdd":"#8ccf7e","gitDel":"#e5646e"}},{"id":"netbeans-light-theme","name":"NetBeans Light Theme","mode":"light","origin":"vscode","by":"obrejla","palette":null,"license":"MIT","repo":"obrejla/vscode-netbeans-light-theme","ext":"obrejla.netbeans-light-theme","sky":["#e8e8e8","#e0e6f1","#ffffff"],"glow":"#2f6fdb","c":{"s0":"#f4f4f4","s1":"#fafafa","s2":"#ffffff","s3":"#ffffff","tp":"#000000","ts":"#363636","tm":"#666666","accent":"#204c9c","danger":"#8d2820","success":"#275f23","warning":"#6f4805","pro":"#5e3a8d","fill":"#3374e0","on":"#000000","gitAdd":"#3f8f3a","gitDel":"#c8372d"}},{"id":"horizon","name":"Horizon","mode":"dark","origin":"vscode","by":"alexandernanberg","palette":null,"license":"MIT","repo":"alexandernanberg/horizon-theme-vscode","ext":"alexandernanberg.horizon-theme-vscode","sky":["#0f1014","#372531","#1c1e26"],"glow":"#e95378","c":{"s0":"#1c1e26","s1":"#1f222b","s2":"#23252f","s3":"#262934","tp":"#d5d8da","ts":"#acafb2","tm":"#93969a","accent":"#f6738f","danger":"#f37688","success":"#009f6d","warning":"#c39d61","pro":"#1bb6d4","fill":"#db1559","on":"#ffffff","gitAdd":"#27d797","gitDel":"#f43e5c"}},{"id":"horizon-bright","name":"Horizon Bright","mode":"light","origin":"vscode","by":"alexandernanberg","palette":null,"license":"MIT","repo":"alexandernanberg/horizon-theme-vscode","ext":"alexandernanberg.horizon-theme-vscode","sky":["#f8cec4","#f9cfc5","#fdf0ed"],"glow":"#e54315","c":{"s0":"#fbdfd8","s1":"#fce8e4","s2":"#fdf0ed","s3":"#fdf0ed","tp":"#06060c","ts":"#3c3639","tm":"#5d5355","accent":"#8f2600","danger":"#941730","success":"#00603f","warning":"#6f4805","pro":"#8f0066","fill":"#d43800","on":"#ffffff","gitAdd":"#1eb980","gitDel":"#f43e5c"}},{"id":"snazzy-light","name":"Snazzy Light","mode":"light","origin":"vscode","by":"loilo","palette":null,"license":"MIT","repo":"loilo/vscode-snazzy-light","ext":"loilo.snazzy-light","sky":["#dde4eb","#d8e7e3","#fafbfc"],"glow":"#27964c","c":{"s0":"#ecf0f3","s1":"#f4f6f8","s2":"#fafbfc","s3":"#fafbfc","tp":"#383945","ts":"#555660","tm":"#60616b","accent":"#01622c","danger":"#9b0405","success":"#006229","warning":"#6c4a00","pro":"#8e006c","fill":"#1e9046","on":"#000000","gitAdd":"#2dae58","gitDel":"#ff5c56"}},{"id":"poimandres","name":"poimandres","mode":"dark","origin":"vscode","by":"pmndrs","palette":null,"license":"MIT","repo":"drcmda/poimandres-theme","ext":"pmndrs.pmndrs","sky":["#0f1016","#2e3644","#1b1e28"],"glow":"#add7ff","c":{"s0":"#1b1e28","s1":"#1e222d","s2":"#222532","s3":"#242936","tp":"#d0d4e5","ts":"#a9acbb","tm":"#9093a1","accent":"#4baafa","danger":"#ec7d85","success":"#2f9a86","warning":"#c3a100","pro":"#eb74b5","fill":"#007cd1","on":"#000000","gitAdd":"#5fb3a1","gitDel":"#e5646e"}},{"id":"monokai-vibrant","name":"Monokai Vibrant","mode":"dark","origin":"vscode","by":"s3gf4ult","palette":null,"license":"MIT","repo":"dylantmarsh/monokai-vibrant","ext":"s3gf4ult.monokai-vibrant","sky":["#09090c","#1e263a","#16171d"],"glow":"#528bff","c":{"s0":"#16171d","s1":"#1a1b22","s2":"#1d1e26","s3":"#20222a","tp":"#f8f8f0","ts":"#c6c7c2","tm":"#999a97","accent":"#71a1ff","danger":"#e6837f","success":"#2da100","warning":"#c39d61","pro":"#c185ea","fill":"#356bf7","on":"#ffffff","gitAdd":"#8ccf7e","gitDel":"#c24038"}},{"id":"code-blue","name":"Code Blue","mode":"dark","origin":"vscode","by":"Sujan","palette":null,"license":"MIT","repo":"sujan-s/code-blue","ext":"Sujan.code-blue","sky":["#1f2537","#26444d","#2a324b"],"glow":"#0ec05c","c":{"s0":"#2a324b","s1":"#2d3550","s2":"#303955","s3":"#323c5a","tp":"#f3f5f6","ts":"#c7cad1","tm":"#acafb9","accent":"#18c35f","danger":"#ec7d85","success":"#2da100","warning":"#de9100","pro":"#c185ea","fill":"#00914a","on":"#000000","gitAdd":"#8ccf7e","gitDel":"#e5646e"}},{"id":"august-arstotzka","name":"August - Arstotzka","mode":"dark","origin":"vscode","by":"inci-august","palette":null,"license":"MIT","repo":"inci-august/august-themes","ext":"inci-august.august-themes","sky":["#060404","#261010","#0f0b0b"],"glow":"#bf2e2e","c":{"s0":"#0f0b0b","s1":"#140e0e","s2":"#181212","s3":"#1d1515","tp":"#b6c4b6","ts":"#929c91","tm":"#848c82","accent":"#f07c77","danger":"#ef7c7b","success":"#719519","warning":"#bea300","pro":"#c185ea","fill":"#d53435","on":"#ffffff","gitAdd":"#678813","gitDel":"#a62828"}},{"id":"pycharm-original-theme","name":"Pycharm Original Theme","mode":"dark","origin":"vscode","by":"nicohlr","palette":null,"license":"MIT","repo":"nicohlr/vscode-pycharm-theme","ext":"nicohlr.pycharm","sky":["#1c1c1c","#2f3740","#2b2b2b"],"glow":"#4787c9","c":{"s0":"#2b2b2b","s1":"#2f2f2f","s2":"#333333","s3":"#373737","tp":"#e6eaef","ts":"#bdc0c4","tm":"#a3a6a9","accent":"#78a8d9","danger":"#ec7d85","success":"#2da100","warning":"#c39d61","pro":"#c185ea","fill":"#3c7cbe","on":"#000000","gitAdd":"#8ccf7e","gitDel":"#e5646e"}},{"id":"radical","name":"Radical","mode":"dark","origin":"vscode","by":"dhedgecock","palette":null,"license":"ISC","repo":"dhedgecock/radical-vscode","ext":"dhedgecock.radical-vscode","sky":["#08080e","#331930","#141322"],"glow":"#ff428e","c":{"s0":"#141322","s1":"#171627","s2":"#1a192c","s3":"#1d1b31","tp":"#b5cbd6","ts":"#91a3ae","tm":"#84939f","accent":"#ff669c","danger":"#fb6c90","success":"#569c00","warning":"#cf9a00","pro":"#00b8c7","fill":"#db006b","on":"#ffffff","gitAdd":"#a3ff57","gitDel":"#ff1767"}},{"id":"field-lights","name":"Field Lights","mode":"dark","origin":"vscode","by":"sveggiani","palette":null,"license":"MIT","repo":"sveggiani/vscode-field-lights","ext":"sveggiani.vscode-field-lights","sky":["#151920","#3e3938","#212733"],"glow":"#ffae57","c":{"s0":"#212733","s1":"#242b38","s2":"#272f3d","s3":"#2a3241","tp":"#e4e3dc","ts":"#b9b9b7","tm":"#9ea0a0","accent":"#e68b00","danger":"#ff6f67","success":"#6a9700","warning":"#db9300","pro":"#b189fb","fill":"#a96800","on":"#000000","gitAdd":"#bae67e","gitDel":"#ff3333"}},{"id":"plastic","name":"Plastic","mode":"dark","origin":"vscode","by":"will-stone","palette":null,"license":"MIT","repo":"will-stone/plastic","ext":"will-stone.plastic","sky":["#14161a","#3a2e35","#21252b"],"glow":"#e06c75","c":{"s0":"#21252b","s1":"#252930","s2":"#282d34","s3":"#2b3038","tp":"#dce0e7","ts":"#b3b7bd","tm":"#999da4","accent":"#e78188","danger":"#e7837c","success":"#629830","warning":"#ca9d00","pro":"#bc8cdb","fill":"#ca414f","on":"#ffffff","gitAdd":"#98c379","gitDel":"#d74e42"}},{"id":"matrix","name":"Matrix","mode":"dark","origin":"vscode","by":"UstymUkhman","palette":null,"license":"MIT","repo":"UstymUkhman/matrix-theme","ext":"UstymUkhman.matrix-theme","sky":["#050505","#0a1c0a","#0c0c0c"],"glow":"#008800","c":{"s0":"#0c0c0c","s1":"#101010","s2":"#141414","s3":"#181818","tp":"#00e000","ts":"#03b203","tm":"#04a004","accent":"#6eba5f","danger":"#fd716a","success":"#00a32f","warning":"#b2a800","pro":"#d97eca","fill":"#0a9300","on":"#000000","gitAdd":"#bbffbb","gitDel":"#b40000"}},{"id":"quiet-light-for-vsc","name":"Quiet Light for VSC","mode":"light","origin":"vscode","by":"onecrayon","palette":null,"license":"MIT","repo":"onecrayon/theme-quietlight-vsc","ext":"onecrayon.theme-quietlight-vsc","sky":["#dedede","#dadfe7","#f5f5f5"],"glow":"#4b83cd","c":{"s0":"#eaeaea","s1":"#f0f0f0","s2":"#f5f5f5","s3":"#f5f5f5","tp":"#333333","ts":"#505050","tm":"#626262","accent":"#2a5087","danger":"#990d06","success":"#275f23","warning":"#6f4805","pro":"#5e3a8d","fill":"#4279c4","on":"#000000","gitAdd":"#3f8f3a","gitDel":"#660000"}},{"id":"pop-n-lock-theme-by-luxcium","name":"Pop N' Lock Theme by Luxcium ✨","mode":"dark","origin":"vscode","by":"Luxcium","palette":null,"license":"MIT","repo":"luxcium/pop-n-lock-theme-vscode","ext":"Luxcium.pop-n-lock-theme-vscode","sky":["#151627","#22314e","#20213b"],"glow":"#3399cc","c":{"s0":"#20213b","s1":"#232440","s2":"#262746","s3":"#282a4a","tp":"#e1dad3","ts":"#b6b1b2","tm":"#9c989d","accent":"#5daedb","danger":"#ff6a85","success":"#7d9200","warning":"#dc9234","pro":"#e57f97","fill":"#0082b9","on":"#000000","gitAdd":"#b5d033","gitDel":"#ff3366"}},{"id":"cobalt-next","name":"Cobalt Next","mode":"dark","origin":"vscode","by":"dline","palette":null,"license":"MIT","repo":"davidleininger/cobaltnext-vscode","ext":"dline.CobaltNext","sky":["#111a20","#243d45","#1b2b34"],"glow":"#5fb3b3","c":{"s0":"#1b2b34","s1":"#1e2f39","s2":"#21343f","s3":"#233843","tp":"#ffffff","ts":"#cdd0d2","tm":"#9fa6aa","accent":"#60b4b4","danger":"#f47683","success":"#5b9856","warning":"#da9300","pro":"#cf82d7","fill":"#008a8d","on":"#000000","gitAdd":"#99c794","gitDel":"#ed6f7d"}},{"id":"ui-one-dark","name":"βui - One Dark","mode":"dark","origin":"vscode","by":"swashata","palette":null,"license":"MIT","repo":"swashata/vscode-beautiful-ui","ext":"swashata.beautiful-ui","sky":["#191b20","#243647","#262a31"],"glow":"#1683dc","c":{"s0":"#262a31","s1":"#2a2e36","s2":"#2d323a","s3":"#30353e","tp":"#e5e7eb","ts":"#bbbdc2","tm":"#a1a4a9","accent":"#64a9eb","danger":"#e2848c","success":"#579c00","warning":"#cd9951","pro":"#c185ea","fill":"#057bd5","on":"#000000","gitAdd":"#5ea702","gitDel":"#e1747d"}},{"id":"ui-one-light","name":"βui - One Light","mode":"light","origin":"vscode","by":"swashata","palette":null,"license":"MIT","repo":"swashata/vscode-beautiful-ui","ext":"swashata.beautiful-ui","sky":["#e3e3e3","#d8deea","#fafafa"],"glow":"#0e46c0","c":{"s0":"#efefef","s1":"#f5f5f5","s2":"#fafafa","s3":"#fafafa","tp":"#383942","ts":"#55565d","tm":"#606168","accent":"#0941bb","danger":"#912318","success":"#325e00","warning":"#6d4900","pro":"#005d5c","fill":"#1c6bff","on":"#ffffff","gitAdd":"#5ea702","gitDel":"#e03d2e"}}];
 const REPO = "briannaworkman/looks";
 const $ = id => document.getElementById(id);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-const state = { mode: "all", src: "all", sort: "featured", q: "" };
+const state = { mode: "all", src: "all", sort: "proof", q: "", onlyCircled: false };
+const no = new Map(LOOKS.map((l, i) => [l.id, i + 1]));
 let shown = [];
-let openIndex = -1;
-let lastFocus = null;
+let openId = null;
+let printEl = null;
+let rovingId = null;
+let circled = new Set();
+try { circled = new Set(JSON.parse(localStorage.getItem("looks:circled") || "[]")); } catch (e) {}
+const saveCircled = () => { try { localStorage.setItem("looks:circled", JSON.stringify([...circled])); } catch (e) {} };
 
-/* One mock Claude window, painted with a look's own colors. */
-function vars(l) {
+/* ---- one mock Claude window, painted with a look's own colors ---- */
+const css = l => {
   const c = l.c;
-  return `--sky0:${l.sky[0]};--sky1:${l.sky[1]};--sky2:${l.sky[2]};--glow:${l.glow};` +
-    `--s0:${c.s0};--s1:${c.s1};--s2:${c.s2};--s3:${c.s3};--tp:${c.tp};--ts:${c.ts};--tm:${c.tm};` +
-    `--ac:${c.accent};--dg:${c.danger};--sc:${c.success};--wn:${c.warning};--pr:${c.pro};` +
-    `--fill:${c.fill};--on:${c.on};--ga:${c.gitAdd};--gd:${c.gitDel};`;
-}
-function preview(l) {
-  return `<div class="pv" style="${vars(l)}" aria-hidden="true"><div class="pv-sky"></div><div class="pv-win">
+  return `--sky0:${l.sky[0]};--sky1:${l.sky[1]};--sky2:${l.sky[2]};--glow:${l.glow};--s0:${c.s0};--s1:${c.s1};--s2:${c.s2};--s3:${c.s3};--tp:${c.tp};--ts:${c.ts};--tm:${c.tm};--ac:${c.accent};--dg:${c.danger};--sc:${c.success};--wn:${c.warning};--pr:${c.pro};--fill:${c.fill};--on:${c.on};--ga:${c.gitAdd};--gd:${c.gitDel};`;
+};
+const PLUS = '<svg class="plus" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M8 2.5v11M2.5 8h11"/></svg>';
+const UP = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5"/></svg>';
+const roles = l => `<div class="pv-roles">${[l.c.accent, l.c.danger, l.c.success, l.c.warning, l.c.pro].map(h => `<i style="background:${h}"></i>`).join("")}</div>`;
+function preview(l, flat) {
+  return `<div class="pv${flat ? " flat" : ""}" style="${css(l)}" aria-hidden="true"><div class="pv-sky"></div><div class="pv-win">
     <div class="pv-bar"><i class="d"></i><i class="d"></i><i class="d"></i><span class="t">Cook time badges</span><span class="sp"></span><i class="ic"></i><i class="ic"></i><i class="ic"></i></div>
     <div class="pv-chat">
       <div class="pv-user">add a cook time badge to each recipe card</div>
       <p class="pv-ai">Nice idea. Let me look at the recipe card.</p>
-      <p class="pv-tool"><span>Read and edited</span><b>app.js</b><span class="a">+12</span><span class="r">&minus;3</span></p>
+      <p class="pv-tool"><span>Read and edited</span><b>app.js</b><span class="a">+12</span><span class="r">−3</span></p>
       <div class="pv-code"><span class="k">function</span> <span class="n">badge</span>(<span class="v">recipe</span>) {
   <span class="k">const</span> <span class="v">mins</span> = <span class="l">20</span>;
   <span class="k">return</span> <span class="s">\`\${mins} min\`</span>;
 }</div>
       <p class="pv-ai">Done! Every recipe card now shows a <strong>cook time badge</strong>.</p>
     </div>
-    <div class="pv-composer"><span class="plus">+</span><span class="ph">Type / for commands</span><span class="send">&uarr;</span></div>
+    <div class="pv-composer">${PLUS}<span class="ph">Type / for commands</span><span class="send">${UP}</span></div>
     <div class="pv-foot">Sonnet 5.5 &nbsp; High &nbsp; Auto</div>
-  </div></div>`;
-}
-const byline = l => l.origin === "original" ? "Original look" : l.origin === "vscode" ? `by ${l.by}` : `by ${l.by}`;
-const dots = l => [l.c.accent, l.c.danger, l.c.success, l.c.warning, l.c.pro].map(h => `<i style="background:${h}"></i>`).join("");
-
-function card(l, i) {
-  return `<button type="button" class="card" data-i="${i}" aria-label="${esc(l.name)}, ${l.mode} look. Open details">${preview(l)}
-    <div class="meta"><div class="meta-text"><p class="name">${esc(l.name)}</p><p class="by">${esc(byline(l))}</p></div><div class="dots" aria-hidden="true">${dots(l)}</div></div></button>`;
+  </div>${flat ? roles(l) : ""}</div>`;
 }
 
-function apply() {
+/* ---- the grease pencil ---- */
+const RING = '<svg viewBox="0 0 24 17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 9C3 3.5 9 1.5 14 2 20 2.6 22.5 7 20 11.5 17.5 15.5 9 16 5 13.5 2.6 12 2.5 9 4.5 6.5"/></svg>';
+const SCRIBBLE = '<svg class="circle" viewBox="0 0 100 69" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><path pathLength="1" d="M9 36.7C5 13.4 34 3.3 58 4.5 86 5.6 98 22.3 94 42.3 90 62.3 58 66.8 32 63.4 10 60.1 4 44.5 8 26.7 10 16.7 20 10 32 7.8"/></svg>';
+
+function frame(l, i) {
+  const n = no.get(l.id), on = circled.has(l.id);
+  return `<div class="fr${on ? " circled" : ""}${openId === l.id ? " open" : ""}" data-i="${i}" data-id="${l.id}" style="--rot:${((n * 7) % 9 - 4) * 0.9}deg">
+    <button type="button" class="fr-open" tabindex="${l.id === rovingId ? 0 : -1}" aria-label="${esc(l.name)}, ${l.mode} look, frame ${n}. Open its print" aria-expanded="${openId === l.id}">
+      <span class="fr-img">${preview(l, true)}${on ? SCRIBBLE : ""}</span>
+      <span class="fr-meta"><span class="no">${String(n).padStart(2, "0")}</span><span class="nm" title="${esc(l.name)}">${esc(l.name)}</span></span>
+    </button>
+    <button type="button" class="mark-btn" tabindex="-1" aria-pressed="${on}" aria-label="${on ? "Remove the circle from" : "Circle"} ${esc(l.name)}">${RING}</button>
+    ${openId === l.id ? '<i class="tab"></i>' : ""}
+  </div>`;
+}
+
+function render() {
   const q = state.q.trim().toLowerCase();
   shown = LOOKS.filter(l =>
     (state.mode === "all" || l.mode === state.mode) &&
     (state.src === "all" || l.origin === state.src) &&
+    (!state.onlyCircled || circled.has(l.id)) &&
     (!q || [l.name, l.by, l.id, l.palette, l.ext].some(s => s && s.toLowerCase().includes(q))));
   if (state.sort === "az") shown = [...shown].sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: "base" }));
-  $("grid").innerHTML = shown.length ? shown.map(card).join("") :
-    `<div class="empty"><p>No looks match that search.</p><button type="button" id="clear">Clear filters</button></div>`;
-  $("count").textContent = shown.length === LOOKS.length ? `${LOOKS.length} looks` : `${shown.length} of ${LOOKS.length} looks`;
+  if (openId && !shown.some(l => l.id === openId)) { openId = null; printEl = null; try { history.replaceState(null, "", location.pathname + location.search); } catch (e) {} }
+  if (!shown.some(l => l.id === rovingId)) rovingId = shown[0]?.id ?? null;
+  $("strips").innerHTML = shown.length ? shown.map(frame).join("")
+    : `<div class="none"><p>${state.onlyCircled && !circled.size ? "Nothing is circled yet. Circle a frame to keep it here." : "No frames match that search."}</p><button type="button" id="reset">Show all frames</button></div>`;
+  $("count").textContent = `${shown.length} of ${LOOKS.length} frames`;
+  $("keepN").textContent = circled.size;
+  if (openId) openPrint(openId, { keepScroll: true });
 }
 
-/* The detail view: a large preview, the real colors, and the commands that install it. */
-function swatch(label, hex) { return `<div><i style="background:${hex}"></i><span>${label}<small>${hex}</small></span></div>`; }
-function openLook(i, focusEl) {
-  const l = shown[i]; if (!l) return;
-  openIndex = i; if (focusEl) lastFocus = focusEl;
+/* ---- the print ---- */
+const cols = () => getComputedStyle($("strips")).gridTemplateColumns.split(" ").length;
+function wedge(l) {
   const c = l.c;
-  const origin = l.origin === "vscode"
+  const grp = (cap, items) => `<div class="grp"><div class="chips">${items.map(([n, h]) => `<button type="button" class="chip" data-hex="${h}" title="${n} ${h.toUpperCase()}. Click to copy the hex."><i style="background:${h}"></i><b>${h.slice(1)}</b><span class="sr">${n}, copy hex</span></button>`).join("")}</div><span class="cap">${cap}</span></div>`;
+  return `<div class="wedge" role="group" aria-label="Colors">${grp("Surfaces", [["Page", c.s0], ["Card", c.s1], ["Panel", c.s2], ["Menu", c.s3]])}${grp("Text", [["Primary", c.tp], ["Secondary", c.ts], ["Muted", c.tm]])}${grp("Roles", [["Accent", c.accent], ["Danger", c.danger], ["Success", c.success], ["Warning", c.warning], ["Pro", c.pro]])}</div>`;
+}
+const ICON = {
+  copy: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.2"/><path d="M10.5 5.5V3.7c0-.7-.5-1.2-1.2-1.2H3.7c-.7 0-1.2.5-1.2 1.2v5.6c0 .7.5 1.2 1.2 1.2h1.8"/></svg>',
+  prev: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8H3M7 3.5 2.5 8 7 12.5"/></svg>',
+  next: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 3.5 13.5 8 9 12.5"/></svg>',
+  close: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="m3.5 3.5 9 9M12.5 3.5l-9 9"/></svg>',
+};
+function printHTML(l) {
+  const n = no.get(l.id);
+  const credit = l.origin === "vscode"
     ? `Colors adapted from <a href="https://github.com/${esc(l.repo)}" target="_blank" rel="noopener">${esc(l.ext)}</a> by ${esc(l.by)} (${esc(l.license)}).`
-    : l.origin === "palette" ? `Uses the ${esc(l.palette)} palette, made by ${esc(l.by)}.` : "A look made for this gallery.";
-  const tags = [l.mode === "dark" ? "Dark" : "Light", l.origin === "vscode" ? "VS Code theme" : l.origin === "palette" ? "Published palette" : "Original"];
+    : l.origin === "palette" ? `Uses the ${esc(l.palette)} palette, made by ${esc(l.by)}.` : "An original look, made for this gallery.";
+  const kind = l.origin === "vscode" ? "VS Code theme" : l.origin === "palette" ? "Published palette" : "Original";
   const install = `/plugin install look-${l.id} --marketplace ${REPO}`;
   const sw = `/look ${l.id}`;
-  $("sheet").innerHTML = `<div>${preview(l)}</div>
-    <div class="side">
-      <div><h2 id="dName">${esc(l.name)}</h2><div class="tags" style="margin-top:8px">${tags.map(t => `<span class="tag">${t}</span>`).join("")}</div></div>
-      <p class="credit">${origin}</p>
-      <div class="sw-group"><h3>Surfaces</h3><div class="sw">${swatch("Page", c.s0)}${swatch("Card", c.s1)}${swatch("Panel", c.s2)}${swatch("Menu", c.s3)}</div></div>
-      <div class="sw-group"><h3>Text</h3><div class="sw">${swatch("Primary", c.tp)}${swatch("Secondary", c.ts)}${swatch("Muted", c.tm)}</div></div>
-      <div class="sw-group"><h3>Roles</h3><div class="sw">${swatch("Accent", c.accent)}${swatch("Danger", c.danger)}${swatch("Success", c.success)}${swatch("Warning", c.warning)}${swatch("Pro", c.pro)}</div></div>
-      <div class="cmd"><label for="c1">Install just this look</label><div class="row"><code id="c1">${esc(install)}</code><button type="button" class="btn primary" data-copy="c1">Copy</button></div></div>
-      <div class="cmd"><label for="c2">Or switch to it with the bundle</label><div class="row"><code id="c2">${esc(sw)}</code><button type="button" class="btn" data-copy="c2">Copy</button></div></div>
-      <div class="nav"><button type="button" class="btn" id="prev">&larr; Previous</button><button type="button" class="btn" id="next">Next &rarr;</button><button type="button" class="btn" id="close">Close</button></div>
+  const on = circled.has(l.id);
+  return `<div class="print-img">${preview(l, false)}</div>
+    <div class="print-side">
+      <div><h2 id="pTitle">${esc(l.name)}</h2><p class="by">Frame ${String(n).padStart(2, "0")} · ${l.mode} · ${kind}</p></div>
+      <p class="credit">${credit}</p>
+      ${wedge(l)}
+      <div class="cmd"><label for="c1">Install just this look</label><div class="row"><code id="c1">${esc(install)}</code><button type="button" class="btn go" data-copy="c1">${ICON.copy}Copy</button></div></div>
+      <div class="cmd"><label for="c2">Or switch to it with the bundle</label><div class="row"><code id="c2">${esc(sw)}</code><button type="button" class="btn" data-copy="c2">${ICON.copy}Copy</button></div></div>
+      <div class="print-actions">
+        <button type="button" class="btn" id="pCircle" aria-pressed="${on}">${RING.replace('stroke="currentColor"', 'stroke="var(--pencil)"')}${on ? "Circled" : "Circle it"}</button>
+        <button type="button" class="btn" id="pPrev">${ICON.prev}Previous</button>
+        <button type="button" class="btn" id="pNext">Next${ICON.next}</button>
+        <button type="button" class="btn" id="pClose">${ICON.close}Close</button>
+      </div>
     </div>`;
-  const wasHidden = $("veil").hidden;
-  $("veil").hidden = false;
-  if (wasHidden) document.body.style.overflow = "hidden";
-  $("veil").scrollTop = 0;
-  $("close").focus();
 }
-function closeLook() {
-  $("veil").hidden = true; document.body.style.overflow = ""; openIndex = -1;
-  if (lastFocus && document.contains(lastFocus)) lastFocus.focus();
+function placePrint() {
+  if (!openId || !printEl) return;
+  const idx = shown.findIndex(l => l.id === openId); if (idx < 0) return;
+  const c = cols();
+  const end = Math.min(shown.length - 1, (Math.floor(idx / c) + 1) * c - 1);
+  const anchor = $("strips").querySelector(`.fr[data-i="${end}"]`);
+  if (anchor && anchor.nextElementSibling !== printEl) anchor.after(printEl);
 }
-function step(d) { if (shown.length) openLook((openIndex + d + shown.length) % shown.length); }
+function openPrint(id, opts = {}) {
+  const l = LOOKS.find(x => x.id === id); if (!l) return;
+  if (!shown.some(x => x.id === id)) { Object.assign(state, { mode: "all", src: "all", q: "", onlyCircled: false }); syncControls(); openId = id; return render(); }
+  const changed = openId !== id;
+  openId = id;
+  document.querySelectorAll(".fr.open").forEach(f => { f.classList.remove("open"); f.querySelector(".fr-open").setAttribute("aria-expanded", "false"); f.querySelector(".tab")?.remove(); });
+  const fr = $("strips").querySelector(`.fr[data-id="${id}"]`);
+  fr.classList.add("open"); fr.querySelector(".fr-open").setAttribute("aria-expanded", "true");
+  fr.insertAdjacentHTML("beforeend", '<i class="tab"></i>');
+  if (!printEl) { printEl = document.createElement("section"); printEl.className = "print"; printEl.id = "print"; }
+  printEl.setAttribute("aria-labelledby", "pTitle");
+  printEl.innerHTML = printHTML(l);
+  placePrint();
+  try { history.replaceState(null, "", "#" + id); } catch (e) {}
+  if (changed && !opts.keepScroll) printEl.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "nearest" });
+}
+function closePrint(focusBack) {
+  const id = openId; openId = null;
+  printEl?.remove(); printEl = null;
+  document.querySelectorAll(".fr.open").forEach(f => { f.classList.remove("open"); f.querySelector(".fr-open").setAttribute("aria-expanded", "false"); f.querySelector(".tab")?.remove(); });
+  try { history.replaceState(null, "", location.pathname + location.search); } catch (e) {}
+  if (focusBack && id) $("strips").querySelector(`.fr[data-id="${id}"] .fr-open`)?.focus();
+}
+const stepPrint = d => { const i = shown.findIndex(l => l.id === openId); if (i >= 0 && shown.length) { openPrint(shown[(i + d + shown.length) % shown.length].id); $("pTitle")?.closest(".print")?.querySelector("#pNext")?.focus(); } };
 
+function toggleCircle(id) {
+  const on = !circled.has(id);
+  on ? circled.add(id) : circled.delete(id);
+  saveCircled();
+  const fr = $("strips").querySelector(`.fr[data-id="${id}"]`);
+  if (state.onlyCircled && !on) return render();
+  if (fr) {
+    fr.classList.toggle("circled", on);
+    fr.querySelector(".circle")?.remove();
+    if (on) { fr.querySelector(".fr-img").insertAdjacentHTML("beforeend", SCRIBBLE); if (!reduceMotion) { fr.classList.add("drawing"); setTimeout(() => fr.classList.remove("drawing"), 700); } }
+    const m = fr.querySelector(".mark-btn"); const name = LOOKS.find(l => l.id === id).name;
+    m.setAttribute("aria-pressed", String(on)); m.setAttribute("aria-label", `${on ? "Remove the circle from" : "Circle"} ${name}`);
+  }
+  $("keepN").textContent = circled.size;
+  const pc = $("pCircle"); if (pc && openId === id) { pc.setAttribute("aria-pressed", String(on)); pc.lastChild.textContent = on ? "Circled" : "Circle it"; }
+}
+
+/* ---- the loupe ---- */
+const loupe = $("loupe"), loupeIn = $("loupeIn");
+const Z = 2.7, R = 104;
+let loupeId = null;
+function moveLoupe(e, img) {
+  const r = img.getBoundingClientRect();
+  const x = e.clientX - r.left, y = e.clientY - r.top;
+  loupe.style.left = e.clientX + "px"; loupe.style.top = e.clientY + "px";
+  loupeIn.style.width = r.width * Z + "px";
+  loupeIn.style.transform = `translate(${R - x * Z}px, ${R - y * Z}px)`;
+}
+function showLoupe(e, img) {
+  const id = img.closest(".fr").dataset.id;
+  if (id !== loupeId) { loupeIn.innerHTML = preview(LOOKS.find(l => l.id === id), false); loupeId = id; }
+  loupe.classList.add("on"); moveLoupe(e, img);
+}
+const hideLoupe = () => { loupe.classList.remove("on"); loupeId = null; };
+
+/* ---- copy ---- */
+const say = t => { const el = $("live"); el.textContent = ""; setTimeout(() => { el.textContent = t; }, 40); };
 async function copy(id, btn) {
-  const el = $(id), text = el.textContent, old = btn.textContent;
-  try { await navigator.clipboard.writeText(text); btn.textContent = "Copied"; }
-  catch (e) {
-    const r = document.createRange(); r.selectNodeContents(el);
-    const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = "Selected";
-  }
-  setTimeout(() => { btn.textContent = old; }, 1400);
+  const el = $(id), label = btn.lastChild;
+  const old = label.textContent;
+  try { await navigator.clipboard.writeText(el.textContent); label.textContent = "Copied"; say("Copied: " + el.textContent); }
+  catch (e) { const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); label.textContent = "Selected"; say("Selected. Press copy on your keyboard."); }
+  setTimeout(() => { label.textContent = old; }, 1500);
+}
+async function copyHex(chip) {
+  const hex = chip.dataset.hex.toUpperCase(), b = chip.querySelector("b"), old = b.textContent;
+  try { await navigator.clipboard.writeText(hex); b.textContent = "Copied"; say("Copied " + hex); }
+  catch (e) { say("Copying is blocked here. The color is " + hex); return; }
+  setTimeout(() => { b.textContent = old; }, 1400);
 }
 
-/* events */
-$("q").addEventListener("input", e => { state.q = e.target.value; apply(); });
-$("src").addEventListener("change", e => { state.src = e.target.value; apply(); });
-$("sort").addEventListener("change", e => { state.sort = e.target.value; apply(); });
-$("modeSeg").addEventListener("click", e => {
-  const b = e.target.closest("button"); if (!b) return;
-  state.mode = b.dataset.v;
-  document.querySelectorAll("#modeSeg button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
-  apply();
-});
-$("grid").addEventListener("click", e => {
-  if (e.target.id === "clear") {
-    Object.assign(state, { mode: "all", src: "all", q: "" });
-    $("q").value = ""; $("src").value = "all";
-    document.querySelectorAll("#modeSeg button").forEach(x => x.setAttribute("aria-pressed", String(x.dataset.v === "all")));
-    return apply();
+/* ---- controls and events ---- */
+function syncControls() {
+  $("q").value = state.q; $("src").value = state.src; $("sort").value = state.sort;
+  document.querySelectorAll("#mode button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.v === state.mode)));
+  $("keep").setAttribute("aria-pressed", String(state.onlyCircled));
+}
+$("q").addEventListener("input", e => { state.q = e.target.value; render(); });
+$("src").addEventListener("change", e => { state.src = e.target.value; render(); });
+$("sort").addEventListener("change", e => { state.sort = e.target.value; render(); });
+$("mode").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; state.mode = b.dataset.v; syncControls(); render(); });
+$("keep").addEventListener("click", () => { state.onlyCircled = !state.onlyCircled; syncControls(); render(); });
+
+const strips = $("strips");
+strips.addEventListener("click", e => {
+  if (e.target.closest("#reset")) { Object.assign(state, { mode: "all", src: "all", q: "", onlyCircled: false }); syncControls(); return render(); }
+  const mark = e.target.closest(".mark-btn");
+  if (mark) return toggleCircle(mark.closest(".fr").dataset.id);
+  const open = e.target.closest(".fr-open");
+  if (open) {
+    const id = open.closest(".fr").dataset.id, viaKeyboard = e.detail === 0;
+    if (openId === id) return closePrint(false);
+    openPrint(id);
+    if (viaKeyboard) $("print")?.querySelector(".btn.go")?.focus();
+    return;
   }
-  const c = e.target.closest(".card"); if (c) openLook(Number(c.dataset.i), c);
-});
-$("veil").addEventListener("click", e => {
-  if (e.target === $("veil")) return closeLook();
-  const b = e.target.closest("button"); if (!b) return;
+  const b = e.target.closest("#print button"); if (!b) return;
+  if (b.classList.contains("chip")) return copyHex(b);
   if (b.dataset.copy) copy(b.dataset.copy, b);
-  else if (b.id === "close") closeLook();
-  else if (b.id === "prev") step(-1);
-  else if (b.id === "next") step(1);
+  else if (b.id === "pCircle") toggleCircle(openId);
+  else if (b.id === "pPrev") stepPrint(-1);
+  else if (b.id === "pNext") stepPrint(1);
+  else if (b.id === "pClose") closePrint(true);
 });
-document.addEventListener("keydown", e => {
-  if ($("veil").hidden) return;
-  if (e.key === "Escape") closeLook();
-  else if (e.key === "ArrowRight") step(1);
-  else if (e.key === "ArrowLeft") step(-1);
-  else if (e.key === "Tab") {
-    const f = [...$("sheet").querySelectorAll("button, a[href]")]; if (!f.length) return;
-    const first = f[0], last = f[f.length - 1];
-    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+strips.addEventListener("pointermove", e => {
+  if (e.pointerType !== "mouse") return;
+  const img = e.target.closest(".fr-img");
+  img ? showLoupe(e, img) : hideLoupe();
+});
+strips.addEventListener("pointerleave", hideLoupe);
+strips.addEventListener("focusin", e => {
+  const open = e.target.closest(".fr-open"); if (!open) return;
+  strips.querySelector('.fr-open[tabindex="0"]')?.setAttribute("tabindex", "-1");
+  open.setAttribute("tabindex", "0"); rovingId = open.closest(".fr").dataset.id;
+});
+addEventListener("scroll", hideLoupe, { passive: true });
+strips.addEventListener("keydown", e => {
+  const open = e.target.closest(".fr-open");
+  if (open && ["ArrowRight", "ArrowLeft", "ArrowDown", "ArrowUp", "Home", "End"].includes(e.key)) {
+    const i = Number(open.closest(".fr").dataset.i), c = cols();
+    const j = { ArrowRight: i + 1, ArrowLeft: i - 1, ArrowDown: i + c, ArrowUp: i - c, Home: 0, End: shown.length - 1 }[e.key];
+    const t = strips.querySelector(`.fr[data-i="${Math.max(0, Math.min(shown.length - 1, j))}"] .fr-open`);
+    if (t) { e.preventDefault(); t.focus(); }
   }
+  if (e.key === "Escape" && openId) { e.preventDefault(); closePrint(true); }
 });
+new ResizeObserver(() => placePrint()).observe(strips);
+addEventListener("hashchange", () => { const id = location.hash.slice(1); if (id && id !== openId && LOOKS.some(l => l.id === id)) openPrint(id); });
 
-/* Export mode: #render=<id> draws one preview at 640px, #hero=<id>,<id>,<id> draws the banner. */
-const exportMode = location.hash.match(/^#(render|hero)=([a-z0-9,-]+)$/);
-if (exportMode) {
-  document.documentElement.classList.add("export");
-  const ids = exportMode[2].split(",");
-  const root = document.createElement("div");
-  if (exportMode[1] === "render") {
-    root.id = "export-one";
-    root.innerHTML = preview(LOOKS.find(l => l.id === ids[0]));
-  } else {
-    root.id = "hero";
-    // left, right, then center last so it sits on top; position and tilt as in the old SVG banner
-    const place = [[ids[0], 30, 96, 440, -5], [ids[2], 810, 96, 440, 5], [ids[1], 386, 52, 508, 0]];
-    root.innerHTML = place.map(([id, x, y, w, r]) => {
-      const html = preview(LOOKS.find(l => l.id === id));
-      return html.replace('class="pv"', `class="pv" data-x="1"`).replace('style="', `style="left:${x}px;top:${y}px;width:${w}px;transform:rotate(${r}deg);`);
-    }).join("");
-  }
-  document.body.replaceChildren(root);
-} else {
-  apply();
-}
+/* ---- start ---- */
+const dark = LOOKS.filter(l => l.mode === "dark").length;
+$("roll").textContent = `PROOF SHEET 1/1 · ${LOOKS.length} FRAMES · ${dark} DARK · ${LOOKS.length - dark} LIGHT`;
+render();
+{ const id = location.hash.slice(1); if (id && LOOKS.some(l => l.id === id)) openPrint(id, { keepScroll: false }); }
 </script>
+</body>
+</html>

@@ -1,0 +1,414 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-15T02:46:12.538Z",
+  "title": "Design System: Looks",
+  "extensions": {
+    "colorMeta": {
+      "table": {
+        "role": "neutral",
+        "displayName": "Light Table",
+        "canonical": "#d7d8d3",
+        "tonalRamp": [
+          "#0a0a0a",
+          "#454543",
+          "#7f807d",
+          "#babbb6",
+          "#dbdcd7",
+          "#e4e4e0",
+          "#ecede9",
+          "#f5f5f2"
+        ]
+      },
+      "table-lit": {
+        "role": "neutral",
+        "displayName": "Lit Table",
+        "canonical": "#e6e7e2",
+        "tonalRamp": [
+          "#0a0a0a",
+          "#494948",
+          "#888885",
+          "#c7c7c3",
+          "#e8e9e5",
+          "#edeeea",
+          "#f2f3ef",
+          "#f7f7f5"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Proof Paper",
+        "canonical": "#eeede8",
+        "tonalRamp": [
+          "#0a0a0a",
+          "#4b4b49",
+          "#8c8c89",
+          "#cdcdc8",
+          "#efefea",
+          "#f2f2ee",
+          "#f5f5f2",
+          "#f8f8f6"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Grease-Pencil Ink",
+        "canonical": "#141414",
+        "tonalRamp": [
+          "#0a0a0a",
+          "#0d0d0d",
+          "#101010",
+          "#131313",
+          "#303030",
+          "#686867",
+          "#a0a09e",
+          "#d8d8d6"
+        ]
+      },
+      "ink-secondary": {
+        "role": "neutral",
+        "displayName": "Graphite",
+        "canonical": "#50535a",
+        "tonalRamp": [
+          "#0a0a0a",
+          "#1e1f21",
+          "#323438",
+          "#46494f",
+          "#65676d",
+          "#8e9094",
+          "#b7b8ba",
+          "#e1e1e0"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Pencil Rule",
+        "canonical": "#b9bab4",
+        "tonalRamp": [
+          "#0a0a0a",
+          "#3c3c3b",
+          "#6e6f6b",
+          "#a0a19c",
+          "#c1c2bc",
+          "#d1d1cd",
+          "#e0e1dd",
+          "#f0f0ee"
+        ]
+      },
+      "film": {
+        "role": "neutral",
+        "displayName": "Black Film",
+        "canonical": "#0f0f10",
+        "tonalRamp": [
+          "#0a0a0a",
+          "#0b0b0c",
+          "#0d0d0d",
+          "#0e0e0f",
+          "#2c2c2c",
+          "#656565",
+          "#9e9e9d",
+          "#d7d7d5"
+        ]
+      },
+      "film-raised": {
+        "role": "neutral",
+        "displayName": "Raised Film",
+        "canonical": "#1b1b1d",
+        "tonalRamp": [
+          "#0a0a0a",
+          "#0f0f0f",
+          "#141415",
+          "#19191a",
+          "#363638",
+          "#6c6c6d",
+          "#a2a2a2",
+          "#d9d9d7"
+        ]
+      },
+      "on-film": {
+        "role": "neutral",
+        "displayName": "Light-On-Film",
+        "canonical": "#e9e8e3",
+        "tonalRamp": [
+          "#0a0a0a",
+          "#4a4948",
+          "#898986",
+          "#c9c8c4",
+          "#ebeae6",
+          "#efefeb",
+          "#f3f3f0",
+          "#f7f7f5"
+        ]
+      },
+      "on-film-dim": {
+        "role": "neutral",
+        "displayName": "Dim-On-Film",
+        "canonical": "#a9a9a6",
+        "tonalRamp": [
+          "#0a0a0a",
+          "#373737",
+          "#656563",
+          "#929290",
+          "#b3b3b0",
+          "#c7c7c4",
+          "#dadad8",
+          "#eeeeec"
+        ]
+      },
+      "amber-edge-print": {
+        "role": "secondary",
+        "displayName": "Edge-Print Amber",
+        "canonical": "#eaa94a",
+        "tonalRamp": [
+          "#0a0a0a",
+          "#4a371c",
+          "#8a652f",
+          "#ca9241",
+          "#ecb35f",
+          "#f0c789",
+          "#f4dab4",
+          "#f8eede"
+        ]
+      },
+      "grease-pencil": {
+        "role": "primary",
+        "displayName": "Grease-Pencil Red",
+        "canonical": "#d6362b",
+        "tonalRamp": [
+          "#0a0a0a",
+          "#441713",
+          "#7f231d",
+          "#b93026",
+          "#da4e44",
+          "#e37d76",
+          "#ecada7",
+          "#f5ddd9"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "wordmark": {
+        "displayName": "Wordmark",
+        "purpose": "The word LOOKS only; Archivo at 66% width, weight 800."
+      },
+      "headline": {
+        "displayName": "Print Title",
+        "purpose": "The open look's name on its print; 70% width."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Page base, lede and credit lines."
+      },
+      "control": {
+        "displayName": "Control",
+        "purpose": "Filter tabs, selects and the circled toggle."
+      },
+      "frame-label": {
+        "displayName": "Frame Label",
+        "purpose": "Uppercase narrow look name under each frame."
+      },
+      "edge-print": {
+        "displayName": "Edge Print",
+        "purpose": "Amber frame numbers and counted things, tabular mono."
+      },
+      "code": {
+        "displayName": "Code",
+        "purpose": "Install commands and the Frame/mode/source line."
+      }
+    },
+    "shadows": [
+      {
+        "name": "sheet",
+        "value": "0 1px 0 #fff inset, 0 2px 4px rgba(20,20,20,.10), 0 26px 60px rgba(20,20,20,.14)",
+        "purpose": "The paper sheet resting on the light table."
+      },
+      {
+        "name": "print-mat",
+        "value": "0 10px 28px rgba(0,0,0,.45)",
+        "purpose": "The paper-matted preview on the black print band."
+      },
+      {
+        "name": "loupe",
+        "value": "0 0 0 5px #0f0f10, 0 0 0 6px rgba(255,255,255,.5), 0 14px 34px rgba(0,0,0,.4)",
+        "purpose": "Rim and lift of the magnifier."
+      },
+      {
+        "name": "focus-ring",
+        "value": "outline 2px solid #fff; box-shadow 0 0 0 4px #d6362b",
+        "purpose": "Keyboard focus on every interactive element."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(.22, 1, .36, 1)",
+        "purpose": "The grease-pencil circle drawing itself, 0.55s."
+      },
+      {
+        "name": "state-fade",
+        "value": "150ms linear (color, background, underline color)",
+        "purpose": "Hover and pressed changes on tabs and toggles."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "all transitions and the circle draw off; scroll jumps instead of smoothing",
+        "purpose": "prefers-reduced-motion: reduce."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "cols-5",
+        "value": "1260px"
+      },
+      {
+        "name": "print-stack",
+        "value": "1100px"
+      },
+      {
+        "name": "cols-4-header-stack",
+        "value": "1040px"
+      },
+      {
+        "name": "cols-3",
+        "value": "780px"
+      },
+      {
+        "name": "cols-2-phone",
+        "value": "540px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Film Strip Frame",
+      "kind": "card",
+      "refersTo": "film-strip-frame",
+      "description": "A black film strip with sprocket holes, amber frame number and uppercase look name.",
+      "html": "<div class=\"ds-fr\"><div class=\"ds-img\"></div><div class=\"ds-meta\"><span class=\"ds-no\">07</span><span class=\"ds-nm\">Example look</span></div></div>",
+      "css": ".ds-fr{position:relative;width:200px;background:#0f0f10;padding:15px 6px 0}.ds-fr::before,.ds-fr::after{content:\"\";position:absolute;left:0;right:0;height:15px;background:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='15'%3E%3Crect x='6' y='4.5' width='8' height='6' rx='1.6' fill='%23eeede8'/%3E%3C/svg%3E\") 0 0/20px 15px repeat-x}.ds-fr::before{top:0}.ds-fr::after{bottom:0}.ds-img{aspect-ratio:3/2;background:linear-gradient(180deg,#27324a,#101524)}.ds-meta{display:flex;justify-content:space-between;gap:8px;padding:6px 1px 19px;color:#a9a9a6;font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-weight:600;font-size:11px;font-stretch:78%;letter-spacing:.07em;text-transform:uppercase}.ds-no{font-family:'Overpass Mono',ui-monospace,Menlo,monospace;color:#eaa94a;letter-spacing:.04em}.ds-fr:hover .ds-nm{color:#e9e8e3}"
+    },
+    {
+      "name": "Filter Tabs",
+      "kind": "nav",
+      "refersTo": "filter-tab",
+      "description": "Text-only toggles; the active one carries a 3px grease-pencil underline.",
+      "html": "<div class=\"ds-seg\"><button class=\"ds-tab\" aria-pressed=\"true\">All</button><button class=\"ds-tab\" aria-pressed=\"false\">Dark</button><button class=\"ds-tab\" aria-pressed=\"false\">Light</button></div>",
+      "css": ".ds-seg{display:flex;gap:18px}.ds-tab{padding:6px 0;border:0;background:none;font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-weight:600;font-size:15px;color:#50535a;text-decoration:underline;text-decoration-color:transparent;text-decoration-thickness:3px;text-underline-offset:6px;cursor:pointer;transition:color .15s,text-decoration-color .15s}.ds-tab:hover{color:#141414}.ds-tab[aria-pressed=\"true\"]{color:#141414;text-decoration-color:#d6362b}.ds-tab:focus-visible{outline:2px solid #fff;box-shadow:0 0 0 4px #d6362b;border-radius:2px}"
+    },
+    {
+      "name": "Underline Search Field",
+      "kind": "input",
+      "refersTo": "field-underline",
+      "description": "Borderless field with a 2px ink underline.",
+      "html": "<input class=\"ds-input\" type=\"search\" placeholder=\"Find a look or an author\">",
+      "css": ".ds-input{width:260px;height:40px;padding:0 2px;background:none;border:0;border-bottom:2px solid #141414;border-radius:0;font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:16px;color:#141414}.ds-input::placeholder{color:#50535a;opacity:1}.ds-input:focus-visible{outline:2px solid #fff;box-shadow:0 0 0 4px #d6362b}"
+    },
+    {
+      "name": "Copy Button (primary)",
+      "kind": "button",
+      "refersTo": "button-copy-primary",
+      "description": "Light-on-film fill used for the main action on the print.",
+      "html": "<div class=\"ds-onfilm\"><button class=\"ds-btn-go\">Copy</button></div>",
+      "css": ".ds-onfilm{background:#1b1b1d;padding:18px}.ds-btn-go{min-height:40px;padding:0 14px;border:1px solid #e9e8e3;background:#e9e8e3;color:#0f0f10;font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-weight:600;font-size:14px;cursor:pointer}.ds-btn-go:hover{background:#fff}.ds-btn-go:focus-visible{outline:2px solid #fff;box-shadow:0 0 0 4px #d6362b}"
+    },
+    {
+      "name": "Ghost Button on Film",
+      "kind": "button",
+      "refersTo": "button-ghost-on-film",
+      "description": "Outlined action for Circle it, Previous, Next, Close; pressed state takes a red border.",
+      "html": "<div class=\"ds-onfilm\"><button class=\"ds-btn\">Previous</button> <button class=\"ds-btn\" aria-pressed=\"true\">Circled</button></div>",
+      "css": ".ds-onfilm{background:#1b1b1d;padding:18px;display:flex;gap:8px}.ds-btn{min-height:40px;padding:0 14px;border:1px solid #5a5a5f;background:none;color:#e9e8e3;font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-weight:600;font-size:14px;cursor:pointer}.ds-btn:hover{border-color:#e9e8e3}.ds-btn[aria-pressed=\"true\"]{border-color:#d6362b}.ds-btn:focus-visible{outline:2px solid #fff;box-shadow:0 0 0 4px #d6362b}"
+    },
+    {
+      "name": "Step-Wedge Chips",
+      "kind": "chip",
+      "refersTo": "print-band",
+      "description": "Color chips with an amber hex caption, click to copy.",
+      "html": "<div class=\"ds-print\"><div class=\"ds-chips\"><button class=\"ds-chip\"><i style=\"background:#2b2a33\"></i><b>2B2A33</b></button><button class=\"ds-chip\"><i style=\"background:#e9e4d8\"></i><b>E9E4D8</b></button><button class=\"ds-chip\"><i style=\"background:#d97757\"></i><b>D97757</b></button></div><span class=\"ds-cap\">Surfaces</span></div>",
+      "css": ".ds-print{background:#1b1b1d;padding:18px;display:flex;flex-direction:column;gap:6px}.ds-chips{display:flex}.ds-chip{width:54px;padding:0;border:0;background:none;text-align:left;cursor:pointer}.ds-chip i{display:block;height:38px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.22)}.ds-chip b{display:block;margin-top:4px;font-family:'Overpass Mono',ui-monospace,Menlo,monospace;font-weight:500;font-size:11px;line-height:1.2;color:#eaa94a;text-transform:uppercase}.ds-chip:hover b{color:#fff}.ds-chip:focus-visible{outline:2px solid #fff;box-shadow:0 0 0 4px #d6362b}.ds-cap{font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:12px;font-weight:600;color:#a9a9a6}"
+    },
+    {
+      "name": "Command Line",
+      "kind": "custom",
+      "refersTo": "command-line",
+      "description": "Mono well on film holding an install command.",
+      "html": "<div class=\"ds-onfilm\"><code class=\"ds-code\">/plugin install look-example --marketplace briannaworkman/looks</code></div>",
+      "css": ".ds-onfilm{background:#1b1b1d;padding:18px}.ds-code{display:block;max-width:320px;padding:10px 11px;background:#0f0f10;border:1px solid #36363a;font-family:'Overpass Mono',ui-monospace,Menlo,monospace;font-size:12.5px;line-height:1.4;color:#e9e8e3;white-space:pre-wrap;overflow-wrap:anywhere;user-select:all}"
+    },
+    {
+      "name": "Circle Toggle",
+      "kind": "button",
+      "refersTo": "circle-toggle",
+      "description": "Ring icon that fills grease-pencil red when a frame is circled.",
+      "html": "<div class=\"ds-onfilm\"><button class=\"ds-mark\" aria-pressed=\"false\"><svg viewBox=\"0 0 24 17\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M4 9C3 3.5 9 1.5 14 2 20 2.6 22.5 7 20 11.5 17.5 15.5 9 16 5 13.5 2.6 12 2.5 9 4.5 6.5\"/></svg></button> <button class=\"ds-mark on\" aria-pressed=\"true\"><svg viewBox=\"0 0 24 17\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M4 9C3 3.5 9 1.5 14 2 20 2.6 22.5 7 20 11.5 17.5 15.5 9 16 5 13.5 2.6 12 2.5 9 4.5 6.5\"/></svg></button></div>",
+      "css": ".ds-onfilm{background:#0f0f10;padding:18px;display:flex;gap:12px}.ds-mark{width:24px;height:22px;padding:0;border:0;border-radius:11px;background:none;color:#a9a9a6;display:grid;place-items:center;cursor:pointer;transition:color .15s,background .15s}.ds-mark svg{width:15px;height:11px}.ds-mark:hover{color:#fff}.ds-mark.on{background:#d6362b;color:#fff}.ds-mark:focus-visible{outline:2px solid #fff;box-shadow:0 0 0 4px #d6362b}"
+    },
+    {
+      "name": "Mock Claude Window",
+      "kind": "custom",
+      "refersTo": "film-strip-frame",
+      "description": "Content component: every color is an input from a look's data via custom properties.",
+      "html": "<div class=\"ds-pv\"><div class=\"ds-sky\"></div><div class=\"ds-win\"><div class=\"ds-bar\"><i></i><i></i><i></i></div><div class=\"ds-chat\"><div class=\"ds-user\">add a cook time badge</div><p>Nice idea. Let me look.</p><div class=\"ds-codeb\">function badge() {}</div></div><div class=\"ds-comp\"><span>Type / for commands</span><b></b></div></div></div>",
+      "css": ".ds-pv{--sky0:#2a2438;--sky1:#1b1826;--sky2:#120f1a;--glow:#d97757;--s0:#1c1a24;--s1:#24212d;--s2:#2e2a38;--tp:#efe9e1;--ts:#bdb5ab;--tm:#8a8378;--ac:#d97757;--fill:#d97757;--on:#1c1a24;container-type:inline-size;position:relative;aspect-ratio:3/2;width:320px;overflow:hidden;isolation:isolate}.ds-sky{position:absolute;inset:0;background:radial-gradient(60% 70% at 85% 15%,color-mix(in srgb,var(--glow) 16%,transparent),transparent),linear-gradient(180deg,var(--sky0),var(--sky1) 50%,var(--sky2))}.ds-win{position:absolute;inset:0;display:flex;flex-direction:column;color:var(--tp);font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:2.2cqw;line-height:1.35}.ds-win *{margin:0}.ds-bar{height:5.8cqw;display:flex;align-items:center;gap:1cqw;padding:0 2cqw;background:color-mix(in srgb,var(--s0) 45%,transparent);border-bottom:.12cqw solid color-mix(in srgb,var(--tm) 18%,transparent)}.ds-bar i{width:1.15cqw;height:1.15cqw;border-radius:50%;background:color-mix(in srgb,var(--tm) 45%,transparent)}.ds-chat{flex:1;width:64cqw;margin:0 auto;padding-top:4.2cqw;display:flex;flex-direction:column;gap:2.4cqw}.ds-user{align-self:flex-end;padding:1.3cqw 2.2cqw;border-radius:2.2cqw;background:color-mix(in srgb,var(--s2) 70%,transparent)}.ds-codeb{padding:1.5cqw 2.2cqw;border-radius:1.7cqw;font-family:'Overpass Mono',ui-monospace,Menlo,monospace;font-size:1.95cqw;color:var(--ac);background:color-mix(in srgb,var(--s1) 72%,transparent)}.ds-comp{width:64cqw;height:6.4cqw;margin:0 auto 2cqw;border-radius:3.2cqw;display:flex;align-items:center;gap:1.8cqw;padding:0 1.6cqw 0 2.4cqw;background:color-mix(in srgb,var(--s1) 62%,transparent);color:var(--tm)}.ds-comp span{flex:1}.ds-comp b{width:3.6cqw;height:3.6cqw;border-radius:50%;background:var(--fill)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Proof Sheet",
+    "overview": "The page is a contact sheet laid on a light table. A pale paper sheet sits on a slightly darker, softly lit grey table; on the sheet, ninety-five frames run in black film strips with sprocket holes, numbered in amber edge print like a lab marking negatives. Open a frame and a print tips in under its strip: a black band holding a paper-matted preview, a step-wedge of color chips, the credit line, and two install commands. A round loupe follows the pointer to magnify any frame. Everything is physical, photographic, and a little clinical.\n\nThe chrome is achromatic on purpose. Paper, ink, film, and a single amber are neutrals and instrument marks; every hue that is not the one grease-pencil red comes from the looks themselves, which are data. The wordmark and print titles use Archivo pulled to a narrow width, set tight and heavy like a stamped film-stock label. Mono is reserved for edge print, frame numbers, hex values, and commands. Controls are underlines, not boxes, so the only filled shapes on the sheet are the frames.\n\nThe system rejects decorative color, card chrome, and rounded friendly UI. Depth is the sheet floating above the table and the print mat floating above the film, nothing more.",
+    "keyCharacteristics": [
+      "Light paper sheet on a light table; black film strips with sprocket-hole edges.",
+      "Achromatic chrome; amber for edge print, one red for pencil marks, focus, and active state.",
+      "Condensed, heavy Archivo for names; Overpass Mono for numbers, hex, and commands.",
+      "Underline controls, square corners on everything except the circle toggle and the loupe.",
+      "Mock Claude window as a component whose colors are all inputs."
+    ],
+    "rules": [
+      {
+        "name": "The Achromatic Chrome Rule",
+        "body": "The interface owns neutrals, amber, and one red. Any other hue on screen is a look's own color and must come from the data, never from the interface.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Red Rule",
+        "body": "Grease-pencil red marks human attention: circles, selection, focus, the active filter. It is never a button fill or a decoration.",
+        "section": "colors"
+      },
+      {
+        "name": "The Amber Stays On Film Rule",
+        "body": "Amber is edge print. It appears only on black film surfaces, and only for numbers and hex captions.",
+        "section": "colors"
+      },
+      {
+        "name": "The Width Axis Rule",
+        "body": "Hierarchy comes from Archivo's width and weight: narrow and 800 for names, normal for reading, mid-narrow (78%) for tiny uppercase labels. Do not add another display family.",
+        "section": "typography"
+      },
+      {
+        "name": "The Counted Things Are Mono Rule",
+        "body": "Anything numbered, hexed, or copyable is Overpass Mono with tabular figures.",
+        "section": "typography"
+      },
+      {
+        "name": "The Paper On Table Rule",
+        "body": "Only two things float: the sheet over the table, the mat over the film. Everything else is flat. Shadows are soft and offset-down, never hard-edged.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** keep the chrome to paper (#eeede8), ink (#141414), film (#0f0f10 / #1b1b1d), amber (#eaa94a) and one red (#d6362b).",
+      "**Do** let every other color come from a look's own data via custom properties on the mock window.",
+      "**Do** mark selection, focus, and the active filter in grease-pencil red; keep the 2px white outline plus 4px red halo for focus on both paper and film.",
+      "**Do** use Overpass Mono with tabular figures for frame numbers, hex, and commands, and amber for these only on film.",
+      "**Do** keep controls as underlines and text, with square corners on structural elements.",
+      "**Do** honor reduced motion: the circle draw animation and all transitions switch off.",
+      "**Do** say in the footer that previews are renderings, not screenshots."
+    ],
+    "donts": [
+      "**Don't** introduce a hue in the chrome that is not amber or grease-pencil red.",
+      "**Don't** fill buttons or tabs with the red; it marks, it does not decorate.",
+      "**Don't** use hard offset shadows or card borders; depth is only the sheet and the print mat.",
+      "**Don't** round the film frames, print band, command wells, or buttons.",
+      "**Don't** add a second display family; use Archivo's width axis.",
+      "**Don't** rely on hover for anything: tabs, copy, and circle all work by tap and keyboard, and the loupe is an enhancement for fine pointers only."
+    ]
+  }
+}

@@ -8,7 +8,7 @@ web
 
 ## Stack
 
-Plain static HTML, CSS and JavaScript, with no framework (the user's choice). Deployed to GitHub Pages, served from the repository's `docs/` folder (the user's choice). The page is generated: `scripts/build.mjs` fills `src/gallery-template.html` with data from `scripts/resolve.mjs` (`galleryEntry()`) and writes `docs/index.html`. Turning Pages on in the repository's settings has not been done and needs the user's go-ahead.
+Plain static HTML, CSS and JavaScript, with no framework (the user's choice). Deployed to GitHub Pages, served from the repository's `docs/` folder (the user's choice). The page is generated: `scripts/build.mjs` fills `src/gallery-template.html` with data from `scripts/resolve.mjs` (`galleryEntry()`) and writes `docs/index.html`. GitHub Pages is on and the site is live at https://briannaworkman.github.io/looks/.
 
 ## Users
 

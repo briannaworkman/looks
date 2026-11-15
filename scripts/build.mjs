@@ -163,9 +163,9 @@ write(
 
 // ---- previews, the gallery pages and the README ----------------------------
 
-// The searchable gallery page, published as an artifact. Leave empty to leave
-// the link out of the README.
-const INTERACTIVE_GALLERY = 'https://claude.ai/artifact/NmsFaUQA6dtLgeQcQJVxHj'
+// The searchable gallery site (GitHub Pages, served from docs/). Leave empty to
+// leave the link out of GALLERY.md.
+const INTERACTIVE_GALLERY = 'https://briannaworkman.github.io/looks/'
 
 const html = s => String(s).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[ch])
 const lookById = id => {

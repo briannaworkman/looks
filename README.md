@@ -7,7 +7,7 @@
 **<!-- count:start -->95<!-- count:end --> themes for the Claude desktop and mobile apps.**<br>
 Install them all and switch with one command, or install only the one you like.
 
-[Install](#install) &nbsp;·&nbsp; [Gallery](GALLERY.md) &nbsp;·&nbsp; [Interactive gallery](https://claude.ai/artifact/NmsFaUQA6dtLgeQcQJVxHj) &nbsp;·&nbsp; [Credits](CREDITS.md)
+[Install](#install) &nbsp;·&nbsp; [Gallery](GALLERY.md) &nbsp;·&nbsp; [Interactive gallery](https://briannaworkman.github.io/looks/) &nbsp;·&nbsp; [Credits](CREDITS.md)
 
 </div>
 
@@ -79,7 +79,7 @@ The bundle starts on `mocha` and remembers the last look you chose across sessio
 ## Browse the looks
 
 - **[GALLERY.md](GALLERY.md)** shows a preview of every look, dark and light.
-- **[Interactive gallery](https://claude.ai/artifact/NmsFaUQA6dtLgeQcQJVxHj)** adds search and filters, the exact colors of each look, and a copy button for its install line.
+- **[The gallery site](https://briannaworkman.github.io/looks/)** shows every look as a polaroid, with search and filters, the exact colors of each look, and a copy button for its install line.
 - Cloning the repository also gives you `docs/index.html`, the same interactive page, to open in a browser.
 
 <!-- names:start -->
@@ -112,7 +112,7 @@ Two things keep a look readable:
 
 ## Publish the gallery site
 
-`docs/index.html` is one static page with no dependencies beyond two web fonts, built from `src/site/`. To serve it on GitHub Pages, open the repository's **Settings**, then **Pages**, set the source to **Deploy from a branch**, and choose the `main` branch and the `/docs` folder. It is then live at `https://<your-username>.github.io/looks/`. Any static host works the same way: point it at `docs/`.
+`docs/index.html` is one static page with no dependencies beyond three web fonts, built from `src/site/`. It is served on GitHub Pages straight from the `docs/` folder of the `main` branch, at https://briannaworkman.github.io/looks/, and redeploys when a change to `docs/` is pushed. Any static host works the same way: point it at `docs/`.
 
 ## Credits
 

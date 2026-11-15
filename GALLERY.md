@@ -4,7 +4,7 @@ All 95 looks: 69 dark and 26 light. The name under each one is what you type: `/
 
 Each preview is a rendering built from the look's colors, with its backdrop gradient and frosted panels. They are not captures from the app, which picks some colors itself, so a look may differ slightly on screen.
 
-For search and filters, there is an [interactive version](https://claude.ai/artifact/NmsFaUQA6dtLgeQcQJVxHj). Cloning the repository also gives you `docs/index.html`, the same page, to open in a browser.
+For search and filters, there is an [interactive version](https://briannaworkman.github.io/looks/). Cloning the repository also gives you `docs/index.html`, the same page, to open in a browser.
 
 [Dark](#dark) · [Light](#light) · [Credits](CREDITS.md) · [Back to the README](README.md)
 

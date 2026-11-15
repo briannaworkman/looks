@@ -40,31 +40,34 @@ Each look recolors the whole interface and puts a soft gradient behind the conve
 
 ## Install
 
-### Just one look
+Every look is its own small mod, named `look-` plus its name from the [gallery](GALLERY.md), and one more mod, `looks`, bundles all of them with a switcher. You install from the Claude desktop app or from a terminal session. Either way, add this repository as a marketplace first, then add a look from it.
 
-Every look is its own small mod, named `look-` plus its name from the [gallery](GALLERY.md). At the prompt of a terminal session:
+### In the desktop app
+
+`/plugin install ...` does not run as a command in the desktop app. Typing it opens the app's own plugin directory and searches that, and this repository is not in it, so a search for `look-mocha` finds an unrelated plugin. Add the marketplace first:
+
+1. Open the **Plugins** list (click **+** next to the prompt box, then **Plugins**).
+2. Click **+ Add** and choose the option to add a marketplace.
+3. Enter `briannaworkman/looks`.
+4. Search for a look, such as `look-nord`, and add it. Add `looks` instead for the bundle.
+
+### In a terminal session
 
 ```
 /plugin install look-nord --marketplace briannaworkman/looks
 ```
 
-Answer `y` to add the marketplace, then choose a scope. The user scope keeps it for every session.
-
-Or from a shell:
+Answer `y` to add the marketplace, then choose a scope. The **user** scope loads it in every session you start afterward. Or from a shell:
 
 ```bash
 claude plugin install look-nord --marketplace briannaworkman/looks
 ```
 
-In the desktop app, where `/plugin` does not run: click **+** next to the prompt box, then **Plugins**, **Add marketplace** with `briannaworkman/looks`, then **Add plugin** and pick the look.
+### Which to install
 
-A session shows one theme at a time. If you install two single looks, whichever loads last wins, so install one, or use the bundle below.
+**Just one look.** A session shows one theme at a time, so install one. If you install two single looks, whichever loads last wins.
 
-### All of them, with a switcher
-
-```
-/plugin install looks --marketplace briannaworkman/looks
-```
+**All of them, with a switcher.** Install the `looks` bundle (`/plugin install looks --marketplace briannaworkman/looks`), then:
 
 ```
 /look             list every look, with the current one marked
@@ -74,7 +77,9 @@ A session shows one theme at a time. If you install two single looks, whichever 
 
 The bundle starts on `mocha` and remembers the last look you chose across sessions. Don't install it together with single looks: they would set their themes against each other.
 
-> Themes draw in the desktop and mobile apps. The terminal and editors draw no theme, so a look has no effect there.
+### When it takes effect
+
+A look applies when a session starts. After installing, new sessions are themed. A session that was already open is not, so start a new one or restart it. Themes draw in the desktop and mobile apps, not in a terminal or an editor.
 
 ## Browse the looks
 

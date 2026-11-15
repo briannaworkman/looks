@@ -1,6 +1,189 @@
 {
   "name": "looks",
-  "description": "A gallery of 35 themes for the Claude desktop and mobile apps, switched with /look.",
-  "owner": { "name": "briannaworkman" },
-  "plugins": [{ "name": "looks", "source": "./" }]
+  "description": "A gallery of 35 themes for the Claude desktop and mobile apps. Install them all, or just one.",
+  "owner": {
+    "name": "briannaworkman"
+  },
+  "plugins": [
+    {
+      "name": "looks",
+      "source": "./plugins/looks",
+      "description": "All 35 looks for the Claude desktop and mobile apps, switched with /look."
+    },
+    {
+      "name": "look-mocha",
+      "source": "./plugins/look-mocha",
+      "description": "Catppuccin Mocha: a dark theme for the Claude desktop and mobile apps."
+    },
+    {
+      "name": "look-latte",
+      "source": "./plugins/look-latte",
+      "description": "Catppuccin Latte: a light theme for the Claude desktop and mobile apps."
+    },
+    {
+      "name": "look-nord",
+      "source": "./plugins/look-nord",
+      "description": "Nord: a dark theme for the Claude desktop and mobile apps."
+    },
+    {
+      "name": "look-dracula",
+      "source": "./plugins/look-dracula",
+      "description": "Dracula: a dark theme for the Claude desktop and mobile apps."
+    },
+    {
+      "name": "look-tokyo-night",
+      "source": "./plugins/look-tokyo-night",
+      "description": "Tokyo Night: a dark theme for the Claude desktop and mobile apps."
+    },
+    {
+      "name": "look-gruvbox",
+      "source": "./plugins/look-gruvbox",
+      "description": "Gruvbox Dark: a dark theme for the Claude desktop and mobile apps."
+    },
+    {
+      "name": "look-rose-pine",
+      "source": "./plugins/look-rose-pine",
+      "description": "Rosé Pine: a dark theme for the Claude desktop and mobile apps."
+    },
+    {
+      "name": "look-everforest",
+      "source": "./plugins/look-everforest",
+      "description": "Everforest: a dark theme for the Claude desktop and mobile apps."
+    },
+    {
+      "name": "look-solarized-dark",
+      "source": "./plugins/look-solarized-dark",
+      "description": "Solarized Dark: a dark theme for the Claude desktop and mobile apps."
+    },
+    {
+      "name": "look-solarized-light",
+      "source": "./plugins/look-solarized-light",
+      "description": "Solarized Light: a light theme for the Claude desktop and mobile apps."
+    },
+    {
+      "name": "look-frappe",
+      "source": "./plugins/look-frappe",
+      "description": "Catppuccin Frappé: a dark theme for the Claude desktop and mobile apps."
+    },
+    {
+      "name": "look-macchiato",
+      "source": "./plugins/look-macchiato",
+      "description": "Catppuccin Macchiato: a dark theme for the Claude desktop and mobile apps."
+    },
+    {
+      "name": "look-one-dark",
+      "source": "./plugins/look-one-dark",
+      "description": "One Dark: a dark theme for the Claude desktop and mobile apps."
+    },
+    {
+      "name": "look-kanagawa",
+      "source": "./plugins/look-kanagawa",
+      "description": "Kanagawa: a dark theme for the Claude desktop and mobile apps."
+    },
+    {
+      "name": "look-ayu-mirage",
+      "source": "./plugins/look-ayu-mirage",
+      "description": "Ayu Mirage: a dark theme for the Claude desktop and mobile apps."
+    },
+    {
+      "name": "look-github-dark",
+      "source": "./plugins/look-github-dark",
+      "description": "GitHub Dark: a dark theme for the Claude desktop and mobile apps."
+    },
+    {
+      "name": "look-github-light",
+      "source": "./plugins/look-github-light",
+      "description": "GitHub Light: a light theme for the Claude desktop and mobile apps."
+    },
+    {
+      "name": "look-gruvbox-light",
+      "source": "./plugins/look-gruvbox-light",
+      "description": "Gruvbox Light: a light theme for the Claude desktop and mobile apps."
+    },
+    {
+      "name": "look-rose-pine-dawn",
+      "source": "./plugins/look-rose-pine-dawn",
+      "description": "Rosé Pine Dawn: a light theme for the Claude desktop and mobile apps."
+    },
+    {
+      "name": "look-night-owl",
+      "source": "./plugins/look-night-owl",
+      "description": "Night Owl: a dark theme for the Claude desktop and mobile apps."
+    },
+    {
+      "name": "look-synthwave",
+      "source": "./plugins/look-synthwave",
+      "description": "Synthwave '84: a dark theme for the Claude desktop and mobile apps."
+    },
+    {
+      "name": "look-monokai",
+      "source": "./plugins/look-monokai",
+      "description": "Monokai: a dark theme for the Claude desktop and mobile apps."
+    },
+    {
+      "name": "look-amber-crt",
+      "source": "./plugins/look-amber-crt",
+      "description": "Amber CRT: a dark theme for the Claude desktop and mobile apps."
+    },
+    {
+      "name": "look-tokyo-night-storm",
+      "source": "./plugins/look-tokyo-night-storm",
+      "description": "Tokyo Night Storm: a dark theme for the Claude desktop and mobile apps."
+    },
+    {
+      "name": "look-nightfox",
+      "source": "./plugins/look-nightfox",
+      "description": "Nightfox: a dark theme for the Claude desktop and mobile apps."
+    },
+    {
+      "name": "look-oxocarbon",
+      "source": "./plugins/look-oxocarbon",
+      "description": "Oxocarbon: a dark theme for the Claude desktop and mobile apps."
+    },
+    {
+      "name": "look-material-ocean",
+      "source": "./plugins/look-material-ocean",
+      "description": "Material Ocean: a dark theme for the Claude desktop and mobile apps."
+    },
+    {
+      "name": "look-zenburn",
+      "source": "./plugins/look-zenburn",
+      "description": "Zenburn: a dark theme for the Claude desktop and mobile apps."
+    },
+    {
+      "name": "look-deep-sea",
+      "source": "./plugins/look-deep-sea",
+      "description": "Deep Sea: a dark theme for the Claude desktop and mobile apps."
+    },
+    {
+      "name": "look-mint-chocolate",
+      "source": "./plugins/look-mint-chocolate",
+      "description": "Mint Chocolate: a dark theme for the Claude desktop and mobile apps."
+    },
+    {
+      "name": "look-ayu-light",
+      "source": "./plugins/look-ayu-light",
+      "description": "Ayu Light: a light theme for the Claude desktop and mobile apps."
+    },
+    {
+      "name": "look-everforest-light",
+      "source": "./plugins/look-everforest-light",
+      "description": "Everforest Light: a light theme for the Claude desktop and mobile apps."
+    },
+    {
+      "name": "look-nord-snow",
+      "source": "./plugins/look-nord-snow",
+      "description": "Nord Snow: a light theme for the Claude desktop and mobile apps."
+    },
+    {
+      "name": "look-paper",
+      "source": "./plugins/look-paper",
+      "description": "Paper Notebook: a light theme for the Claude desktop and mobile apps."
+    },
+    {
+      "name": "look-sakura",
+      "source": "./plugins/look-sakura",
+      "description": "Sakura: a light theme for the Claude desktop and mobile apps."
+    }
+  ]
 }

@@ -94,24 +94,3 @@ ${previewInner(look, c, 'p')}
 </svg>
 `
 }
-
-/** A wide banner: three looks at slight angles over a soft dark ground. */
-export function heroSvg(trio) {
-  const [left, center, right] = trio
-  const place = ({ look, c }, i, x, y, w, rotate) =>
-    `<g transform="rotate(${rotate} ${x + w / 2} ${y + (w * H) / W / 2})" filter="url(#shadow)"><svg x="${x}" y="${y}" width="${w}" height="${(w * H) / W}" viewBox="0 0 ${W} ${H}">${previewInner(look, c, `h${i}`)}</svg></g>`
-
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 440" width="1280" height="440" role="img" aria-label="Three looks from the gallery: ${esc(left.look.name)}, ${esc(center.look.name)} and ${esc(right.look.name)}">
-<defs>
-  <linearGradient id="heroBg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#14161d"/><stop offset="1" stop-color="#0c0d12"/></linearGradient>
-  <radialGradient id="heroGlow" cx="0.5" cy="0.45" r="0.6"><stop offset="0" stop-color="#8b7cff" stop-opacity="0.22"/><stop offset="1" stop-color="#8b7cff" stop-opacity="0"/></radialGradient>
-  <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#000" flood-opacity="0.45"/></filter>
-</defs>
-<rect width="1280" height="440" rx="20" fill="url(#heroBg)"/>
-<rect width="1280" height="440" rx="20" fill="url(#heroGlow)"/>
-${place(left, 0, 70, 96, 440, -5)}
-${place(right, 2, 770, 96, 440, 5)}
-${place(center, 1, 386, 52, 508, 0)}
-</svg>
-`
-}

@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="docs/hero.svg" alt="Three looks from the gallery: Tokyo Night, Catppuccin Mocha and Catppuccin Latte" width="100%">
+<img src="docs/hero.png" alt="Three looks from the gallery: Tokyo Night, Catppuccin Mocha and Catppuccin Latte" width="100%">
 
 # looks
 
@@ -24,14 +24,14 @@ Each look recolors the whole interface and puts a soft gradient behind the conve
 <!-- featured:start -->
 <table>
 <tr>
-<td align="center" valign="top" width="33%"><a href="gallery/previews/mocha.svg"><img src="gallery/previews/mocha.svg" width="290" alt="Catppuccin Mocha"></a><br><b>Catppuccin Mocha</b><br><sub><code>mocha</code></sub></td>
-<td align="center" valign="top" width="33%"><a href="gallery/previews/tokyo-night.svg"><img src="gallery/previews/tokyo-night.svg" width="290" alt="Tokyo Night"></a><br><b>Tokyo Night</b><br><sub><code>tokyo-night</code></sub></td>
-<td align="center" valign="top" width="33%"><a href="gallery/previews/gruvbox.svg"><img src="gallery/previews/gruvbox.svg" width="290" alt="Gruvbox Dark"></a><br><b>Gruvbox Dark</b><br><sub><code>gruvbox</code></sub></td>
+<td align="center" valign="top" width="33%"><a href="gallery/featured/mocha.png"><img src="gallery/featured/mocha.png" width="290" alt="Catppuccin Mocha"></a><br><b>Catppuccin Mocha</b><br><sub><code>mocha</code></sub></td>
+<td align="center" valign="top" width="33%"><a href="gallery/featured/tokyo-night.png"><img src="gallery/featured/tokyo-night.png" width="290" alt="Tokyo Night"></a><br><b>Tokyo Night</b><br><sub><code>tokyo-night</code></sub></td>
+<td align="center" valign="top" width="33%"><a href="gallery/featured/gruvbox.png"><img src="gallery/featured/gruvbox.png" width="290" alt="Gruvbox Dark"></a><br><b>Gruvbox Dark</b><br><sub><code>gruvbox</code></sub></td>
 </tr>
 <tr>
-<td align="center" valign="top" width="33%"><a href="gallery/previews/latte.svg"><img src="gallery/previews/latte.svg" width="290" alt="Catppuccin Latte"></a><br><b>Catppuccin Latte</b><br><sub><code>latte</code></sub></td>
-<td align="center" valign="top" width="33%"><a href="gallery/previews/rose-pine-dawn.svg"><img src="gallery/previews/rose-pine-dawn.svg" width="290" alt="Rosé Pine Dawn"></a><br><b>Rosé Pine Dawn</b><br><sub><code>rose-pine-dawn</code></sub></td>
-<td align="center" valign="top" width="33%"><a href="gallery/previews/synthwave.svg"><img src="gallery/previews/synthwave.svg" width="290" alt="Synthwave &#39;84"></a><br><b>Synthwave &#39;84</b><br><sub><code>synthwave</code></sub></td>
+<td align="center" valign="top" width="33%"><a href="gallery/featured/latte.png"><img src="gallery/featured/latte.png" width="290" alt="Catppuccin Latte"></a><br><b>Catppuccin Latte</b><br><sub><code>latte</code></sub></td>
+<td align="center" valign="top" width="33%"><a href="gallery/featured/rose-pine-dawn.png"><img src="gallery/featured/rose-pine-dawn.png" width="290" alt="Rosé Pine Dawn"></a><br><b>Rosé Pine Dawn</b><br><sub><code>rose-pine-dawn</code></sub></td>
+<td align="center" valign="top" width="33%"><a href="gallery/featured/synthwave.png"><img src="gallery/featured/synthwave.png" width="290" alt="Synthwave &#39;84"></a><br><b>Synthwave &#39;84</b><br><sub><code>synthwave</code></sub></td>
 </tr>
 </table>
 <!-- featured:end -->
@@ -102,6 +102,8 @@ node scripts/build.mjs
 ```
 
 The build checks each look and refuses one the desktop app would not paint. It writes each look's mod and the bundle into `plugins/`, a preview image for each into `gallery/previews/`, the gallery pages, the marketplace file, `CREDITS.md` and the lists in this README. Commit what it writes, and edit `src/` rather than the generated files.
+
+The banner and the featured strip are PNGs, drawn at 2x by headless Chrome so they look the same in every browser. If you change which looks they show (`src/featured.js`) or a look's colors, redraw them with `node scripts/export-png.mjs` after building. It needs Google Chrome installed.
 
 Two things keep a look readable:
 

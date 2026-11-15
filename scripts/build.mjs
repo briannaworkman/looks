@@ -16,7 +16,8 @@ import { fileURLToPath } from 'node:url'
 import { makeColors } from '../src/make-colors.js'
 import { ORIGINALS, PALETTE_CREDITS } from '../src/credits.js'
 import { LOOKS } from '../src/themes.js'
-import { heroSvg, previewSvg } from './previews.mjs'
+import { FEATURED, HERO } from '../src/featured.js'
+import { previewSvg } from './previews.mjs'
 import { galleryEntry, resolveColors } from './resolve.mjs'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
@@ -165,8 +166,6 @@ write(
 // The searchable gallery page, published as an artifact. Leave empty to leave
 // the link out of the README.
 const INTERACTIVE_GALLERY = 'https://claude.ai/artifact/NmsFaUQA6dtLgeQcQJVxHj'
-const FEATURED = ['mocha', 'tokyo-night', 'gruvbox', 'latte', 'rose-pine-dawn', 'synthwave']
-const HERO = ['tokyo-night', 'mocha', 'latte']
 
 const html = s => String(s).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[ch])
 const lookById = id => {
@@ -182,21 +181,22 @@ const lookById = id => {
 const resolved = new Map(LOOKS.map(each => [each.id, resolveColors(each)]))
 
 // One preview image per look, a banner, and the searchable page.
-rmSync(join(ROOT, 'gallery'), { recursive: true, force: true })
+rmSync(join(ROOT, 'gallery', 'previews'), { recursive: true, force: true })
 
 for (const each of LOOKS) {
   write(join(ROOT, 'gallery', 'previews', `${each.id}.svg`), previewSvg(each, resolved.get(each.id)))
 }
-write(join(ROOT, 'docs', 'hero.svg'), heroSvg(HERO.map(id => ({ look: lookById(id), c: resolved.get(id) }))))
+for (const id of [...HERO, ...FEATURED]) lookById(id) // fail early on a name that is not a look
 write(
   join(ROOT, 'docs', 'index.html'),
   readFileSync(join(ROOT, 'src', 'gallery-template.html'), 'utf8').replace('__DATA__', () => JSON.stringify(LOOKS.map(galleryEntry))),
 )
 
 // A grid of preview images, three to a row. HTML, because markdown cannot size an image.
-const grid = (looks, width) => {
+const svgPreview = each => `gallery/previews/${each.id}.svg`
+const grid = (looks, width, image = svgPreview) => {
   const cell = each =>
-    `<td align="center" valign="top" width="33%"><a href="gallery/previews/${each.id}.svg"><img src="gallery/previews/${each.id}.svg" width="${width}" alt="${html(each.name)}"></a><br><b>${html(each.name)}</b><br><sub><code>${each.id}</code></sub></td>`
+    `<td align="center" valign="top" width="33%"><a href="${image(each)}"><img src="${image(each)}" width="${width}" alt="${html(each.name)}"></a><br><b>${html(each.name)}</b><br><sub><code>${each.id}</code></sub></td>`
   const rows = []
 
   for (let i = 0; i < looks.length; i += 3) {
@@ -236,7 +236,9 @@ write(
 )
 
 // The README's generated parts, each between its own markers.
-const featured = `<!-- featured:start -->\n${grid(FEATURED.map(lookById), 290)}\n<!-- featured:end -->`
+// The featured looks and the banner are PNGs (scripts/export-png.mjs) when those have been exported.
+const featuredImage = each => (existsSync(join(ROOT, 'gallery', 'featured', `${each.id}.png`)) ? `gallery/featured/${each.id}.png` : svgPreview(each))
+const featured = `<!-- featured:start -->\n${grid(FEATURED.map(lookById), 290, featuredImage)}\n<!-- featured:end -->`
 const names = mode =>
   `**${mode === 'dark' ? 'Dark' : 'Light'}** (${LOOKS.filter(each => each.mode === mode).length}): ${LOOKS.filter(each => each.mode === mode)
     .map(each => `\`${each.id}\``)

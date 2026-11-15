@@ -61,9 +61,9 @@ async function apply($: Api, look: Look, isRemembered: boolean): Promise<string>
     await $.store.set(STORE_KEY, look.id)
   }
 
+  // Only /look reaches this with something to say; at session start the reply is dropped,
+  // so a terminal session, which cannot draw a theme, shows nothing under the prompt.
   if (!set.isDrawn) {
-    $.ui.status(set.reason)
-
     return `Picked ${look.name}, but nothing draws it here: ${set.reason}`
   }
 

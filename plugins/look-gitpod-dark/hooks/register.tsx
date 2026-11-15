@@ -139,14 +139,12 @@ const SCENE = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" pre
 
 export const register: Register = on => {
   on('session.start', async ($, e, next) => {
-    const set = await $.theme.set({
+    // Where no desktop or mobile client is attached (a terminal) nothing draws the theme.
+    // That is fine and not worth a line under the prompt, so the answer is ignored.
+    await $.theme.set({
       colors: COLORS,
       backdrop: { scene: SCENE_NAME, glass: {"blur":18,"opacity":0.5} },
     })
-
-    if (!set.isDrawn) {
-      $.ui.status(set.reason)
-    }
 
     return next(e)
   })

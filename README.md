@@ -40,7 +40,7 @@ Each look recolors the whole interface and puts a soft gradient behind the conve
 
 ## Install
 
-Every look is its own small mod, named `look-` plus its name from the [gallery](GALLERY.md), and one more mod, `looks`, bundles all of them with a switcher. You install from the Claude desktop app or from a terminal session. Either way, add this repository as a marketplace first, then add a look from it.
+Every look is its own small mod, named `look-` plus its name from the [gallery](GALLERY.md), and one more mod, `wardrobe`, bundles all of them with a switcher. You install from the Claude desktop app or from a terminal session. Either way, add this repository as a marketplace first, then add a look from it.
 
 ### In the desktop app
 
@@ -49,7 +49,7 @@ Every look is its own small mod, named `look-` plus its name from the [gallery](
 1. Open the **Plugins** list (click **+** next to the prompt box, then **Plugins**).
 2. Click **+ Add** and choose the option to add a marketplace.
 3. Enter `briannaworkman/looks`.
-4. Search for a look, such as `look-nord`, and add it. Add `looks` instead for the bundle.
+4. Search for a look, such as `look-nord`, and add it. Add `wardrobe` instead for the bundle.
 
 ### In a terminal session
 
@@ -67,7 +67,7 @@ claude plugin install look-nord --marketplace briannaworkman/looks
 
 **Just one look.** A session shows one theme at a time, so install one. If you install two single looks, whichever loads last wins.
 
-**All of them, with a switcher.** Install the `looks` bundle (`/plugin install looks --marketplace briannaworkman/looks`), then:
+**All of them, with a switcher.** Install the `wardrobe` bundle (`/plugin install wardrobe --marketplace briannaworkman/looks`), then:
 
 ```
 /look             list every look, with the current one marked

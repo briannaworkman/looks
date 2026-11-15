@@ -24,7 +24,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const AUTHOR = 'briannaworkman'
 const VERSION = '0.2.0'
 const GLASS = { blur: 18, opacity: 0.5 }
-const BUNDLE = 'looks'
+const BUNDLE = 'wardrobe'
 
 const write = (path, text) => {
   mkdirSync(dirname(path), { recursive: true })
@@ -167,7 +167,7 @@ const microReadme = look =>
 
 const bundleReadme = () =>
   [
-    `# looks`,
+    `# ${BUNDLE}`,
     '',
     `All ${LOOKS.length} looks for the Claude desktop and mobile apps in one plugin, switched with \`/look\`. From [${AUTHOR}/looks](${REPO_URL}); the [gallery](${SITE_URL}) shows every look. Credit for every palette and theme is in [CREDITS.md](${REPO_URL}/blob/main/CREDITS.md).`,
     '',
@@ -188,7 +188,7 @@ const bundleReadme = () =>
     "- `$.theme.set` hands the chosen look's colors to the app on your machine.",
     "- A `ui.render` hook on `Backdrop` draws the look's gradient through `$.ui.resolve`. It answers only for this plugin's own scenes and passes every other plugin's scene through untouched.",
     '',
-    ...installLines('looks'),
+    ...installLines(BUNDLE),
     "Don't install it together with a single look (`look-<name>`): a session shows one theme, so they would set it against each other.",
     '',
     '## License',

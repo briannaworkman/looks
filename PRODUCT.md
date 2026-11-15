@@ -24,7 +24,7 @@ Each preview is drawn from the look's real computed colors, with the gradient ba
 
 ## Operating Context
 
-Installing happens in two places: at a terminal prompt (`/plugin install look-<id> --marketplace briannaworkman/looks`, or `claude plugin install ...` from a shell) and in the desktop app (+ next to the prompt box, then Plugins, Add marketplace `briannaworkman/looks`, Add plugin). A session shows one theme at a time. The bundle (`looks`) holds every look with a `/look <id>` switcher; each look is also its own plugin, `look-<id>`.
+Installing happens in two places: at a terminal prompt (`/plugin install look-<id> --marketplace briannaworkman/looks`, or `claude plugin install ...` from a shell) and in the desktop app (+ next to the prompt box, then Plugins, Add marketplace `briannaworkman/looks`, Add plugin). A session shows one theme at a time. The bundle (`wardrobe`) holds every look with a `/look <id>` switcher; each look is also its own plugin, `look-<id>`.
 
 ## Capabilities and Constraints
 

@@ -1,4 +1,4 @@
-# looks
+# wardrobe
 
 All 95 looks for the Claude desktop and mobile apps in one plugin, switched with `/look`. From [briannaworkman/looks](https://github.com/briannaworkman/looks); the [gallery](https://briannaworkman.github.io/looks/) shows every look. Credit for every palette and theme is in [CREDITS.md](https://github.com/briannaworkman/looks/blob/main/CREDITS.md).
 
@@ -24,7 +24,7 @@ It sends nothing. It makes no network requests and runs no programs. The only th
 In a terminal session:
 
 ```
-/plugin install looks --marketplace briannaworkman/looks
+/plugin install wardrobe --marketplace briannaworkman/looks
 ```
 
 In the Claude desktop app, add the marketplace `briannaworkman/looks` from the Plugins list first. The steps are in the [repository's README](https://github.com/briannaworkman/looks#install).

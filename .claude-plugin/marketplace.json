@@ -6,8 +6,8 @@
   },
   "plugins": [
     {
-      "name": "looks",
-      "source": "./plugins/looks",
+      "name": "wardrobe",
+      "source": "./plugins/wardrobe",
       "description": "All 95 looks for the Claude desktop and mobile apps, switched with /look."
     },
     {

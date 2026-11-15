@@ -43,7 +43,7 @@ const pagePath = join(scratch, 'index.html')
 writeFileSync(pagePath, readFileSync(join(ROOT, 'src', 'export-template.html'), 'utf8').replace('__DATA__', () => JSON.stringify(LOOKS.map(galleryEntry))))
 const PAGE = pathToFileURL(pagePath).href
 
-const jobs = [...LOOKS.map(look => ({ id: look.id, hash: `icon=${look.id}` })), { id: 'looks', hash: `iconb=${HERO.join(',')}` }]
+const jobs = [...LOOKS.map(look => ({ id: look.id, hash: `icon=${look.id}` })), { id: 'wardrobe', hash: `iconb=${HERO.join(',')}` }]
 let next = 0
 let done = 0
 

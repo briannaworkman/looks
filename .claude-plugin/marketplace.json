@@ -1,0 +1,6 @@
+{
+  "name": "looks",
+  "description": "A gallery of 35 themes for the Claude desktop and mobile apps, switched with /look.",
+  "owner": { "name": "briannaworkman" },
+  "plugins": [{ "name": "looks", "source": "./" }]
+}

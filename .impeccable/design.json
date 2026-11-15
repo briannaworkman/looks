@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-15T02:46:12.538Z",
+  "generatedAt": "2026-11-15T02:58:39.964Z",
   "title": "Design System: Looks",
   "extensions": {
     "colorMeta": {
@@ -47,6 +47,36 @@
           "#f2f2ee",
           "#f5f5f2",
           "#f8f8f6"
+        ]
+      },
+      "polaroid": {
+        "role": "neutral",
+        "displayName": "Polaroid White",
+        "canonical": "#fcfbf7",
+        "tonalRamp": [
+          "#2e2e2e",
+          "#6b6a69",
+          "#a7a7a4",
+          "#dfdedb",
+          "#fdfcf9",
+          "#fefdfb",
+          "#fefefd",
+          "#fffffe"
+        ]
+      },
+      "marker": {
+        "role": "neutral",
+        "displayName": "Marker Ink",
+        "canonical": "#1d2030",
+        "tonalRamp": [
+          "#0d0d10",
+          "#121319",
+          "#161823",
+          "#1b1d2b",
+          "#565864",
+          "#8e9098",
+          "#c0c1c5",
+          "#e4e4e6"
         ]
       },
       "ink": {
@@ -154,19 +184,19 @@
           "#eeeeec"
         ]
       },
-      "amber-edge-print": {
+      "amber-hex-print": {
         "role": "secondary",
-        "displayName": "Edge-Print Amber",
+        "displayName": "Hex-Print Amber",
         "canonical": "#eaa94a",
         "tonalRamp": [
-          "#0a0a0a",
-          "#4a371c",
-          "#8a652f",
-          "#ca9241",
-          "#ecb35f",
-          "#f0c789",
-          "#f4dab4",
-          "#f8eede"
+          "#2c2214",
+          "#644a24",
+          "#9c7134",
+          "#cf9642",
+          "#efbf77",
+          "#f5d4a5",
+          "#f9e7cc",
+          "#fcf5e9"
         ]
       },
       "grease-pencil": {
@@ -192,7 +222,7 @@
       },
       "headline": {
         "displayName": "Print Title",
-        "purpose": "The open look's name on its print; 70% width."
+        "purpose": "The open look's name on the mat; 70% width."
       },
       "body": {
         "displayName": "Body",
@@ -202,29 +232,38 @@
         "displayName": "Control",
         "purpose": "Filter tabs, selects and the circled toggle."
       },
-      "frame-label": {
-        "displayName": "Frame Label",
-        "purpose": "Uppercase narrow look name under each frame."
+      "print-name": {
+        "displayName": "Print Name",
+        "purpose": "Marker-hand look name on each polaroid; two-line clamp."
       },
-      "edge-print": {
-        "displayName": "Edge Print",
-        "purpose": "Amber frame numbers and counted things, tabular mono."
+      "print-number": {
+        "displayName": "Print Number",
+        "purpose": "Two-digit mono number in the print footer, tabular."
+      },
+      "hex-caption": {
+        "displayName": "Hex Caption",
+        "purpose": "Amber uppercase hex under step-wedge chips on the mat."
       },
       "code": {
         "displayName": "Code",
-        "purpose": "Install commands and the Frame/mode/source line."
+        "purpose": "Install commands and the Print/mode/source line."
       }
     },
     "shadows": [
       {
-        "name": "sheet",
-        "value": "0 1px 0 #fff inset, 0 2px 4px rgba(20,20,20,.10), 0 26px 60px rgba(20,20,20,.14)",
-        "purpose": "The paper sheet resting on the light table."
+        "name": "print-rest",
+        "value": "0 1px 1px rgba(30,28,22,.18), 0 9px 20px rgba(30,28,22,.16)",
+        "purpose": "The polaroid resting on the table."
       },
       {
-        "name": "print-mat",
+        "name": "print-lifted",
+        "value": "0 1px 1px rgba(30,28,22,.18), 0 16px 30px rgba(30,28,22,.2)",
+        "purpose": "Hover, focus within and open; the print also straightens and rises 4px."
+      },
+      {
+        "name": "preview-on-mat",
         "value": "0 10px 28px rgba(0,0,0,.45)",
-        "purpose": "The paper-matted preview on the black print band."
+        "purpose": "The paper-bordered large preview on the black mat."
       },
       {
         "name": "loupe",
@@ -241,7 +280,7 @@
       {
         "name": "ease-out-expo",
         "value": "cubic-bezier(.22, 1, .36, 1)",
-        "purpose": "The grease-pencil circle drawing itself, 0.55s."
+        "purpose": "The grease-pencil circle drawing itself (0.55s) and the print straightening and lifting (0.22s rotate, translate, shadow)."
       },
       {
         "name": "state-fade",
@@ -256,20 +295,20 @@
     ],
     "breakpoints": [
       {
-        "name": "cols-5",
-        "value": "1260px"
+        "name": "cols-4",
+        "value": "1180px"
       },
       {
-        "name": "print-stack",
+        "name": "mat-stack",
         "value": "1100px"
       },
       {
-        "name": "cols-4-header-stack",
+        "name": "header-stack",
         "value": "1040px"
       },
       {
         "name": "cols-3",
-        "value": "780px"
+        "value": "860px"
       },
       {
         "name": "cols-2-phone",
@@ -279,12 +318,12 @@
   },
   "components": [
     {
-      "name": "Film Strip Frame",
+      "name": "Polaroid Print",
       "kind": "card",
-      "refersTo": "film-strip-frame",
-      "description": "A black film strip with sprocket holes, amber frame number and uppercase look name.",
-      "html": "<div class=\"ds-fr\"><div class=\"ds-img\"></div><div class=\"ds-meta\"><span class=\"ds-no\">07</span><span class=\"ds-nm\">Example look</span></div></div>",
-      "css": ".ds-fr{position:relative;width:200px;background:#0f0f10;padding:15px 6px 0}.ds-fr::before,.ds-fr::after{content:\"\";position:absolute;left:0;right:0;height:15px;background:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='15'%3E%3Crect x='6' y='4.5' width='8' height='6' rx='1.6' fill='%23eeede8'/%3E%3C/svg%3E\") 0 0/20px 15px repeat-x}.ds-fr::before{top:0}.ds-fr::after{bottom:0}.ds-img{aspect-ratio:3/2;background:linear-gradient(180deg,#27324a,#101524)}.ds-meta{display:flex;justify-content:space-between;gap:8px;padding:6px 1px 19px;color:#a9a9a6;font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-weight:600;font-size:11px;font-stretch:78%;letter-spacing:.07em;text-transform:uppercase}.ds-no{font-family:'Overpass Mono',ui-monospace,Menlo,monospace;color:#eaa94a;letter-spacing:.04em}.ds-fr:hover .ds-nm{color:#e9e8e3}"
+      "refersTo": "polaroid-print",
+      "description": "White instant-film card: bordered picture, marker-hand name, mono number, circle toggle and five role dots; slightly tilted, straightens and lifts on hover.",
+      "html": "<div class=\"ds-fr\"><div class=\"ds-img\"></div><div class=\"ds-nm\">Example look</div><div class=\"ds-ft\"><span class=\"ds-no\">07</span><span class=\"ds-dots\"><i style=\"background:#d97757\"></i><i style=\"background:#c2410c\"></i><i style=\"background:#4d9375\"></i><i style=\"background:#d9a441\"></i><i style=\"background:#8b6fd1\"></i></span></div></div>",
+      "css": ".ds-fr{width:200px;display:flex;flex-direction:column;background:#fcfbf7;padding:10px 10px 11px;rotate:-1.05deg;box-shadow:0 1px 1px rgba(30,28,22,.18),0 9px 20px rgba(30,28,22,.16);transition:rotate .22s cubic-bezier(.22,1,.36,1),translate .22s cubic-bezier(.22,1,.36,1),box-shadow .22s cubic-bezier(.22,1,.36,1)}.ds-fr:hover{rotate:0deg;translate:0 -4px;box-shadow:0 1px 1px rgba(30,28,22,.18),0 16px 30px rgba(30,28,22,.2)}.ds-img{position:relative;aspect-ratio:3/2;background:linear-gradient(180deg,#27324a,#101524)}.ds-img::after{content:\"\";position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}.ds-nm{margin-top:10px;min-height:2.1em;padding:0 2px;font:400 21px/1.05 'Covered By Your Grace','Bradley Hand','Segoe Print',cursive;color:#1d2030}.ds-ft{display:flex;align-items:center;gap:4px;padding:7px 2px 0}.ds-no{font:600 12px/1 'Overpass Mono',ui-monospace,Menlo,monospace;color:#50535a;font-variant-numeric:tabular-nums}.ds-dots{margin-left:auto;display:flex;gap:4px}.ds-dots i{display:block;width:16px;height:16px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.2)}"
     },
     {
       "name": "Filter Tabs",
@@ -321,8 +360,8 @@
     {
       "name": "Step-Wedge Chips",
       "kind": "chip",
-      "refersTo": "print-band",
-      "description": "Color chips with an amber hex caption, click to copy.",
+      "refersTo": "print-mat",
+      "description": "Color chips on the mat with an amber hex caption, click to copy.",
       "html": "<div class=\"ds-print\"><div class=\"ds-chips\"><button class=\"ds-chip\"><i style=\"background:#2b2a33\"></i><b>2B2A33</b></button><button class=\"ds-chip\"><i style=\"background:#e9e4d8\"></i><b>E9E4D8</b></button><button class=\"ds-chip\"><i style=\"background:#d97757\"></i><b>D97757</b></button></div><span class=\"ds-cap\">Surfaces</span></div>",
       "css": ".ds-print{background:#1b1b1d;padding:18px;display:flex;flex-direction:column;gap:6px}.ds-chips{display:flex}.ds-chip{width:54px;padding:0;border:0;background:none;text-align:left;cursor:pointer}.ds-chip i{display:block;height:38px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.22)}.ds-chip b{display:block;margin-top:4px;font-family:'Overpass Mono',ui-monospace,Menlo,monospace;font-weight:500;font-size:11px;line-height:1.2;color:#eaa94a;text-transform:uppercase}.ds-chip:hover b{color:#fff}.ds-chip:focus-visible{outline:2px solid #fff;box-shadow:0 0 0 4px #d6362b}.ds-cap{font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:12px;font-weight:600;color:#a9a9a6}"
     },
@@ -338,33 +377,41 @@
       "name": "Circle Toggle",
       "kind": "button",
       "refersTo": "circle-toggle",
-      "description": "Ring icon that fills grease-pencil red when a frame is circled.",
+      "description": "Ring icon that fills grease-pencil red when a print is circled.",
       "html": "<div class=\"ds-onfilm\"><button class=\"ds-mark\" aria-pressed=\"false\"><svg viewBox=\"0 0 24 17\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M4 9C3 3.5 9 1.5 14 2 20 2.6 22.5 7 20 11.5 17.5 15.5 9 16 5 13.5 2.6 12 2.5 9 4.5 6.5\"/></svg></button> <button class=\"ds-mark on\" aria-pressed=\"true\"><svg viewBox=\"0 0 24 17\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M4 9C3 3.5 9 1.5 14 2 20 2.6 22.5 7 20 11.5 17.5 15.5 9 16 5 13.5 2.6 12 2.5 9 4.5 6.5\"/></svg></button></div>",
-      "css": ".ds-onfilm{background:#0f0f10;padding:18px;display:flex;gap:12px}.ds-mark{width:24px;height:22px;padding:0;border:0;border-radius:11px;background:none;color:#a9a9a6;display:grid;place-items:center;cursor:pointer;transition:color .15s,background .15s}.ds-mark svg{width:15px;height:11px}.ds-mark:hover{color:#fff}.ds-mark.on{background:#d6362b;color:#fff}.ds-mark:focus-visible{outline:2px solid #fff;box-shadow:0 0 0 4px #d6362b}"
+      "css": ".ds-onfilm{background:#fcfbf7;padding:18px;display:flex;gap:12px}.ds-mark{width:24px;height:22px;padding:0;border:0;border-radius:11px;background:none;color:#50535a;display:grid;place-items:center;cursor:pointer;transition:color .15s,background .15s}.ds-mark svg{width:15px;height:11px}.ds-mark:hover{color:#141414}.ds-mark.on{background:#d6362b;color:#fff}.ds-mark:focus-visible{outline:2px solid #fff;box-shadow:0 0 0 4px #d6362b}"
+    },
+    {
+      "name": "Open Print Mat",
+      "kind": "card",
+      "refersTo": "print-mat",
+      "description": "Raised-film band holding the paper-bordered preview, with the notch that hangs from the open print.",
+      "html": "<div class=\"ds-wrap\"><div class=\"ds-notch\"></div><div class=\"ds-mat\"><div class=\"ds-pimg\"><div class=\"ds-ph\"></div></div><div class=\"ds-side\"><h3>Example look</h3><p>Print 07 · dark · palette</p></div></div></div>",
+      "css": ".ds-wrap{position:relative;width:340px;padding-top:0}.ds-notch{width:24px;height:21px;margin:0 auto -3px;background:#1b1b1d;clip-path:polygon(0 0,100% 0,50% 100%)}.ds-mat{display:grid;grid-template-columns:1.5fr 1fr;gap:16px;padding:18px;background:#1b1b1d;color:#e9e8e3}.ds-pimg{padding:6px;background:#eeede8;box-shadow:0 10px 28px rgba(0,0,0,.45)}.ds-ph{aspect-ratio:3/2;background:linear-gradient(180deg,#27324a,#101524)}.ds-side h3{margin:0;font:800 30px/.95 'Archivo','Helvetica Neue',Arial,sans-serif;font-stretch:70%;letter-spacing:-.01em}.ds-side p{margin:8px 0 0;font:400 12px/1.4 'Overpass Mono',ui-monospace,Menlo,monospace;color:#a9a9a6}"
     },
     {
       "name": "Mock Claude Window",
       "kind": "custom",
-      "refersTo": "film-strip-frame",
+      "refersTo": "preview-border",
       "description": "Content component: every color is an input from a look's data via custom properties.",
       "html": "<div class=\"ds-pv\"><div class=\"ds-sky\"></div><div class=\"ds-win\"><div class=\"ds-bar\"><i></i><i></i><i></i></div><div class=\"ds-chat\"><div class=\"ds-user\">add a cook time badge</div><p>Nice idea. Let me look.</p><div class=\"ds-codeb\">function badge() {}</div></div><div class=\"ds-comp\"><span>Type / for commands</span><b></b></div></div></div>",
       "css": ".ds-pv{--sky0:#2a2438;--sky1:#1b1826;--sky2:#120f1a;--glow:#d97757;--s0:#1c1a24;--s1:#24212d;--s2:#2e2a38;--tp:#efe9e1;--ts:#bdb5ab;--tm:#8a8378;--ac:#d97757;--fill:#d97757;--on:#1c1a24;container-type:inline-size;position:relative;aspect-ratio:3/2;width:320px;overflow:hidden;isolation:isolate}.ds-sky{position:absolute;inset:0;background:radial-gradient(60% 70% at 85% 15%,color-mix(in srgb,var(--glow) 16%,transparent),transparent),linear-gradient(180deg,var(--sky0),var(--sky1) 50%,var(--sky2))}.ds-win{position:absolute;inset:0;display:flex;flex-direction:column;color:var(--tp);font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:2.2cqw;line-height:1.35}.ds-win *{margin:0}.ds-bar{height:5.8cqw;display:flex;align-items:center;gap:1cqw;padding:0 2cqw;background:color-mix(in srgb,var(--s0) 45%,transparent);border-bottom:.12cqw solid color-mix(in srgb,var(--tm) 18%,transparent)}.ds-bar i{width:1.15cqw;height:1.15cqw;border-radius:50%;background:color-mix(in srgb,var(--tm) 45%,transparent)}.ds-chat{flex:1;width:64cqw;margin:0 auto;padding-top:4.2cqw;display:flex;flex-direction:column;gap:2.4cqw}.ds-user{align-self:flex-end;padding:1.3cqw 2.2cqw;border-radius:2.2cqw;background:color-mix(in srgb,var(--s2) 70%,transparent)}.ds-codeb{padding:1.5cqw 2.2cqw;border-radius:1.7cqw;font-family:'Overpass Mono',ui-monospace,Menlo,monospace;font-size:1.95cqw;color:var(--ac);background:color-mix(in srgb,var(--s1) 72%,transparent)}.ds-comp{width:64cqw;height:6.4cqw;margin:0 auto 2cqw;border-radius:3.2cqw;display:flex;align-items:center;gap:1.8cqw;padding:0 1.6cqw 0 2.4cqw;background:color-mix(in srgb,var(--s1) 62%,transparent);color:var(--tm)}.ds-comp span{flex:1}.ds-comp b{width:3.6cqw;height:3.6cqw;border-radius:50%;background:var(--fill)}"
     }
   ],
   "narrative": {
-    "northStar": "The Proof Sheet",
-    "overview": "The page is a contact sheet laid on a light table. A pale paper sheet sits on a slightly darker, softly lit grey table; on the sheet, ninety-five frames run in black film strips with sprocket holes, numbered in amber edge print like a lab marking negatives. Open a frame and a print tips in under its strip: a black band holding a paper-matted preview, a step-wedge of color chips, the credit line, and two install commands. A round loupe follows the pointer to magnify any frame. Everything is physical, photographic, and a little clinical.\n\nThe chrome is achromatic on purpose. Paper, ink, film, and a single amber are neutrals and instrument marks; every hue that is not the one grease-pencil red comes from the looks themselves, which are data. The wordmark and print titles use Archivo pulled to a narrow width, set tight and heavy like a stamped film-stock label. Mono is reserved for edge print, frame numbers, hex values, and commands. Controls are underlines, not boxes, so the only filled shapes on the sheet are the frames.\n\nThe system rejects decorative color, card chrome, and rounded friendly UI. Depth is the sheet floating above the table and the print mat floating above the film, nothing more.",
+    "northStar": "The Print Table",
+    "overview": "The page is a light table covered in instant-film prints. There is no panel: the header and ninety-five white polaroids sit directly on a softly lit grey surface. Each print is a thick-bottomed card with a thin-bordered picture of a look drawn in its own colors, a name written by hand in marker, a small mono print number, a circle toggle, and five dots in that look's own role colors. Prints are tilted a degree or so, each by a fixed amount, and straighten and lift when you reach for one. Open one and a black film mat tips in beneath its row, hanging from a small notch under the print: a paper-bordered large preview, a step-wedge of color chips, the credit line, and two install commands. A round loupe follows the pointer to magnify any print.\n\nThe chrome is achromatic on purpose. Table grey, polaroid white, ink, film black and one grease-pencil red are neutrals and a single marking tool; every other hue on screen comes from the looks, which are data. Archivo pulled to a narrow width, heavy and tight, carries the wordmark and the opened print's title. The marker hand is the voice of the prints themselves and appears only as a print's name. Overpass Mono is for anything counted, hexed or copyable. Controls are underlines, not boxes, so the only filled shapes on the table are the prints.\n\nThe system rejects decorative color, panel and card chrome around the grid, and friendly rounding. Depth is the print lifting off the table and the preview border lifting off the black mat, nothing more.",
     "keyCharacteristics": [
-      "Light paper sheet on a light table; black film strips with sprocket-hole edges.",
-      "Achromatic chrome; amber for edge print, one red for pencil marks, focus, and active state.",
-      "Condensed, heavy Archivo for names; Overpass Mono for numbers, hex, and commands.",
-      "Underline controls, square corners on everything except the circle toggle and the loupe.",
+      "White polaroids straight on a light table; a black film mat for the opened print, tied to its print by a notch.",
+      "Achromatic chrome; one red for circles, focus and the active filter.",
+      "Narrow heavy Archivo for the wordmark and print title, marker hand for print names, Overpass Mono for numbers, hex and commands.",
+      "Underline controls; square corners everywhere except the circle toggle, the role dots and the loupe.",
       "Mock Claude window as a component whose colors are all inputs."
     ],
     "rules": [
       {
         "name": "The Achromatic Chrome Rule",
-        "body": "The interface owns neutrals, amber, and one red. Any other hue on screen is a look's own color and must come from the data, never from the interface.",
+        "body": "The interface owns neutrals and one red. Any other hue on screen is a look's own color and must come from the data, never from the interface. The five dots on a print and every chip are data.",
         "section": "colors"
       },
       {
@@ -373,42 +420,49 @@
         "section": "colors"
       },
       {
-        "name": "The Amber Stays On Film Rule",
-        "body": "Amber is edge print. It appears only on black film surfaces, and only for numbers and hex captions.",
+        "name": "The Amber Stays On The Mat Rule",
+        "body": "Amber is reserved for hex captions and the credit underline on the black mat. It does not appear on the table or on a print.",
         "section": "colors"
       },
       {
         "name": "The Width Axis Rule",
-        "body": "Hierarchy comes from Archivo's width and weight: narrow and 800 for names, normal for reading, mid-narrow (78%) for tiny uppercase labels. Do not add another display family.",
+        "body": "Heavy titles take their hierarchy from Archivo's width and weight: narrow and 800. Do not add another display family.",
+        "section": "typography"
+      },
+      {
+        "name": "The Hand Is For Names Rule",
+        "body": "The marker hand writes a print's name and nothing else. Controls, headings, labels and body text never use it.",
         "section": "typography"
       },
       {
         "name": "The Counted Things Are Mono Rule",
-        "body": "Anything numbered, hexed, or copyable is Overpass Mono with tabular figures.",
+        "body": "Anything numbered, hexed or copyable is Overpass Mono with tabular figures.",
         "section": "typography"
       },
       {
-        "name": "The Paper On Table Rule",
-        "body": "Only two things float: the sheet over the table, the mat over the film. Everything else is flat. Shadows are soft and offset-down, never hard-edged.",
+        "name": "The Print On Table Rule",
+        "body": "Only prints, the preview on the mat, and the loupe float. Everything else is flat. Shadows are soft and offset-down, never hard-edged; a print's tilt always resolves to flat when it is touched, focused or open.",
         "section": "elevation"
       }
     ],
     "dos": [
-      "**Do** keep the chrome to paper (#eeede8), ink (#141414), film (#0f0f10 / #1b1b1d), amber (#eaa94a) and one red (#d6362b).",
-      "**Do** let every other color come from a look's own data via custom properties on the mock window.",
-      "**Do** mark selection, focus, and the active filter in grease-pencil red; keep the 2px white outline plus 4px red halo for focus on both paper and film.",
-      "**Do** use Overpass Mono with tabular figures for frame numbers, hex, and commands, and amber for these only on film.",
+      "**Do** keep the chrome to table greys (#d7d8d3 / #e6e7e2), polaroid white (#fcfbf7), ink (#141414), marker ink (#1d2030), film (#0f0f10 / #1b1b1d) and one red (#d6362b).",
+      "**Do** let every other color come from a look's own data: the picture, the five role dots and the chips.",
+      "**Do** mark selection, focus and the active filter in grease-pencil red; keep the 2px white outline plus 4px red halo for focus on both table and mat.",
+      "**Do** write print names in the marker hand and set numbers, hex and commands in Overpass Mono with tabular figures; keep amber for hex captions and the credit underline on the mat.",
+      "**Do** give every print a fixed tilt of at most 1.4 degrees and straighten it on hover, focus and open.",
       "**Do** keep controls as underlines and text, with square corners on structural elements.",
       "**Do** honor reduced motion: the circle draw animation and all transitions switch off.",
       "**Do** say in the footer that previews are renderings, not screenshots."
     ],
     "donts": [
-      "**Don't** introduce a hue in the chrome that is not amber or grease-pencil red.",
+      "**Don't** introduce a hue in the chrome that is not grease-pencil red; amber stays on the mat.",
       "**Don't** fill buttons or tabs with the red; it marks, it does not decorate.",
-      "**Don't** use hard offset shadows or card borders; depth is only the sheet and the print mat.",
-      "**Don't** round the film frames, print band, command wells, or buttons.",
-      "**Don't** add a second display family; use Archivo's width axis.",
-      "**Don't** rely on hover for anything: tabs, copy, and circle all work by tap and keyboard, and the loupe is an enhancement for fine pointers only."
+      "**Don't** put a panel, card or paper sheet behind the grid; prints sit directly on the table.",
+      "**Don't** use hard offset shadows or card borders; depth is the print's soft contact shadow and the preview on the mat.",
+      "**Don't** round prints, the mat, command wells or buttons.",
+      "**Don't** use the marker hand for anything but a print's name, and don't add another display family.",
+      "**Don't** rely on hover for anything: tabs, copy and circle all work by tap and keyboard, and the loupe is an enhancement for fine pointers only."
     ]
   }
 }

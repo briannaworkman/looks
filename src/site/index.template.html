@@ -4,25 +4,27 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Looks: 95 themes for the Claude desktop and mobile apps</title>
-<meta name="description" content="Every look for the Claude desktop and mobile apps on one proof sheet, drawn in its own colors. Circle the ones you like, then copy the line that installs one.">
+<meta name="description" content="Every look for the Claude desktop and mobile apps as a polaroid on one table, drawn in its own colors. Circle the ones you like, then copy the line that installs one.">
 <meta name="theme-color" content="#d7d8d3">
 <meta property="og:title" content="Looks: 95 themes for the Claude desktop and mobile apps">
-<meta property="og:description" content="Every look on one proof sheet, drawn in its own colors. Pick one and copy its install line.">
+<meta property="og:description" content="Every look as a polaroid on one table, drawn in its own colors. Pick one and copy its install line.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://briannaworkman.github.io/looks/hero.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230f0f10'/%3E%3Crect x='6' y='9' width='20' height='14' rx='1.5' fill='%23eeede8'/%3E%3Cellipse cx='16' cy='16' rx='11' ry='9' fill='none' stroke='%23d6362b' stroke-width='2.2'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Overpass+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Overpass+Mono:wght@400;600&family=Covered+By+Your+Grace&display=swap">
 <style>
-/* A proof sheet on a light table. Paper, black film, amber edge print, and one
-   grease-pencil red kept for circles and focus. All color other than these comes
-   from the looks themselves. */
+/* Polaroid prints on a light table. White instant-film frames, a marker hand for
+   the names, a black film mat for the opened print, and one grease-pencil red kept
+   for circles and focus. All color other than these comes from the looks. */
 :root {
   --table: #d7d8d3;
   --table-lit: #e6e7e2;
   --paper: #eeede8;
+  --polaroid: #fcfbf7;
+  --marker: #1d2030;
   --ink: #141414;
   --ink2: #50535a;
   --rule: #b9bab4;
@@ -34,8 +36,9 @@
   --pencil: #d6362b;
   --ui: "Archivo", "Helvetica Neue", Arial, sans-serif;
   --code: "Overpass Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --hand: "Covered By Your Grace", "Bradley Hand", "Segoe Print", "Comic Sans MS", cursive;
   --ease: cubic-bezier(.22, 1, .36, 1);
-  --cols: 6;
+  --cols: 5;
   color-scheme: light;
 }
 * { box-sizing: border-box; }
@@ -54,11 +57,8 @@ button { cursor: pointer; }
 :focus-visible { outline: 2px solid #fff; box-shadow: 0 0 0 4px var(--pencil); border-radius: 2px; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-/* ---- the sheet ---- */
-.sheet {
-  max-width: 1480px; margin: 0 auto; background: var(--paper); padding: 34px clamp(16px, 3vw, 40px) 36px;
-  box-shadow: 0 1px 0 #fff inset, 0 2px 4px rgba(20, 20, 20, .10), 0 26px 60px rgba(20, 20, 20, .14);
-}
+/* ---- the table ---- */
+.sheet { max-width: 1480px; margin: 0 auto; padding: 8px clamp(2px, 2vw, 24px) 36px; }
 .head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 20px 56px; align-items: end; padding-bottom: 24px; }
 .mark { margin: 0; font: 800 clamp(64px, 9vw, 96px)/.86 var(--ui); font-stretch: 66%; letter-spacing: -.02em; }
 .roll { margin: 10px 0 0; font: 400 12px/1.4 var(--code); letter-spacing: .02em; color: var(--ink2); font-variant-numeric: tabular-nums; }
@@ -78,26 +78,25 @@ button { cursor: pointer; }
 .keep .ring { width: 17px; height: 12px; }
 .keep .n { font-family: var(--code); font-weight: 600; font-size: 13px; font-variant-numeric: tabular-nums; }
 
-/* ---- the strips ---- */
-.strips { display: grid; grid-template-columns: repeat(var(--cols), minmax(0, 1fr)); row-gap: 16px; padding-top: 4px; }
-.fr { position: relative; background: var(--film); padding: 15px 6px 0; min-width: 0; }
-.fr::before, .fr::after { content: ""; position: absolute; left: 0; right: 0; height: 15px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='15'%3E%3Crect x='6' y='4.5' width='8' height='6' rx='1.6' fill='%23eeede8'/%3E%3C/svg%3E") 0 0 / 20px 15px repeat-x; }
-.fr::before { top: 0; }
-.fr::after { bottom: 0; }
+/* ---- the prints ---- */
+.strips { display: grid; grid-template-columns: repeat(var(--cols), minmax(0, 1fr)); gap: 34px 26px; padding-top: 8px; }
+.fr { position: relative; display: flex; flex-direction: column; background: var(--polaroid); padding: 10px 10px 11px; min-width: 0; box-shadow: 0 1px 1px rgba(30, 28, 22, .18), 0 9px 20px rgba(30, 28, 22, .16); rotate: var(--rot, 0deg); transition: rotate .22s var(--ease), translate .22s var(--ease), box-shadow .22s var(--ease); }
+.fr:hover, .fr:focus-within, .fr.open { rotate: 0deg; translate: 0 -4px; z-index: 2; box-shadow: 0 1px 1px rgba(30, 28, 22, .18), 0 16px 30px rgba(30, 28, 22, .2); }
 .fr-open { display: block; width: 100%; padding: 0; border: 0; background: none; text-align: left; }
 .fr-img { position: relative; display: block; line-height: 0; cursor: zoom-in; }
-.fr-meta { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; padding: 6px 1px 19px; color: var(--on-film2); font: 600 11px/1.2 var(--ui); font-stretch: 78%; letter-spacing: .07em; text-transform: uppercase; }
-.fr-meta .no { font: 600 11px/1.2 var(--code); color: var(--amber); letter-spacing: .04em; font-variant-numeric: tabular-nums; flex: none; }
-.fr-meta .nm { overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; line-height: 1.15; overflow-wrap: anywhere; min-width: 0; text-align: right; margin-left: 38px; }
-.fr:hover .nm, .fr.open .nm { color: var(--on-film); }
-.fr.open::before { content: ""; }
-.fr.open .tab { position: absolute; left: 50%; bottom: -16px; translate: -50% 0; width: 22px; height: 16px; background: var(--film2); clip-path: polygon(0 0, 100% 0, 50% 100%); z-index: 2; }
-.mark-btn { position: absolute; left: 30px; bottom: 16px; width: 24px; height: 22px; padding: 0; border: 0; border-radius: 11px; background: none; color: var(--on-film2); display: grid; place-items: center; z-index: 3; line-height: 0; transition: color .15s, background .15s; }
-.mark-btn::before { content: ""; position: absolute; inset: -11px -8px; }
+.fr-img::after { content: ""; position: absolute; inset: 0; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .12); pointer-events: none; z-index: 1; }
+.fr-name { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; margin-top: 10px; min-height: 2.1em; padding: 0 2px; font: 400 21px/1.05 var(--hand); color: var(--marker); overflow-wrap: anywhere; }
+.fr-foot { display: flex; align-items: center; gap: 4px; margin-top: auto; padding: 7px 2px 0; }
+.fr-foot .no { font: 600 12px/1 var(--code); color: var(--ink2); font-variant-numeric: tabular-nums; }
+.fr-foot .dots { margin-left: auto; display: flex; gap: 4px; }
+.fr-foot .dots i { display: block; width: 16px; height: 16px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .2); }
+.fr.open .tab { position: absolute; left: 50%; bottom: -21px; translate: -50% 0; width: 24px; height: 21px; background: var(--film2); clip-path: polygon(0 0, 100% 0, 50% 100%); z-index: 2; }
+.mark-btn { position: relative; width: 24px; height: 22px; flex: none; padding: 0; border: 0; border-radius: 11px; background: none; color: var(--ink2); display: grid; place-items: center; line-height: 0; transition: color .15s, background .15s; }
+.mark-btn::before { content: ""; position: absolute; inset: -4px -8px -11px; }
 .mark-btn svg { width: 15px; height: 11px; }
-.mark-btn:hover { color: #fff; }
+.mark-btn:hover { color: var(--ink); }
 .fr.circled .mark-btn { background: var(--pencil); color: #fff; }
-.circle { position: absolute; inset: -9% -7%; width: 114%; height: 118%; pointer-events: none; overflow: visible; z-index: 2; rotate: var(--rot, 0deg); }
+.circle { position: absolute; inset: -9% -7%; width: 114%; height: 118%; pointer-events: none; overflow: visible; z-index: 2; }
 .circle path { fill: none; stroke: var(--pencil); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 0; }
 .fr.drawing .circle path { animation: draw .55s var(--ease) both; }
 @keyframes draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
@@ -105,7 +104,7 @@ button { cursor: pointer; }
 .none button { margin-top: 10px; padding: 8px 14px; border: 2px solid var(--ink); background: none; font-weight: 600; }
 
 /* ---- the print, tipped in under the strip ---- */
-.print { grid-column: 1 / -1; background: var(--film2); color: var(--on-film); padding: 26px clamp(16px, 2.4vw, 32px) 26px; display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 28px 40px; margin-top: -1px; scroll-margin-top: 12px; }
+.print { grid-column: 1 / -1; background: var(--film2); color: var(--on-film); padding: 26px clamp(16px, 2.4vw, 32px) 26px; display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 28px 40px; margin-top: -18px; scroll-margin-top: 12px; }
 .print-img { align-self: start; padding: 10px; background: var(--paper); box-shadow: 0 10px 28px rgba(0, 0, 0, .45); }
 .print-side { min-width: 0; display: flex; flex-direction: column; gap: 18px; overflow-wrap: anywhere; }
 .print h2 { margin: 0; font: 800 clamp(34px, 4vw, 48px)/.95 var(--ui); font-stretch: 70%; letter-spacing: -.01em; text-wrap: balance; overflow-wrap: anywhere; }
@@ -177,19 +176,18 @@ button { cursor: pointer; }
 .pv.flat .pv-tool { gap: 1.6cqw; font-size: 2.9cqw; }
 .pv.flat .pv-chat > p.pv-ai { font-size: 2.9cqw; }
 .pv.flat .pv-code { font-size: 2.4cqw; line-height: 1.5; padding: 1.8cqw 3cqw; border-radius: 2.2cqw; }
-.pv.flat .pv-composer { width: 80cqw; height: 8cqw; border-radius: 4cqw; padding: 0 2cqw 0 3cqw; gap: 2.4cqw; margin-bottom: 7cqw; }
+.pv.flat .pv-composer { width: 80cqw; height: 8cqw; border-radius: 4cqw; padding: 0 2cqw 0 3cqw; gap: 2.4cqw; margin-bottom: 3.4cqw; }
 .pv.flat .pv-composer .plus { width: 3.2cqw; height: 3.2cqw; }
 .pv.flat .pv-composer .send { width: 5.4cqw; height: 5.4cqw; }
 .pv.flat .pv-composer .send svg { width: 3cqw; height: 3cqw; }
-.pv-roles { position: absolute; left: 0; right: 0; bottom: 0; height: 4.2cqw; display: none; }
-.pv.flat .pv-roles { display: flex; }
-.pv-roles i { flex: 1; display: block; }
 
-@media (max-width: 1260px) { :root { --cols: 5; } }
-@media (max-width: 1100px) { .print { grid-template-columns: 1fr; } .print-img { max-width: 700px; } }
-@media (max-width: 1040px) { :root { --cols: 4; } .head { grid-template-columns: 1fr; } }
-@media (max-width: 780px) { :root { --cols: 3; } .print { grid-template-columns: 1fr; } }
+
+@media (max-width: 1180px) { :root { --cols: 4; } }
+@media (max-width: 1100px) { .print { grid-template-columns: 1fr; } .print-img { width: 100%; max-width: 700px; justify-self: center; } }
+@media (max-width: 1040px) { .head { grid-template-columns: 1fr; } }
+@media (max-width: 860px) { :root { --cols: 3; } }
 @media (max-width: 540px) { :root { --cols: 2; } .sheet { padding-top: 22px; } .head { padding-bottom: 16px; gap: 14px; } .mark { font-size: 58px; } .roll { margin-top: 8px; } .lede { margin-top: 10px; font-size: 14.5px; line-height: 1.45; } .controls { gap: 6px 18px; } .seg { gap: 14px; } .find input, .sel { height: 36px; } }
+@media (max-width: 540px) { .strips { gap: 26px 16px; } .fr { padding: 8px 8px 9px; } .fr-name { font-size: 17px; margin-top: 8px; } .fr-foot .dots i { width: 13px; height: 13px; } .fr-foot { gap: 2px; } }
 @media (prefers-reduced-motion: reduce) { .fr.drawing .circle path { animation: none; } * { transition: none !important; scroll-behavior: auto !important; } }
 </style>
 </head>
@@ -199,7 +197,7 @@ button { cursor: pointer; }
     <div>
       <h1 class="mark">LOOKS</h1>
       <p class="roll" id="roll"></p>
-      <p class="lede">Every look for the Claude desktop and mobile apps, drawn in its own colors. Circle the ones you like, then open a frame for its print: exact colors, who made it, and the line that installs it. New here? <a href="https://github.com/briannaworkman/looks#install" target="_blank" rel="noopener">See how installing works</a>.</p>
+      <p class="lede">Every look for the Claude desktop and mobile apps, drawn in its own colors. Circle the ones you like, then open a print for the details: exact colors, who made it, and the line that installs it. New here? <a href="https://github.com/briannaworkman/looks#install" target="_blank" rel="noopener">See how installing works</a>.</p>
     </div>
     <div class="controls" role="search">
       <label class="find"><span class="sr">Find a look</span>
@@ -229,11 +227,11 @@ button { cursor: pointer; }
   </header>
 
   <main>
-    <h2 class="sr">Frames</h2>
+    <h2 class="sr">Prints</h2>
     <p class="sr" id="count" aria-live="polite"></p>
     <p class="sr" id="live" role="status"></p>
     <div class="strips" id="strips"></div>
-    <noscript><p class="none">The frames are drawn with JavaScript. Every look is also listed in the repository's gallery.</p></noscript>
+    <noscript><p class="none">The prints are drawn with JavaScript. Every look is also listed in the repository's gallery.</p></noscript>
   </main>
 
   <footer class="foot">
@@ -270,7 +268,6 @@ const css = l => {
 };
 const PLUS = '<svg class="plus" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M8 2.5v11M2.5 8h11"/></svg>';
 const UP = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5"/></svg>';
-const roles = l => `<div class="pv-roles">${[l.c.accent, l.c.danger, l.c.success, l.c.warning, l.c.pro].map(h => `<i style="background:${h}"></i>`).join("")}</div>`;
 function preview(l, flat) {
   return `<div class="pv${flat ? " flat" : ""}" style="${css(l)}" aria-hidden="true"><div class="pv-sky"></div><div class="pv-win">
     <div class="pv-bar"><i class="d"></i><i class="d"></i><i class="d"></i><span class="t">Cook time badges</span><span class="sp"></span><i class="ic"></i><i class="ic"></i><i class="ic"></i></div>
@@ -286,7 +283,7 @@ function preview(l, flat) {
     </div>
     <div class="pv-composer">${PLUS}<span class="ph">Type / for commands</span><span class="send">${UP}</span></div>
     <div class="pv-foot">Sonnet 5.5 &nbsp; High &nbsp; Auto</div>
-  </div>${flat ? roles(l) : ""}</div>`;
+  </div></div>`;
 }
 
 /* ---- the grease pencil ---- */
@@ -294,13 +291,14 @@ const RING = '<svg viewBox="0 0 24 17" fill="none" stroke="currentColor" stroke-
 const SCRIBBLE = '<svg class="circle" viewBox="0 0 100 69" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><path pathLength="1" d="M9 36.7C5 13.4 34 3.3 58 4.5 86 5.6 98 22.3 94 42.3 90 62.3 58 66.8 32 63.4 10 60.1 4 44.5 8 26.7 10 16.7 20 10 32 7.8"/></svg>';
 
 function frame(l, i) {
-  const n = no.get(l.id), on = circled.has(l.id);
-  return `<div class="fr${on ? " circled" : ""}${openId === l.id ? " open" : ""}" data-i="${i}" data-id="${l.id}" style="--rot:${((n * 7) % 9 - 4) * 0.9}deg">
-    <button type="button" class="fr-open" tabindex="${l.id === rovingId ? 0 : -1}" aria-label="${esc(l.name)}, ${l.mode} look, frame ${n}. Open its print" aria-expanded="${openId === l.id}">
+  const n = no.get(l.id), on = circled.has(l.id), c = l.c;
+  const dots = [c.accent, c.danger, c.success, c.warning, c.pro].map(h => `<i style="background:${h}"></i>`).join("");
+  return `<div class="fr${on ? " circled" : ""}${openId === l.id ? " open" : ""}" data-i="${i}" data-id="${l.id}" style="--rot:${((n * 7) % 9 - 4) * 0.35}deg">
+    <button type="button" class="fr-open" tabindex="${l.id === rovingId ? 0 : -1}" aria-label="${esc(l.name)}, ${l.mode} look, number ${n}. Open its print" aria-expanded="${openId === l.id}">
       <span class="fr-img">${preview(l, true)}${on ? SCRIBBLE : ""}</span>
-      <span class="fr-meta"><span class="no">${String(n).padStart(2, "0")}</span><span class="nm" title="${esc(l.name)}">${esc(l.name)}</span></span>
+      <span class="fr-name" title="${esc(l.name)}">${esc(l.name)}</span>
     </button>
-    <button type="button" class="mark-btn" tabindex="-1" aria-pressed="${on}" aria-label="${on ? "Remove the circle from" : "Circle"} ${esc(l.name)}">${RING}</button>
+    <div class="fr-foot"><span class="no">${String(n).padStart(2, "0")}</span><button type="button" class="mark-btn" tabindex="-1" aria-pressed="${on}" aria-label="${on ? "Remove the circle from" : "Circle"} ${esc(l.name)}">${RING}</button><span class="dots" aria-hidden="true">${dots}</span></div>
     ${openId === l.id ? '<i class="tab"></i>' : ""}
   </div>`;
 }
@@ -316,8 +314,8 @@ function render() {
   if (openId && !shown.some(l => l.id === openId)) { openId = null; printEl = null; try { history.replaceState(null, "", location.pathname + location.search); } catch (e) {} }
   if (!shown.some(l => l.id === rovingId)) rovingId = shown[0]?.id ?? null;
   $("strips").innerHTML = shown.length ? shown.map(frame).join("")
-    : `<div class="none"><p>${state.onlyCircled && !circled.size ? "Nothing is circled yet. Circle a frame to keep it here." : "No frames match that search."}</p><button type="button" id="reset">Show all frames</button></div>`;
-  $("count").textContent = `${shown.length} of ${LOOKS.length} frames`;
+    : `<div class="none"><p>${state.onlyCircled && !circled.size ? "Nothing is circled yet. Circle a print to keep it here." : "No prints match that search."}</p><button type="button" id="reset">Show all prints</button></div>`;
+  $("count").textContent = `${shown.length} of ${LOOKS.length} prints`;
   $("keepN").textContent = circled.size;
   if (openId) openPrint(openId, { keepScroll: true });
 }
@@ -346,7 +344,7 @@ function printHTML(l) {
   const on = circled.has(l.id);
   return `<div class="print-img">${preview(l, false)}</div>
     <div class="print-side">
-      <div><h2 id="pTitle">${esc(l.name)}</h2><p class="by">Frame ${String(n).padStart(2, "0")} · ${l.mode} · ${kind}</p></div>
+      <div><h2 id="pTitle">${esc(l.name)}</h2><p class="by">Print ${String(n).padStart(2, "0")} · ${l.mode} · ${kind}</p></div>
       <p class="credit">${credit}</p>
       ${wedge(l)}
       <div class="cmd"><label for="c1">Install just this look</label><div class="row"><code id="c1">${esc(install)}</code><button type="button" class="btn go" data-copy="c1">${ICON.copy}Copy</button></div></div>
@@ -503,7 +501,7 @@ addEventListener("hashchange", () => { const id = location.hash.slice(1); if (id
 
 /* ---- start ---- */
 const dark = LOOKS.filter(l => l.mode === "dark").length;
-$("roll").textContent = `PROOF SHEET 1/1 · ${LOOKS.length} FRAMES · ${dark} DARK · ${LOOKS.length - dark} LIGHT`;
+$("roll").textContent = `A TABLE OF ${LOOKS.length} PRINTS · ${dark} DARK · ${LOOKS.length - dark} LIGHT`;
 render();
 { const id = location.hash.slice(1); if (id && LOOKS.some(l => l.id === id)) openPrint(id, { keepScroll: false }); }
 </script>

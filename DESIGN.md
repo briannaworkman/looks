@@ -1,10 +1,12 @@
 ---
 name: Looks
-description: A proof sheet of 95 Claude app themes, shown as black film strips on a light table, each frame drawn in its own colors.
+description: A table of 95 Claude app themes, each a white instant-film print with a marker-hand name, drawn in its own colors and opened onto a black film mat.
 colors:
   table: "#d7d8d3"
   table-lit: "#e6e7e2"
   paper: "#eeede8"
+  polaroid: "#fcfbf7"
+  marker: "#1d2030"
   ink: "#141414"
   ink-secondary: "#50535a"
   rule: "#b9bab4"
@@ -12,7 +14,7 @@ colors:
   film-raised: "#1b1b1d"
   on-film: "#e9e8e3"
   on-film-dim: "#a9a9a6"
-  amber-edge-print: "#eaa94a"
+  amber-hex-print: "#eaa94a"
   grease-pencil: "#d6362b"
 typography:
   wordmark:
@@ -39,20 +41,22 @@ typography:
     fontSize: "15px"
     fontWeight: 600
     lineHeight: 1.5
-  frame-label:
-    fontFamily: "Archivo, Helvetica Neue, Arial, sans-serif"
-    fontSize: "11px"
+  print-name:
+    fontFamily: "Covered By Your Grace, Bradley Hand, Segoe Print, Comic Sans MS, cursive"
+    fontSize: "21px"
+    fontWeight: 400
+    lineHeight: 1.05
+  print-number:
+    fontFamily: "Overpass Mono, ui-monospace, SF Mono, Menlo, Consolas, monospace"
+    fontSize: "12px"
     fontWeight: 600
-    lineHeight: 1.2
-    letterSpacing: "0.07em"
-    fontVariation: "font-stretch 78%"
-  edge-print:
+    lineHeight: 1
+    fontFeature: "tnum"
+  hex-caption:
     fontFamily: "Overpass Mono, ui-monospace, SF Mono, Menlo, Consolas, monospace"
     fontSize: "11px"
-    fontWeight: 600
+    fontWeight: 500
     lineHeight: 1.2
-    letterSpacing: "0.04em"
-    fontFeature: "tnum"
   code:
     fontFamily: "Overpass Mono, ui-monospace, SF Mono, Menlo, Consolas, monospace"
     fontSize: "12.5px"
@@ -67,25 +71,25 @@ spacing:
   xs: "6px"
   sm: "12px"
   md: "18px"
-  lg: "28px"
+  lg: "26px"
   xl: "40px"
 components:
-  sheet:
-    backgroundColor: "{colors.paper}"
-    textColor: "{colors.ink}"
-    padding: "34px 40px 36px"
-  film-strip-frame:
-    backgroundColor: "{colors.film}"
-    textColor: "{colors.on-film-dim}"
-    padding: "15px 6px 0"
-  frame-number:
-    textColor: "{colors.amber-edge-print}"
-    typography: "{typography.edge-print}"
-  print-band:
+  polaroid-print:
+    backgroundColor: "{colors.polaroid}"
+    textColor: "{colors.marker}"
+    rounded: "{rounded.none}"
+    padding: "10px 10px 11px"
+  print-name-line:
+    textColor: "{colors.marker}"
+    typography: "{typography.print-name}"
+  print-number:
+    textColor: "{colors.ink-secondary}"
+    typography: "{typography.print-number}"
+  print-mat:
     backgroundColor: "{colors.film-raised}"
     textColor: "{colors.on-film}"
     padding: "26px 32px"
-  print-mat:
+  preview-border:
     backgroundColor: "{colors.paper}"
     padding: "10px"
   filter-tab:
@@ -120,123 +124,131 @@ components:
     backgroundColor: "{colors.grease-pencil}"
     textColor: "#ffffff"
     rounded: "{rounded.pill}"
-    size: "24px"
+    width: "24px"
+    height: "22px"
 ---
 
 # Design System: Looks
 
 ## Overview
 
-**Creative North Star: "The Proof Sheet"**
+**Creative North Star: "The Print Table"**
 
-The page is a contact sheet laid on a light table. A pale paper sheet sits on a slightly darker, softly lit grey table; on the sheet, ninety-five frames run in black film strips with sprocket holes, numbered in amber edge print like a lab marking negatives. Open a frame and a print tips in under its strip: a black band holding a paper-matted preview, a step-wedge of color chips, the credit line, and two install commands. A round loupe follows the pointer to magnify any frame. Everything is physical, photographic, and a little clinical.
+The page is a light table covered in instant-film prints. There is no panel: the header and ninety-five white polaroids sit directly on a softly lit grey surface. Each print is a thick-bottomed card with a thin-bordered picture of a look drawn in its own colors, a name written by hand in marker, a small mono print number, a circle toggle, and five dots in that look's own role colors. Prints are tilted a degree or so, each by a fixed amount, and straighten and lift when you reach for one. Open one and a black film mat tips in beneath its row, hanging from a small notch under the print: a paper-bordered large preview, a step-wedge of color chips, the credit line, and two install commands. A round loupe follows the pointer to magnify any print.
 
-The chrome is achromatic on purpose. Paper, ink, film, and a single amber are neutrals and instrument marks; every hue that is not the one grease-pencil red comes from the looks themselves, which are data. The wordmark and print titles use Archivo pulled to a narrow width, set tight and heavy like a stamped film-stock label. Mono is reserved for edge print, frame numbers, hex values, and commands. Controls are underlines, not boxes, so the only filled shapes on the sheet are the frames.
+The chrome is achromatic on purpose. Table grey, polaroid white, ink, film black and one grease-pencil red are neutrals and a single marking tool; every other hue on screen comes from the looks, which are data. Archivo pulled to a narrow width, heavy and tight, carries the wordmark and the opened print's title. The marker hand is the voice of the prints themselves and appears only as a print's name. Overpass Mono is for anything counted, hexed or copyable. Controls are underlines, not boxes, so the only filled shapes on the table are the prints.
 
-The system rejects decorative color, card chrome, and rounded friendly UI. Depth is the sheet floating above the table and the print mat floating above the film, nothing more.
+The system rejects decorative color, panel and card chrome around the grid, and friendly rounding. Depth is the print lifting off the table and the preview border lifting off the black mat, nothing more.
 
 **Key Characteristics:**
-- Light paper sheet on a light table; black film strips with sprocket-hole edges.
-- Achromatic chrome; amber for edge print, one red for pencil marks, focus, and active state.
-- Condensed, heavy Archivo for names; Overpass Mono for numbers, hex, and commands.
-- Underline controls, square corners on everything except the circle toggle and the loupe.
+- White polaroids straight on a light table; a black film mat for the opened print, tied to its print by a notch.
+- Achromatic chrome; one red for circles, focus and the active filter.
+- Narrow heavy Archivo for the wordmark and print title, marker hand for print names, Overpass Mono for numbers, hex and commands.
+- Underline controls; square corners everywhere except the circle toggle, the role dots and the loupe.
 - Mock Claude window as a component whose colors are all inputs.
 
 ## Colors
 
-A restrained neutral set with two instrument accents. No color in the chrome comes from a look.
+A restrained neutral set with one marking red and one small film-only amber. No color in the chrome comes from a look.
 
 ### Primary
-- **Grease-Pencil Red** (#d6362b): the only saturated color in the chrome. Used for the hand-drawn circle around a kept frame, the active-filter underline (3px), link underlines, text selection, caret, the filled circle toggle, the pressed state of the Circle button border, and the 4px focus ring.
+- **Grease-Pencil Red** (#d6362b): the only saturated color in the chrome. Used for the hand-drawn circle around a kept print, the active-filter underline (3px), link underlines, text selection, caret, the filled circle toggle, the pressed border of the Circle it button, and the 4px focus ring.
 
 ### Secondary
-- **Edge-Print Amber** (#eaa94a): frame numbers, hex captions under the step-wedge chips, and the credit-link underline on the print band. Appears only on film, never on paper.
+- **Hex-Print Amber** (#eaa94a): on the black mat only, for the hex captions under the step-wedge chips and the underline of the credit link. It no longer appears on the grid.
 
 ### Neutral
-- **Light Table** (#d7d8d3): page background, with a soft radial lift to **Lit Table** (#e6e7e2) at the top center; also the scrollbar track and theme color.
-- **Proof Paper** (#eeede8): the sheet, the print mat, and the sprocket-hole fill.
+- **Light Table** (#d7d8d3): page background, lifted to **Lit Table** (#e6e7e2) by a radial gradient at the top center; also the scrollbar track and theme color.
+- **Polaroid White** (#fcfbf7): the print card.
+- **Proof Paper** (#eeede8): the border around the large preview on the mat.
+- **Marker Ink** (#1d2030): the handwritten print names; a blue-black, never pure black.
 - **Grease-Pencil Ink** (#141414): body text, wordmark, field underlines, the footer rule.
-- **Graphite** (#50535a): secondary text, placeholders, inactive filter tabs.
-- **Pencil Rule** (#b9bab4): a quiet divider grey. Defined but barely used in the build.
-- **Black Film** (#0f0f10): strips, command wells, loupe rim.
-- **Raised Film** (#1b1b1d): the print band and the tab that points up at the open frame.
-- **Light-On-Film** (#e9e8e3) and **Dim-On-Film** (#a9a9a6): text on film; dim for labels and captions, full for names on hover or open, titles, and commands.
+- **Graphite** (#50535a): secondary text, placeholders, inactive filter tabs, print numbers.
+- **Pencil Rule** (#b9bab4): defined as a token but not used in the build.
+- **Black Film** (#0f0f10): command wells and loupe rim.
+- **Raised Film** (#1b1b1d): the mat and the notch beneath the open print.
+- **Light-On-Film** (#e9e8e3) and **Dim-On-Film** (#a9a9a6): text on the mat; dim for labels and captions, full for the title, credit and commands.
 
 ### Named Rules
-**The Achromatic Chrome Rule.** The interface owns neutrals, amber, and one red. Any other hue on screen is a look's own color and must come from the data, never from the interface.
+**The Achromatic Chrome Rule.** The interface owns neutrals and one red. Any other hue on screen is a look's own color and must come from the data, never from the interface. The five dots on a print and every chip are data.
 
 **The One Red Rule.** Grease-pencil red marks human attention: circles, selection, focus, the active filter. It is never a button fill or a decoration.
 
-**The Amber Stays On Film Rule.** Amber is edge print. It appears only on black film surfaces, and only for numbers and hex captions.
+**The Amber Stays On The Mat Rule.** Amber is reserved for hex captions and the credit underline on the black mat. It does not appear on the table or on a print.
 
 ## Typography
 
 **Display Font:** Archivo (variable, with its width axis; falls back to Helvetica Neue, Arial)
 **Body Font:** Archivo at normal width
+**Hand Font:** Covered By Your Grace (falls back to Bradley Hand, Segoe Print, Comic Sans MS, cursive)
 **Label/Mono Font:** Overpass Mono (falls back to ui-monospace, SF Mono, Menlo, Consolas)
 
-**Character:** A stamped, narrow, heavy grotesque for names, against a typewriter-clear mono for anything counted or copyable. The width axis does the work a second display face would do.
+**Character:** A stamped, narrow, heavy grotesque for the title of the page and of an opened print, against a ballpoint-and-marker hand for the names scribbled on each polaroid, and a typewriter-clear mono for anything counted or copyable.
 
 ### Hierarchy
-- **Wordmark** (800, clamp(64px, 9vw, 96px), 0.86, width 66%, -0.02em): the single word LOOKS. 58px on narrow phones.
-- **Headline** (800, clamp(34px, 4vw, 48px), 0.95, width 70%, -0.01em): the look's name on its print.
-- **Body** (400, 15px, 1.5): page base. Lede runs 16px, capped at 56ch, with balanced wrapping; credit runs 14.5px at 52ch.
-- **Control** (600, 15px): filter tabs, circled toggle; select text 500.
-- **Frame label** (600, 11px, 1.2, width 78%, 0.07em, uppercase): look name beside the frame number, two-line clamp.
-- **Edge print** (Overpass Mono 600, 11px, tabular figures): frame numbers; the roll line is 12px regular mono in graphite; hex chip captions are 11px weight 500 uppercase.
+- **Wordmark** (800, clamp(64px, 9vw, 96px), 0.86, width 66%, -0.02em): the single word LOOKS. 58px on phones.
+- **Headline** (800, clamp(34px, 4vw, 48px), 0.95, width 70%, -0.01em): the look's name on the open print.
+- **Body** (400, 15px, 1.5): page base. Lede runs 16px, capped at 56ch with pretty wrapping; credit runs 14.5px at 52ch.
+- **Control** (600, 15px): filter tabs and the Circled toggle; selects at 500.
+- **Print name** (hand, 400, 21px, 1.05, marker ink): the look's name on its polaroid, clamped to two lines with a 2.1em minimum height so footers align. 17px on phones.
+- **Print number** (Overpass Mono 600, 12px, tabular figures, graphite): two-digit number in the print footer. The roll line is 12px regular mono in graphite; the open print's "Print NN, mode, source" line is 13px mono, dim.
+- **Hex caption** (Overpass Mono 500, 11px, uppercase, amber): under each chip.
 - **Code** (Overpass Mono 400, 12.5px, 1.4): install commands, wrapped, select-all on click.
 
 ### Named Rules
-**The Width Axis Rule.** Hierarchy comes from Archivo's width and weight: narrow and 800 for names, normal for reading, mid-narrow (78%) for tiny uppercase labels. Do not add another display family.
+**The Width Axis Rule.** Heavy titles take their hierarchy from Archivo's width and weight: narrow and 800. Do not add another display family.
 
-**The Counted Things Are Mono Rule.** Anything numbered, hexed, or copyable is Overpass Mono with tabular figures.
+**The Hand Is For Names Rule.** The marker hand writes a print's name and nothing else. Controls, headings, labels and body text never use it.
+
+**The Counted Things Are Mono Rule.** Anything numbered, hexed or copyable is Overpass Mono with tabular figures.
 
 ## Layout
 
-A single centered sheet (max 1480px, side padding clamp(16px, 3vw, 40px)) on the table, with 26px of table above and 14px minimum at the sides. The header is a two-column grid (wordmark, roll line and lede on the left; controls on the right, bottom-aligned) collapsing to one column at 1040px. Search takes a full row, then tabs, selects, and the circled toggle wrap in a flex row (12px by 26px gap).
+A single centered column (max 1480px, inner padding clamp(2px, 2vw, 24px)) directly on the table, with 26px of table above and 14px minimum at the sides. The header is a two-column grid (wordmark, roll line and lede on the left; controls on the right, bottom-aligned) collapsing to one column at 1040px. Search takes a full row, then tabs, selects and the circled toggle wrap in a flex row (12px by 26px gap).
 
-Frames flow in a CSS grid whose column count is a variable: 6 columns, then 5 at 1260px, 4 at 1040px, 3 at 780px, 2 at 540px. Row gap is 16px; each frame is its own strip of film, not a shared tape. Opening a frame injects the print as a full-width grid row directly after the last frame of that row, so it re-seats itself on resize and filtering. The print is two columns (1.5fr preview, 1fr details, 28px by 40px gap), stacking to one at 1100px; the preview caps at 700px when stacked.
+Prints flow in a CSS grid whose column count is a variable: 5 columns, 4 at 1180px, 3 at 860px, 2 at 540px. Gaps are 34px between rows and 26px between columns (26px and 16px on phones), loose enough for tilt and lift. Opening a print injects the mat as a full-width grid row directly after the last print of that row, pulled up 18px so it meets the notch, so it re-seats on resize and filtering. The mat is two columns (1.5fr preview, 1fr details, 28px by 40px gap), stacking to one at 1100px with the preview capped at 700px. Print padding is 10px (8px on phones); the caption block sits 10px under the picture and the footer 7px under the name.
 
-Spacing rhythm is small and practical (6, 8, 12, 16, 18, 26, 28, 40px) with no strict base. Arrow keys move a roving focus across the grid by column count.
+Spacing rhythm is small and practical (4, 6, 8, 12, 18, 26, 34, 40px) with no strict base. Arrow keys move a roving focus across the grid by column count.
 
 ## Elevation & Depth
 
-Depth is physical and sparse. The sheet lifts off the table with a white top inner hairline, a 2px/4px tight shadow, and a broad 26px/60px ambient shadow. The paper print mat lifts off the black band with a single heavy shadow (0 10px 28px at 45% black). The loupe carries a film-black rim, a 1px translucent white outer ring, and a drop shadow. Film strips, controls, and chips are flat. A small downward notch (22 by 16px triangle in raised film) hangs under the open frame to tie it to its print.
+Depth is physical and sparse. Each print rests on the table with a two-layer contact shadow: a 1px tight edge and a soft 9px/20px spread, both in warm brown-black. On hover, focus within, or open it straightens to zero tilt, rises 4px and the spread deepens to 16px/30px. The preview inside the open mat lifts off the black with one heavy shadow. The loupe carries a film-black rim, a translucent white outer ring and a drop shadow. Tabs, fields, chips, buttons and the mat itself are flat. The notch (24 by 21px triangle in raised film) hangs under the open print to connect it to the mat.
 
 ### Shadow Vocabulary
-- **Sheet** (`box-shadow: 0 1px 0 #fff inset, 0 2px 4px rgba(20,20,20,.10), 0 26px 60px rgba(20,20,20,.14)`): the paper on the table.
-- **Print mat** (`box-shadow: 0 10px 28px rgba(0,0,0,.45)`): the matted preview on the film band.
+- **Print at rest** (`box-shadow: 0 1px 1px rgba(30,28,22,.18), 0 9px 20px rgba(30,28,22,.16)`): the polaroid on the table.
+- **Print lifted** (`box-shadow: 0 1px 1px rgba(30,28,22,.18), 0 16px 30px rgba(30,28,22,.2)`): hover, focus within, open.
+- **Preview on mat** (`box-shadow: 0 10px 28px rgba(0,0,0,.45)`): the bordered large preview.
 - **Loupe** (`box-shadow: 0 0 0 5px film, 0 0 0 6px rgba(255,255,255,.5), 0 14px 34px rgba(0,0,0,.4)`): the magnifier's rim and lift.
 
 ### Named Rules
-**The Paper On Table Rule.** Only two things float: the sheet over the table, the mat over the film. Everything else is flat. Shadows are soft and offset-down, never hard-edged.
+**The Print On Table Rule.** Only prints, the preview on the mat, and the loupe float. Everything else is flat. Shadows are soft and offset-down, never hard-edged; a print's tilt always resolves to flat when it is touched, focused or open.
 
 ## Shapes
 
-Square and printed. Film frames, the print band, command wells, buttons, field underlines, and the sheet have zero corner radius. The sprocket holes are rounded rectangles (8 by 6px, 1.6px radius) repeating every 20px along the top and bottom of every frame. The circle toggle is an 11px-radius pill and the loupe is a true circle. The grease-pencil circle is a hand-drawn closed ellipse path, 114% by 118% of the frame, rotated by a deterministic small angle (about -3.6 to +3.6 degrees) per frame, stroked 1.5 with round caps. Focus is a 2px white outline plus a 4px red halo with 2px rounding. Fields are bottom-border only (2px ink); select arrows are an inline chevron.
+Square and printed. Prints, the mat, command wells, buttons and field underlines have zero corner radius. Each print is tilted by a deterministic angle derived from its number, in steps of 0.35 degrees up to 1.4 degrees either way. The picture carries a 1px inset border at 12% black. The role dots are 16px circles (13px on phones) with a 1px inset 20% black ring. The circle toggle is an 11px-radius pill and the loupe is a true circle. The grease-pencil circle is a hand-drawn closed ellipse path, 114% by 118% of the print, stroked 1.5 with round caps. Focus is a 2px white outline plus a 4px red halo with 2px rounding. Fields are bottom-border only (2px ink); select arrows are an inline chevron.
 
 ## Components
 
-### Film Strip Frame
-A black strip with sprocket holes top and bottom, 6px side margin, holding the preview and a caption row. The caption is the amber mono frame number on the left and the uppercase narrow look name, right aligned and clamped to two lines, on the right. Name goes from dim to full on hover or when open. The frame is a button (zoom-in cursor on fine pointers); its circle toggle sits bottom-left (30px from the edge) with an enlarged hit area. Open state hangs the notch below.
+### Polaroid Print
+A white card (#fcfbf7) in a flex column: 10px padding, a button that holds the picture with its inset hairline border, the handwritten name beneath it, then a footer row pinned to the bottom. Footer, left to right: the mono print number, the circle toggle, and, right aligned, five dots in the look's own accent, danger, success, warning and pro colors. The picture is zoom-in on fine pointers and the print is tilted by its own small deterministic angle. It straightens, lifts 4px and rises above its neighbors on hover, focus within and when open; open also hangs the notch under it.
 
 ### Circle Toggle and Circled Filter
-An outlined grease-pencil ring icon on each frame. On: red filled 11px pill with white ring, and the hand-drawn scribble circle draws itself in 0.55s (stroke-dashoffset, ease-out-expo) unless reduced motion is set. The header's Circled tab counts them in mono and shows the red underline when active. Circles persist in the viewer's browser only.
+An outlined ring icon in graphite in each print footer, with an enlarged hit area. On: red filled 11px pill with a white ring, and the hand-drawn circle around the print draws itself in 0.55s (stroke-dashoffset, ease-out-expo) unless reduced motion is set. The header's Circled tab counts them in mono and shows the red underline when active. Circles persist in the viewer's browser only.
 
 ### Filter Tabs and Selects
 Text-only controls, 15px 600. Inactive in graphite; hover or active in ink. Active is a 3px red underline offset 6px, not a fill. Selects are borderless with a 2px ink underline and chevron. Search is a full-width underline field with a leading magnifier and a 40px height (36px on phones).
 
-### Print
-A raised-film band spanning the grid. Left: the paper-matted large preview. Right: the look name as headline, a mono "Frame NN, mode, source" line in dim, the credit sentence (amber link underline), the step-wedge, two command rows, then actions.
-- **Step-wedge:** three labeled groups (Surfaces 4, Text 3, Roles 5) of 54px-wide, 38px-tall chips with an inset white hairline, amber uppercase hex caption beneath, click to copy.
+### Open Print (the mat)
+A raised-film band spanning the grid. Left: the large preview in a 10px paper border. Right: the look name as headline, a mono "Print NN, mode, source" line in dim, the credit sentence (amber link underline), the step-wedge, two command rows, then actions.
+- **Step-wedge:** three labeled groups (Surfaces 4, Text 3, Roles 5) of 54px-wide, 38px-tall chips with an inset white hairline, amber uppercase hex caption beneath (white on hover), click to copy.
 - **Command row:** a film-black well in mono, select-all on click, with a copy button. The primary copy is a light-on-film fill with film text and goes pure white on hover; secondary buttons are 1px outlines (#5a5a5f), border lightening on hover. Pressed state borders red.
 - **Actions:** Circle it, Previous, Next, Close, 40px tall, margin-top auto.
 
 ### Loupe
-A 208px circle that follows a fine pointer over a frame and shows the same preview at 2.7x. Hidden on touch, on scroll, and when the pointer leaves the strips.
+A 208px circle that follows a fine pointer over a print and shows the same preview at 2.7x. Hidden on touch, on scroll, and when the pointer leaves the prints.
 
 ### Mock Claude Window (content component, colors are inputs)
-A 3:2 container-query box drawn entirely in cqw units so it scales from a frame to a print. Its colors are not part of this system: each look supplies a three-stop sky gradient and a glow, four surfaces, three text steps, five role colors, an accent fill and on-color, and git add/remove colors as CSS custom properties on the element. Structure: title bar with three dots and a title, a user bubble, assistant lines, a tool line with +/- counts, a code block, a composer with a send button, and a footer of model text. Panels are frosted (color-mix translucency with a blur) and carry an inset hairline. In the frame size the window uses a flat variant: larger type, a simplified bar, no frosting, and a five-chip role strip along the bottom edge. The window is decorative and hidden from assistive tech.
+A 3:2 container-query box drawn entirely in cqw units so it scales from a print to the mat. Its colors are not part of this system: each look supplies a three-stop sky gradient and a glow, four surfaces, three text steps, five role colors, an accent fill and on-color, and git add/remove colors as CSS custom properties on the element. Structure: title bar with three dots and a title, a user bubble, assistant lines, a tool line with +/- counts, a code block, a composer with a send button, and a footer of model text. Panels are frosted (color-mix translucency with a blur) and carry an inset hairline. In the print size the window uses a flat variant: larger type, a simplified bar, no frosting. It is decorative and hidden from assistive tech.
 
 ### Footer
 A 2px ink rule, then a graphite disclosure that previews are renderings rather than app captures, and a nav of two bold links.
@@ -244,18 +256,20 @@ A 2px ink rule, then a graphite disclosure that previews are renderings rather t
 ## Do's and Don'ts
 
 ### Do:
-- **Do** keep the chrome to paper (#eeede8), ink (#141414), film (#0f0f10 / #1b1b1d), amber (#eaa94a) and one red (#d6362b).
-- **Do** let every other color come from a look's own data via custom properties on the mock window.
-- **Do** mark selection, focus, and the active filter in grease-pencil red; keep the 2px white outline plus 4px red halo for focus on both paper and film.
-- **Do** use Overpass Mono with tabular figures for frame numbers, hex, and commands, and amber for these only on film.
+- **Do** keep the chrome to table greys (#d7d8d3 / #e6e7e2), polaroid white (#fcfbf7), ink (#141414), marker ink (#1d2030), film (#0f0f10 / #1b1b1d) and one red (#d6362b).
+- **Do** let every other color come from a look's own data: the picture, the five role dots and the chips.
+- **Do** mark selection, focus and the active filter in grease-pencil red; keep the 2px white outline plus 4px red halo for focus on both table and mat.
+- **Do** write print names in the marker hand and set numbers, hex and commands in Overpass Mono with tabular figures; keep amber for hex captions and the credit underline on the mat.
+- **Do** give every print a fixed tilt of at most 1.4 degrees and straighten it on hover, focus and open.
 - **Do** keep controls as underlines and text, with square corners on structural elements.
 - **Do** honor reduced motion: the circle draw animation and all transitions switch off.
 - **Do** say in the footer that previews are renderings, not screenshots.
 
 ### Don't:
-- **Don't** introduce a hue in the chrome that is not amber or grease-pencil red.
+- **Don't** introduce a hue in the chrome that is not grease-pencil red; amber stays on the mat.
 - **Don't** fill buttons or tabs with the red; it marks, it does not decorate.
-- **Don't** use hard offset shadows or card borders; depth is only the sheet and the print mat.
-- **Don't** round the film frames, print band, command wells, or buttons.
-- **Don't** add a second display family; use Archivo's width axis.
-- **Don't** rely on hover for anything: tabs, copy, and circle all work by tap and keyboard, and the loupe is an enhancement for fine pointers only.
+- **Don't** put a panel, card or paper sheet behind the grid; prints sit directly on the table.
+- **Don't** use hard offset shadows or card borders; depth is the print's soft contact shadow and the preview on the mat.
+- **Don't** round prints, the mat, command wells or buttons.
+- **Don't** use the marker hand for anything but a print's name, and don't add another display family.
+- **Don't** rely on hover for anything: tabs, copy and circle all work by tap and keyboard, and the loupe is an enhancement for fine pointers only.

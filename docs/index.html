@@ -427,17 +427,39 @@ const hideLoupe = () => { loupe.classList.remove("on"); loupeId = null; };
 
 /* ---- copy ---- */
 const say = t => { const el = $("live"); el.textContent = ""; setTimeout(() => { el.textContent = t; }, 40); };
+const copyKey = /Mac|iPhone|iPad/.test(navigator.platform) ? "\u2318C" : "Ctrl+C";
+// Some embedded browsers refuse the Clipboard API, so a click falls back to the older copy command.
+function legacyCopy(text) {
+  const ta = document.createElement("textarea");
+  ta.value = text; ta.setAttribute("readonly", "");
+  ta.style.cssText = "position:fixed;top:0;left:0;opacity:0;pointer-events:none";
+  document.body.appendChild(ta); ta.select();
+  let ok = false;
+  try { ok = document.execCommand("copy"); } catch (e) {}
+  ta.remove();
+  return ok;
+}
+async function writeClipboard(text) {
+  try { await navigator.clipboard.writeText(text); return true; }
+  catch (e) { return legacyCopy(text); }
+}
 async function copy(id, btn) {
-  const el = $(id), label = btn.lastChild;
-  const old = label.textContent;
-  try { await navigator.clipboard.writeText(el.textContent); label.textContent = "Copied"; say("Copied: " + el.textContent); }
-  catch (e) { const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); label.textContent = "Selected"; say("Selected. Press copy on your keyboard."); }
-  setTimeout(() => { label.textContent = old; }, 1500);
+  const el = $(id), label = btn.lastChild, old = label.textContent, text = el.textContent;
+  if (await writeClipboard(text)) {
+    label.textContent = "Copied"; say("Copied: " + text);
+    setTimeout(() => { label.textContent = old; }, 1500);
+    return;
+  }
+  // Nothing could write to the clipboard: select the line so the visitor can copy it themselves.
+  const r = document.createRange(); r.selectNodeContents(el);
+  const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+  label.textContent = "Press " + copyKey; say("Selected. Press " + copyKey + " to copy.");
+  setTimeout(() => { label.textContent = old; }, 5000);
 }
 async function copyHex(chip) {
   const hex = chip.dataset.hex.toUpperCase(), b = chip.querySelector("b"), old = b.textContent;
-  try { await navigator.clipboard.writeText(hex); b.textContent = "Copied"; say("Copied " + hex); }
-  catch (e) { say("Copying is blocked here. The color is " + hex); return; }
+  if (!(await writeClipboard(hex))) { say("Copying is blocked here. The color is " + hex); return; }
+  b.textContent = "Copied"; say("Copied " + hex);
   setTimeout(() => { b.textContent = old; }, 1400);
 }
 

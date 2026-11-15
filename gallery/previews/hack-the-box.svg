@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img" aria-label="Hack The Box: a dark look, shown as a mock conversation in its colors">
+<title>Hack The Box</title>
+<defs>
+  <linearGradient id="psky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0a0f16"/><stop offset="0.5" stop-color="#263825"/><stop offset="1" stop-color="#141d2b"/></linearGradient>
+  <radialGradient id="pglow" cx="0.85" cy="0.15" r="0.6"><stop offset="0" stop-color="#9fef00" stop-opacity="0.16"/><stop offset="1" stop-color="#9fef00" stop-opacity="0"/></radialGradient>
+  <clipPath id="pclip"><rect width="640" height="400" rx="14"/></clipPath>
+</defs>
+<g clip-path="url(#pclip)">
+  <rect width="640" height="400" fill="url(#psky)"/>
+  <rect width="640" height="400" fill="url(#pglow)"/>
+  <rect width="640" height="36" fill="#141d2b" fill-opacity="0.45"/>
+  <path d="M0 36.4H640" stroke="#8a92a1" stroke-opacity="0.18" stroke-width="0.8"/>
+  <circle cx="18" cy="18" r="4" fill="#8a92a1" fill-opacity="0.45"/><circle cx="32" cy="18" r="4" fill="#8a92a1" fill-opacity="0.45"/><circle cx="46" cy="18" r="4" fill="#8a92a1" fill-opacity="0.45"/>
+  <text x="66" y="22" font-size="11.5" font-weight="400" fill="#a3abba" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" textLength="97.5" lengthAdjust="spacingAndGlyphs">Cook time badges</text>
+  <rect x="570" y="12.5" width="10" height="10" rx="2.5" fill="none" stroke="#8a92a1" stroke-opacity="0.55" stroke-width="0.8"/><rect x="588" y="12.5" width="10" height="10" rx="2.5" fill="none" stroke="#8a92a1" stroke-opacity="0.55" stroke-width="0.8"/><rect x="606" y="12.5" width="10" height="10" rx="2.5" fill="none" stroke="#8a92a1" stroke-opacity="0.55" stroke-width="0.8"/>
+  <rect x="225.39999999999998" y="56" width="299.6" height="31" rx="14" fill="#192536" fill-opacity="0.72" stroke="#8a92a1" stroke-opacity="0.2" stroke-width="0.8"/>
+  <text x="239.39999999999998" y="76" font-size="12.5" font-weight="400" fill="#cbd3e3" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" textLength="271.6" lengthAdjust="spacingAndGlyphs">add a cook time badge to each recipe card</text>
+  <text x="115" y="112" font-size="12.5" font-weight="400" fill="#cbd3e3" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" textLength="278.3" lengthAdjust="spacingAndGlyphs">Nice idea. Let me look at the recipe card.</text>
+  <text x="115" y="136" font-size="12" font-weight="400" fill="#8a92a1" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" textLength="95.4" lengthAdjust="spacingAndGlyphs">Read and edited</text><text x="218.4" y="136" font-size="12" font-weight="500" fill="#a3abba" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" textLength="38.2" lengthAdjust="spacingAndGlyphs">app.js</text><text x="266.7" y="136" font-size="12" font-weight="400" fill="#9fef00" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" textLength="19.1" lengthAdjust="spacingAndGlyphs">+12</text><text x="293.8" y="136" font-size="12" font-weight="400" fill="#ff3e3e" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" textLength="12.7" lengthAdjust="spacingAndGlyphs">−3</text>
+  <rect x="115" y="150" width="410" height="90" rx="11" fill="#172131" fill-opacity="0.74" stroke="#8a92a1" stroke-opacity="0.2" stroke-width="0.8"/>
+  <text x="129" y="175" font-size="12" font-family="ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" fill="#cbd3e3"><tspan fill="#7db900">function</tspan> <tspan fill="#ff6f69">badge</tspan>(<tspan fill="#de9100">recipe</tspan>) {</text>
+  <text x="129" y="193" font-size="12" font-family="ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" fill="#cbd3e3">  <tspan fill="#7db900">const</tspan> <tspan fill="#de9100">mins</tspan> = <tspan fill="#c47cff">20</tspan>;</text>
+  <text x="129" y="211" font-size="12" font-family="ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" fill="#cbd3e3">  <tspan fill="#7db900">return</tspan> <tspan fill="#649900">`${mins} min`</tspan>;</text>
+  <text x="129" y="229" font-size="12" font-family="ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" fill="#cbd3e3">}</text>
+  <text x="115" y="264" font-size="12.5" font-weight="400" fill="#cbd3e3" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" textLength="344.5" lengthAdjust="spacingAndGlyphs">Done! Every recipe card now shows a <tspan font-weight="600">cook time badge</tspan>.</text>
+  <rect x="115" y="300" width="410" height="42" rx="21" fill="#172131" fill-opacity="0.66" stroke="#8a92a1" stroke-opacity="0.26" stroke-width="0.8"/>
+  <text x="133" y="327" font-size="19" font-weight="400" fill="#8a92a1" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">+</text>
+  <text x="159" y="326" font-size="12.5" font-weight="400" fill="#8a92a1" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" textLength="125.9" lengthAdjust="spacingAndGlyphs">Type / for commands</text>
+  <circle cx="503" cy="321" r="12" fill="#568a00"/>
+  <path d="M503 327V315M498 320l5 -5 5 5" fill="none" stroke="#000000" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="525" y="373" font-size="10.5" font-weight="400" fill="#8a92a1" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="end" textLength="133.6" lengthAdjust="spacingAndGlyphs">Sonnet 5.5   High   Auto</text>
+</g>
+</svg>

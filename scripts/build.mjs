@@ -1,10 +1,13 @@
-// Builds everything installable from src/ into plugins/, and rewrites the
-// marketplace file and the README's table of looks.
+// Builds everything from src/: the installable plugins (plugins/), the marketplace
+// file, CREDITS.md, a preview image for every look (gallery/previews/), the
+// gallery pages (GALLERY.md and docs/index.html), the README's banner and look
+// lists.
 //
 //   node scripts/build.mjs
 //
 // Edit src/themes.js, run this, and commit the result. Everything under
-// plugins/ is generated: a change made there is overwritten by the next build.
+// plugins/, gallery/ and docs/ is generated: a change made there is overwritten
+// by the next build.
 
 import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
@@ -13,6 +16,8 @@ import { fileURLToPath } from 'node:url'
 import { makeColors } from '../src/make-colors.js'
 import { ORIGINALS, PALETTE_CREDITS } from '../src/credits.js'
 import { LOOKS } from '../src/themes.js'
+import { heroSvg, previewSvg } from './previews.mjs'
+import { galleryEntry, resolveColors } from './resolve.mjs'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const AUTHOR = 'briannaworkman'
@@ -155,35 +160,104 @@ write(
   }),
 )
 
-// The README's tables, between its markers.
-const originals = new Set(ORIGINALS)
-const table = mode => {
-  const rows = LOOKS.filter(look => look.mode === mode).map(
-    look => `| \`${look.id}\` | ${look.name}${originals.has(look.id) ? ' (original)' : ''} | \`look-${look.id}\` |`,
-  )
+// ---- previews, the gallery pages and the README ----------------------------
 
-  return [
-    `### ${mode === 'dark' ? 'Dark' : 'Light'} (${rows.length})`,
-    '',
-    '| `/look` name | Theme | Install just this one |',
-    '| --- | --- | --- |',
-    ...rows,
-  ].join('\n')
+// The searchable gallery page, published as an artifact. Leave empty to leave
+// the link out of the README.
+const INTERACTIVE_GALLERY = 'https://claude.ai/artifact/NmsFaUQA6dtLgeQcQJVxHj'
+const FEATURED = ['mocha', 'tokyo-night', 'gruvbox', 'latte', 'rose-pine-dawn', 'synthwave']
+const HERO = ['tokyo-night', 'mocha', 'latte']
+
+const html = s => String(s).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[ch])
+const lookById = id => {
+  const found = LOOKS.find(candidate => candidate.id === id)
+
+  if (!found) {
+    console.error(`No look called "${id}" (named in FEATURED or HERO in scripts/build.mjs).`)
+    process.exit(1)
+  }
+
+  return found
 }
-const generated = `<!-- looks:start -->\n${table('dark')}\n\n${table('light')}\n<!-- looks:end -->`
+const resolved = new Map(LOOKS.map(each => [each.id, resolveColors(each)]))
+
+// One preview image per look, a banner, and the searchable page.
+rmSync(join(ROOT, 'gallery'), { recursive: true, force: true })
+
+for (const each of LOOKS) {
+  write(join(ROOT, 'gallery', 'previews', `${each.id}.svg`), previewSvg(each, resolved.get(each.id)))
+}
+write(join(ROOT, 'docs', 'hero.svg'), heroSvg(HERO.map(id => ({ look: lookById(id), c: resolved.get(id) }))))
+write(
+  join(ROOT, 'docs', 'index.html'),
+  readFileSync(join(ROOT, 'src', 'gallery-template.html'), 'utf8').replace('__DATA__', () => JSON.stringify(LOOKS.map(galleryEntry))),
+)
+
+// A grid of preview images, three to a row. HTML, because markdown cannot size an image.
+const grid = (looks, width) => {
+  const cell = each =>
+    `<td align="center" valign="top" width="33%"><a href="gallery/previews/${each.id}.svg"><img src="gallery/previews/${each.id}.svg" width="${width}" alt="${html(each.name)}"></a><br><b>${html(each.name)}</b><br><sub><code>${each.id}</code></sub></td>`
+  const rows = []
+
+  for (let i = 0; i < looks.length; i += 3) {
+    const row = looks.slice(i, i + 3).map(cell)
+
+    while (row.length < 3) row.push('<td></td>')
+    rows.push(`<tr>\n${row.join('\n')}\n</tr>`)
+  }
+
+  return `<table>\n${rows.join('\n')}\n</table>`
+}
+const dark = LOOKS.filter(each => each.mode === 'dark')
+const light = LOOKS.filter(each => each.mode === 'light')
+
+write(
+  join(ROOT, 'GALLERY.md'),
+  [
+    '# Gallery',
+    '',
+    `All ${LOOKS.length} looks: ${dark.length} dark and ${light.length} light. The name under each one is what you type: \`/look <name>\` with the bundle, or install the single look \`look-<name>\`.`,
+    '',
+    `Each preview is a rendering built from the look's colors, with its backdrop gradient and frosted panels. They are not captures from the app, which picks some colors itself, so a look may differ slightly on screen.`,
+    '',
+    INTERACTIVE_GALLERY ? `For search and filters, there is an [interactive version](${INTERACTIVE_GALLERY}). Cloning the repository also gives you \`docs/index.html\`, the same page, to open in a browser.` : 'Cloning the repository gives you `docs/index.html`, a searchable version of this page to open in a browser.',
+    '',
+    '[Dark](#dark) · [Light](#light) · [Credits](CREDITS.md) · [Back to the README](README.md)',
+    '',
+    `## Dark (${dark.length})`,
+    '',
+    grid(dark, 290),
+    '',
+    `## Light (${light.length})`,
+    '',
+    grid(light, 290),
+    '',
+  ].join('\n'),
+)
+
+// The README's generated parts, each between its own markers.
+const featured = `<!-- featured:start -->\n${grid(FEATURED.map(lookById), 290)}\n<!-- featured:end -->`
+const names = mode =>
+  `**${mode === 'dark' ? 'Dark' : 'Light'}** (${LOOKS.filter(each => each.mode === mode).length}): ${LOOKS.filter(each => each.mode === mode)
+    .map(each => `\`${each.id}\``)
+    .join(' ')}`
+const allNames = `<!-- names:start -->\n<details>\n<summary>All ${LOOKS.length} look names</summary>\n\n${names('dark')}\n\n${names('light')}\n\n</details>\n<!-- names:end -->`
 const readmePath = join(ROOT, 'README.md')
 
 if (existsSync(readmePath)) {
   const readme = readFileSync(readmePath, 'utf8')
 
-  if (!readme.includes('<!-- looks:start -->')) {
-    console.error('README.md has no <!-- looks:start --> marker, so its tables were not updated.')
-    process.exit(1)
+  for (const marker of ['featured', 'names', 'count']) {
+    if (!readme.includes(`<!-- ${marker}:start -->`)) {
+      console.error(`README.md has no <!-- ${marker}:start --> marker, so that part was not updated.`)
+      process.exit(1)
+    }
   }
   writeFileSync(
     readmePath,
     readme
-      .replace(/<!-- looks:start -->[\s\S]*<!-- looks:end -->/, () => generated)
+      .replace(/<!-- featured:start -->[\s\S]*?<!-- featured:end -->/, () => featured)
+      .replace(/<!-- names:start -->[\s\S]*?<!-- names:end -->/, () => allNames)
       .replace(/<!-- count:start -->\d+<!-- count:end -->/g, () => `<!-- count:start -->${LOOKS.length}<!-- count:end -->`),
   )
 }

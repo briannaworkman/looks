@@ -1,14 +1,48 @@
+<div align="center">
+
+<img src="docs/hero.svg" alt="Three looks from the gallery: Tokyo Night, Catppuccin Mocha and Catppuccin Latte" width="100%">
+
 # looks
 
-A gallery of <!-- count:start -->95<!-- count:end --> themes for the Claude desktop and mobile apps, made as Claude Code **mods**. Install them all and switch with one command, or install just the one you like.
+**<!-- count:start -->95<!-- count:end --> themes for the Claude desktop and mobile apps.**<br>
+Install them all and switch with one command, or install only the one you like.
 
-Each look recolors the whole interface and puts a soft gradient behind the conversation. The app's panels, including the prompt box, are frosted glass over it, so there is no solid strip at the bottom.
+[Install](#install) &nbsp;·&nbsp; [Gallery](GALLERY.md) &nbsp;·&nbsp; [Interactive gallery](https://claude.ai/artifact/NmsFaUQA6dtLgeQcQJVxHj) &nbsp;·&nbsp; [Credits](CREDITS.md)
+
+</div>
+
+---
+
+## What you get
+
+Each look recolors the whole interface and puts a soft gradient behind the conversation. The app frosts its panels over that gradient, so the prompt box floats on it instead of sitting on a solid strip.
+
+- **Dark and light.** A look is built for one or the other, so a dark look stays dark.
+- **Readable first.** Main text is at 7:1 contrast or better against its surfaces in every look, and none trips the check that makes the desktop app refuse a theme.
+- **Familiar palettes.** Catppuccin, Nord, Tokyo Night, Gruvbox and more, plus 60 adapted from popular open-source VS Code themes and five made for this gallery.
+
+<!-- featured:start -->
+<table>
+<tr>
+<td align="center" valign="top" width="33%"><a href="gallery/previews/mocha.svg"><img src="gallery/previews/mocha.svg" width="290" alt="Catppuccin Mocha"></a><br><b>Catppuccin Mocha</b><br><sub><code>mocha</code></sub></td>
+<td align="center" valign="top" width="33%"><a href="gallery/previews/tokyo-night.svg"><img src="gallery/previews/tokyo-night.svg" width="290" alt="Tokyo Night"></a><br><b>Tokyo Night</b><br><sub><code>tokyo-night</code></sub></td>
+<td align="center" valign="top" width="33%"><a href="gallery/previews/gruvbox.svg"><img src="gallery/previews/gruvbox.svg" width="290" alt="Gruvbox Dark"></a><br><b>Gruvbox Dark</b><br><sub><code>gruvbox</code></sub></td>
+</tr>
+<tr>
+<td align="center" valign="top" width="33%"><a href="gallery/previews/latte.svg"><img src="gallery/previews/latte.svg" width="290" alt="Catppuccin Latte"></a><br><b>Catppuccin Latte</b><br><sub><code>latte</code></sub></td>
+<td align="center" valign="top" width="33%"><a href="gallery/previews/rose-pine-dawn.svg"><img src="gallery/previews/rose-pine-dawn.svg" width="290" alt="Rosé Pine Dawn"></a><br><b>Rosé Pine Dawn</b><br><sub><code>rose-pine-dawn</code></sub></td>
+<td align="center" valign="top" width="33%"><a href="gallery/previews/synthwave.svg"><img src="gallery/previews/synthwave.svg" width="290" alt="Synthwave &#39;84"></a><br><b>Synthwave &#39;84</b><br><sub><code>synthwave</code></sub></td>
+</tr>
+</table>
+<!-- featured:end -->
+
+<p align="center"><sub>Previews are renderings built from each look's colors, not captures from the app. <a href="GALLERY.md">See all of them</a>.</sub></p>
 
 ## Install
 
 ### Just one look
 
-Every look is its own small mod, named `look-` plus its name from the tables below. At the prompt of a terminal session:
+Every look is its own small mod, named `look-` plus its name from the [gallery](GALLERY.md). At the prompt of a terminal session:
 
 ```
 /plugin install look-nord --marketplace briannaworkman/looks
@@ -42,116 +76,22 @@ The bundle starts on `mocha` and remembers the last look you chose across sessio
 
 > Themes draw in the desktop and mobile apps. The terminal and editors draw no theme, so a look has no effect there.
 
-## The looks
+## Browse the looks
 
-<!-- looks:start -->
-### Dark (69)
+- **[GALLERY.md](GALLERY.md)** shows a preview of every look, dark and light.
+- **[Interactive gallery](https://claude.ai/artifact/NmsFaUQA6dtLgeQcQJVxHj)** adds search and filters, the exact colors of each look, and a copy button for its install line.
+- Cloning the repository also gives you `docs/index.html`, the same interactive page, to open in a browser.
 
-| `/look` name | Theme | Install just this one |
-| --- | --- | --- |
-| `mocha` | Catppuccin Mocha | `look-mocha` |
-| `nord` | Nord | `look-nord` |
-| `dracula` | Dracula | `look-dracula` |
-| `tokyo-night` | Tokyo Night | `look-tokyo-night` |
-| `gruvbox` | Gruvbox Dark | `look-gruvbox` |
-| `rose-pine` | Rosé Pine | `look-rose-pine` |
-| `everforest` | Everforest | `look-everforest` |
-| `solarized-dark` | Solarized Dark | `look-solarized-dark` |
-| `frappe` | Catppuccin Frappé | `look-frappe` |
-| `macchiato` | Catppuccin Macchiato | `look-macchiato` |
-| `one-dark` | One Dark | `look-one-dark` |
-| `kanagawa` | Kanagawa | `look-kanagawa` |
-| `ayu-mirage` | Ayu Mirage | `look-ayu-mirage` |
-| `github-dark` | GitHub Dark | `look-github-dark` |
-| `night-owl` | Night Owl | `look-night-owl` |
-| `synthwave` | Synthwave '84 | `look-synthwave` |
-| `monokai` | Monokai | `look-monokai` |
-| `amber-crt` | Amber CRT (original) | `look-amber-crt` |
-| `tokyo-night-storm` | Tokyo Night Storm | `look-tokyo-night-storm` |
-| `nightfox` | Nightfox | `look-nightfox` |
-| `oxocarbon` | Oxocarbon | `look-oxocarbon` |
-| `material-ocean` | Material Ocean | `look-material-ocean` |
-| `zenburn` | Zenburn | `look-zenburn` |
-| `deep-sea` | Deep Sea (original) | `look-deep-sea` |
-| `mint-chocolate` | Mint Chocolate (original) | `look-mint-chocolate` |
-| `winter-is-coming-dark-blue` | Winter is Coming (Dark Blue) | `look-winter-is-coming-dark-blue` |
-| `one-monokai` | One Monokai | `look-one-monokai` |
-| `palenight-theme` | Palenight Theme | `look-palenight-theme` |
-| `cobalt2` | Cobalt2 | `look-cobalt2` |
-| `andromeda` | Andromeda | `look-andromeda` |
-| `noctis` | Noctis | `look-noctis` |
-| `jellyfish` | JellyFish | `look-jellyfish` |
-| `darcula` | Darcula | `look-darcula` |
-| `vue-theme` | Vue Theme | `look-vue-theme` |
-| `min-dark` | Min Dark | `look-min-dark` |
-| `absent-contrast-rainglow` | Absent Contrast (rainglow) | `look-absent-contrast-rainglow` |
-| `electron` | Electron | `look-electron` |
-| `macos-modern-dark-ventura-xcode-civic` | MacOS Modern Dark - Ventura Xcode Civic | `look-macos-modern-dark-ventura-xcode-civic` |
-| `mayukai-mirage` | Mayukai Mirage | `look-mayukai-mirage` |
-| `narutodark` | NarutoDark | `look-narutodark` |
-| `pink-cat-boo` | Pink Cat Boo | `look-pink-cat-boo` |
-| `gitpod-dark` | Gitpod Dark | `look-gitpod-dark` |
-| `lunar-pink` | Lunar Pink | `look-lunar-pink` |
-| `black` | Black | `look-black` |
-| `hack-the-box` | Hack The Box | `look-hack-the-box` |
-| `bear-theme` | Bear Theme | `look-bear-theme` |
-| `night-pink` | Night Pink | `look-night-pink` |
-| `vim-dark-medium` | Vim Dark Medium | `look-vim-dark-medium` |
-| `halcyon` | Halcyon | `look-halcyon` |
-| `firefly-pro` | FireFly Pro | `look-firefly-pro` |
-| `codestackr-theme` | codeSTACKr Theme | `look-codestackr-theme` |
-| `firefox-dark` | Firefox Dark | `look-firefox-dark` |
-| `xcode-classic-dark` | Xcode Classic (Dark) | `look-xcode-classic-dark` |
-| `snazzy-operator` | Snazzy Operator | `look-snazzy-operator` |
-| `dark-low-contrast` | Dark Low Contrast | `look-dark-low-contrast` |
-| `pitch-black` | Pitch Black | `look-pitch-black` |
-| `horizon` | Horizon | `look-horizon` |
-| `poimandres` | poimandres | `look-poimandres` |
-| `monokai-vibrant` | Monokai Vibrant | `look-monokai-vibrant` |
-| `code-blue` | Code Blue | `look-code-blue` |
-| `august-arstotzka` | August - Arstotzka | `look-august-arstotzka` |
-| `pycharm-original-theme` | Pycharm Original Theme | `look-pycharm-original-theme` |
-| `radical` | Radical | `look-radical` |
-| `field-lights` | Field Lights | `look-field-lights` |
-| `plastic` | Plastic | `look-plastic` |
-| `matrix` | Matrix | `look-matrix` |
-| `pop-n-lock-theme-by-luxcium` | Pop N' Lock Theme by Luxcium ✨ | `look-pop-n-lock-theme-by-luxcium` |
-| `cobalt-next` | Cobalt Next | `look-cobalt-next` |
-| `ui-one-dark` | βui - One Dark | `look-ui-one-dark` |
+<!-- names:start -->
+<details>
+<summary>All 95 look names</summary>
 
-### Light (26)
+**Dark** (69): `mocha` `nord` `dracula` `tokyo-night` `gruvbox` `rose-pine` `everforest` `solarized-dark` `frappe` `macchiato` `one-dark` `kanagawa` `ayu-mirage` `github-dark` `night-owl` `synthwave` `monokai` `amber-crt` `tokyo-night-storm` `nightfox` `oxocarbon` `material-ocean` `zenburn` `deep-sea` `mint-chocolate` `winter-is-coming-dark-blue` `one-monokai` `palenight-theme` `cobalt2` `andromeda` `noctis` `jellyfish` `darcula` `vue-theme` `min-dark` `absent-contrast-rainglow` `electron` `macos-modern-dark-ventura-xcode-civic` `mayukai-mirage` `narutodark` `pink-cat-boo` `gitpod-dark` `lunar-pink` `black` `hack-the-box` `bear-theme` `night-pink` `vim-dark-medium` `halcyon` `firefly-pro` `codestackr-theme` `firefox-dark` `xcode-classic-dark` `snazzy-operator` `dark-low-contrast` `pitch-black` `horizon` `poimandres` `monokai-vibrant` `code-blue` `august-arstotzka` `pycharm-original-theme` `radical` `field-lights` `plastic` `matrix` `pop-n-lock-theme-by-luxcium` `cobalt-next` `ui-one-dark`
 
-| `/look` name | Theme | Install just this one |
-| --- | --- | --- |
-| `latte` | Catppuccin Latte | `look-latte` |
-| `solarized-light` | Solarized Light | `look-solarized-light` |
-| `github-light` | GitHub Light | `look-github-light` |
-| `gruvbox-light` | Gruvbox Light | `look-gruvbox-light` |
-| `rose-pine-dawn` | Rosé Pine Dawn | `look-rose-pine-dawn` |
-| `ayu-light` | Ayu Light | `look-ayu-light` |
-| `everforest-light` | Everforest Light | `look-everforest-light` |
-| `nord-snow` | Nord Snow | `look-nord-snow` |
-| `paper` | Paper Notebook (original) | `look-paper` |
-| `sakura` | Sakura (original) | `look-sakura` |
-| `winter-is-coming-light` | Winter is Coming (Light) | `look-winter-is-coming-light` |
-| `atom-one-light` | Atom One Light | `look-atom-one-light` |
-| `noctis-lux` | Noctis Lux | `look-noctis-lux` |
-| `min-light` | Min Light | `look-min-light` |
-| `absent-light-rainglow` | Absent Light (rainglow) | `look-absent-light-rainglow` |
-| `slack-theme-aubergine` | Slack Theme Aubergine | `look-slack-theme-aubergine` |
-| `slack-theme-aubergine-felipe-mendes` | Slack Theme Aubergine | `look-slack-theme-aubergine-felipe-mendes` |
-| `macos-modern-light-ventura-xcode` | MacOS Modern Light - Ventura Xcode | `look-macos-modern-light-ventura-xcode` |
-| `gitpod-light` | Gitpod Light | `look-gitpod-light` |
-| `vim-light-medium` | Vim Light Medium | `look-vim-light-medium` |
-| `firefox-light` | Firefox Light | `look-firefox-light` |
-| `netbeans-light-theme` | NetBeans Light Theme | `look-netbeans-light-theme` |
-| `horizon-bright` | Horizon Bright | `look-horizon-bright` |
-| `snazzy-light` | Snazzy Light | `look-snazzy-light` |
-| `quiet-light-for-vsc` | Quiet Light for VSC | `look-quiet-light-for-vsc` |
-| `ui-one-light` | βui - One Light | `look-ui-one-light` |
-<!-- looks:end -->
+**Light** (26): `latte` `solarized-light` `github-light` `gruvbox-light` `rose-pine-dawn` `ayu-light` `everforest-light` `nord-snow` `paper` `sakura` `winter-is-coming-light` `atom-one-light` `noctis-lux` `min-light` `absent-light-rainglow` `slack-theme-aubergine` `slack-theme-aubergine-felipe-mendes` `macos-modern-light-ventura-xcode` `gitpod-light` `vim-light-medium` `firefox-light` `netbeans-light-theme` `horizon-bright` `snazzy-light` `quiet-light-for-vsc` `ui-one-light`
 
-Every look keeps main text at 7:1 contrast or better against its surfaces, and none trips the check that makes the desktop app refuse a theme.
+</details>
+<!-- names:end -->
 
 ## Add your own
 
@@ -161,7 +101,7 @@ Every look is one entry in [`src/themes.js`](src/themes.js): an id, a name, a mo
 node scripts/build.mjs
 ```
 
-The build checks each look, writes its mod and the bundle into `plugins/`, and rewrites the marketplace file and the tables above. It refuses to build a look the desktop app would not paint. Everything in `plugins/` is generated, so commit it but edit `src/` instead.
+The build checks each look and refuses one the desktop app would not paint. It writes each look's mod and the bundle into `plugins/`, a preview image for each into `gallery/previews/`, the gallery pages, the marketplace file, `CREDITS.md` and the lists in this README. Commit what it writes, and edit `src/` rather than the generated files.
 
 Two things keep a look readable:
 

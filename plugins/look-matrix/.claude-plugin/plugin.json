@@ -1,0 +1,8 @@
+{
+  "name": "look-matrix",
+  "version": "0.2.0",
+  "description": "Matrix: a dark theme for the Claude desktop and mobile apps. Colors adapted from UstymUkhman.matrix-theme by UstymUkhman (MIT).",
+  "author": {
+    "name": "briannaworkman"
+  }
+}

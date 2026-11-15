@@ -1,0 +1,8 @@
+{
+  "name": "look-absent-light-rainglow",
+  "version": "0.2.0",
+  "description": "Absent Light (rainglow): a light theme for the Claude desktop and mobile apps. Colors adapted from daylerees.rainglow by daylerees (MIT).",
+  "author": {
+    "name": "briannaworkman"
+  }
+}

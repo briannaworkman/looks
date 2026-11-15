@@ -1,0 +1,8 @@
+{
+  "name": "look-vue-theme",
+  "version": "0.2.0",
+  "description": "Vue Theme: a dark theme for the Claude desktop and mobile apps. Colors adapted from mariorodeghiero.vue-theme by mariorodeghiero (MIT).",
+  "author": {
+    "name": "briannaworkman"
+  }
+}

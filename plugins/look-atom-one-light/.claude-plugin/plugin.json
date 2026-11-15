@@ -1,0 +1,8 @@
+{
+  "name": "look-atom-one-light",
+  "version": "0.2.0",
+  "description": "Atom One Light: a light theme for the Claude desktop and mobile apps. Colors adapted from akamud.vscode-theme-onelight by akamud (MIT).",
+  "author": {
+    "name": "briannaworkman"
+  }
+}

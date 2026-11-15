@@ -1,9 +1,12 @@
 // The gallery's palettes, as plain data. Each entry gives `makeColors` its
 // input (`def`) and the three colors of the backdrop's gradient (`sky`, top to
 // bottom). Palette colors come from the open-source palettes of the same names.
+// Looks adapted from VS Code themes, with their credits, are in imported.js.
+
+import { IMPORTED } from './imported.js'
 
 /** @type {import('./themes.js').Look[]} */
-export const LOOKS = [
+const CURATED = [
   {
     id: 'mocha',
     name: 'Catppuccin Mocha',
@@ -906,3 +909,6 @@ export const LOOKS = [
     },
   },
 ]
+
+// Every look: the hand-picked palettes first, then those adapted from VS Code themes.
+export const LOOKS = [...CURATED, ...IMPORTED]

@@ -1,0 +1,8 @@
+{
+  "name": "look-gitpod-dark",
+  "version": "0.2.0",
+  "description": "Gitpod Dark: a dark theme for the Claude desktop and mobile apps. Colors adapted from gitpod.gitpod-theme by gitpod (MIT).",
+  "author": {
+    "name": "briannaworkman"
+  }
+}

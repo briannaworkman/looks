@@ -1,0 +1,8 @@
+{
+  "name": "look-snazzy-operator",
+  "version": "0.2.0",
+  "description": "Snazzy Operator: a dark theme for the Claude desktop and mobile apps. Colors adapted from aaronthomas.vscode-snazzy-operator by aaronthomas (MIT).",
+  "author": {
+    "name": "briannaworkman"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "look-poimandres",
+  "version": "0.2.0",
+  "description": "poimandres: a dark theme for the Claude desktop and mobile apps. Colors adapted from pmndrs.pmndrs by pmndrs (MIT).",
+  "author": {
+    "name": "briannaworkman"
+  }
+}

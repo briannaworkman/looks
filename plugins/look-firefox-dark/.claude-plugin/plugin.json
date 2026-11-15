@@ -1,0 +1,8 @@
+{
+  "name": "look-firefox-dark",
+  "version": "0.2.0",
+  "description": "Firefox Dark: a dark theme for the Claude desktop and mobile apps. Colors adapted from Heron.firefox-devtools-theme by Heron (MIT).",
+  "author": {
+    "name": "briannaworkman"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "look-radical",
+  "version": "0.2.0",
+  "description": "Radical: a dark theme for the Claude desktop and mobile apps. Colors adapted from dhedgecock.radical-vscode by dhedgecock (ISC).",
+  "author": {
+    "name": "briannaworkman"
+  }
+}

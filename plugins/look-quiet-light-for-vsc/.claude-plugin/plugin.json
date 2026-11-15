@@ -1,0 +1,8 @@
+{
+  "name": "look-quiet-light-for-vsc",
+  "version": "0.2.0",
+  "description": "Quiet Light for VSC: a light theme for the Claude desktop and mobile apps. Colors adapted from onecrayon.theme-quietlight-vsc by onecrayon (MIT).",
+  "author": {
+    "name": "briannaworkman"
+  }
+}

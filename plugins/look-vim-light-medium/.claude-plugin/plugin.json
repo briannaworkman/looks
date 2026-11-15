@@ -1,0 +1,8 @@
+{
+  "name": "look-vim-light-medium",
+  "version": "0.2.0",
+  "description": "Vim Light Medium: a light theme for the Claude desktop and mobile apps. Colors adapted from HarryHopkinson.vim-theme by HarryHopkinson (MIT).",
+  "author": {
+    "name": "briannaworkman"
+  }
+}

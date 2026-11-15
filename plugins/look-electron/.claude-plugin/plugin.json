@@ -1,0 +1,8 @@
+{
+  "name": "look-electron",
+  "version": "0.2.0",
+  "description": "Electron: a dark theme for the Claude desktop and mobile apps. Colors adapted from kuscamara.electron by kuscamara (MIT).",
+  "author": {
+    "name": "briannaworkman"
+  }
+}

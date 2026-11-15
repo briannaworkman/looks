@@ -1,0 +1,8 @@
+{
+  "name": "look-pitch-black",
+  "version": "0.2.0",
+  "description": "Pitch Black: a dark theme for the Claude desktop and mobile apps. Colors adapted from viktorqvarfordt.vscode-pitch-black-theme by viktorqvarfordt (MIT).",
+  "author": {
+    "name": "briannaworkman"
+  }
+}

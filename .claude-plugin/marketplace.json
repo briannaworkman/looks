@@ -1,6 +1,6 @@
 {
   "name": "looks",
-  "description": "A gallery of 35 themes for the Claude desktop and mobile apps. Install them all, or just one.",
+  "description": "A gallery of 95 themes for the Claude desktop and mobile apps. Install them all, or just one.",
   "owner": {
     "name": "briannaworkman"
   },
@@ -8,7 +8,7 @@
     {
       "name": "looks",
       "source": "./plugins/looks",
-      "description": "All 35 looks for the Claude desktop and mobile apps, switched with /look."
+      "description": "All 95 looks for the Claude desktop and mobile apps, switched with /look."
     },
     {
       "name": "look-mocha",
@@ -184,6 +184,306 @@
       "name": "look-sakura",
       "source": "./plugins/look-sakura",
       "description": "Sakura: a light theme for the Claude desktop and mobile apps."
+    },
+    {
+      "name": "look-winter-is-coming-dark-blue",
+      "source": "./plugins/look-winter-is-coming-dark-blue",
+      "description": "Winter is Coming (Dark Blue): a dark theme for the Claude desktop and mobile apps. Colors adapted from johnpapa.winteriscoming by johnpapa (MIT)."
+    },
+    {
+      "name": "look-winter-is-coming-light",
+      "source": "./plugins/look-winter-is-coming-light",
+      "description": "Winter is Coming (Light): a light theme for the Claude desktop and mobile apps. Colors adapted from johnpapa.winteriscoming by johnpapa (MIT)."
+    },
+    {
+      "name": "look-one-monokai",
+      "source": "./plugins/look-one-monokai",
+      "description": "One Monokai: a dark theme for the Claude desktop and mobile apps. Colors adapted from azemoh.one-monokai by azemoh (MIT)."
+    },
+    {
+      "name": "look-palenight-theme",
+      "source": "./plugins/look-palenight-theme",
+      "description": "Palenight Theme: a dark theme for the Claude desktop and mobile apps. Colors adapted from whizkydee.material-palenight-theme by whizkydee (MIT)."
+    },
+    {
+      "name": "look-cobalt2",
+      "source": "./plugins/look-cobalt2",
+      "description": "Cobalt2: a dark theme for the Claude desktop and mobile apps. Colors adapted from wesbos.theme-cobalt2 by wesbos (MIT)."
+    },
+    {
+      "name": "look-andromeda",
+      "source": "./plugins/look-andromeda",
+      "description": "Andromeda: a dark theme for the Claude desktop and mobile apps. Colors adapted from EliverLara.andromeda by EliverLara (MIT)."
+    },
+    {
+      "name": "look-atom-one-light",
+      "source": "./plugins/look-atom-one-light",
+      "description": "Atom One Light: a light theme for the Claude desktop and mobile apps. Colors adapted from akamud.vscode-theme-onelight by akamud (MIT)."
+    },
+    {
+      "name": "look-noctis",
+      "source": "./plugins/look-noctis",
+      "description": "Noctis: a dark theme for the Claude desktop and mobile apps. Colors adapted from liviuschera.noctis by liviuschera (MIT)."
+    },
+    {
+      "name": "look-noctis-lux",
+      "source": "./plugins/look-noctis-lux",
+      "description": "Noctis Lux: a light theme for the Claude desktop and mobile apps. Colors adapted from liviuschera.noctis by liviuschera (MIT)."
+    },
+    {
+      "name": "look-jellyfish",
+      "source": "./plugins/look-jellyfish",
+      "description": "JellyFish: a dark theme for the Claude desktop and mobile apps. Colors adapted from PawelBorkar.jellyfish by PawelBorkar (Apache-2.0)."
+    },
+    {
+      "name": "look-darcula",
+      "source": "./plugins/look-darcula",
+      "description": "Darcula: a dark theme for the Claude desktop and mobile apps. Colors adapted from rokoroku.vscode-theme-darcula by rokoroku (MIT)."
+    },
+    {
+      "name": "look-vue-theme",
+      "source": "./plugins/look-vue-theme",
+      "description": "Vue Theme: a dark theme for the Claude desktop and mobile apps. Colors adapted from mariorodeghiero.vue-theme by mariorodeghiero (MIT)."
+    },
+    {
+      "name": "look-min-dark",
+      "source": "./plugins/look-min-dark",
+      "description": "Min Dark: a dark theme for the Claude desktop and mobile apps. Colors adapted from miguelsolorio.min-theme by miguelsolorio (MIT)."
+    },
+    {
+      "name": "look-min-light",
+      "source": "./plugins/look-min-light",
+      "description": "Min Light: a light theme for the Claude desktop and mobile apps. Colors adapted from miguelsolorio.min-theme by miguelsolorio (MIT)."
+    },
+    {
+      "name": "look-absent-contrast-rainglow",
+      "source": "./plugins/look-absent-contrast-rainglow",
+      "description": "Absent Contrast (rainglow): a dark theme for the Claude desktop and mobile apps. Colors adapted from daylerees.rainglow by daylerees (MIT)."
+    },
+    {
+      "name": "look-absent-light-rainglow",
+      "source": "./plugins/look-absent-light-rainglow",
+      "description": "Absent Light (rainglow): a light theme for the Claude desktop and mobile apps. Colors adapted from daylerees.rainglow by daylerees (MIT)."
+    },
+    {
+      "name": "look-slack-theme-aubergine",
+      "source": "./plugins/look-slack-theme-aubergine",
+      "description": "Slack Theme Aubergine: a light theme for the Claude desktop and mobile apps. Colors adapted from felipe-mendes.slack-theme by felipe-mendes (MIT)."
+    },
+    {
+      "name": "look-slack-theme-aubergine-felipe-mendes",
+      "source": "./plugins/look-slack-theme-aubergine-felipe-mendes",
+      "description": "Slack Theme Aubergine: a light theme for the Claude desktop and mobile apps. Colors adapted from felipe-mendes.slack-theme by felipe-mendes (MIT)."
+    },
+    {
+      "name": "look-electron",
+      "source": "./plugins/look-electron",
+      "description": "Electron: a dark theme for the Claude desktop and mobile apps. Colors adapted from kuscamara.electron by kuscamara (MIT)."
+    },
+    {
+      "name": "look-macos-modern-dark-ventura-xcode-civic",
+      "source": "./plugins/look-macos-modern-dark-ventura-xcode-civic",
+      "description": "MacOS Modern Dark - Ventura Xcode Civic: a dark theme for the Claude desktop and mobile apps. Colors adapted from davidbwaters.macos-modern-theme by davidbwaters (MIT)."
+    },
+    {
+      "name": "look-macos-modern-light-ventura-xcode",
+      "source": "./plugins/look-macos-modern-light-ventura-xcode",
+      "description": "MacOS Modern Light - Ventura Xcode: a light theme for the Claude desktop and mobile apps. Colors adapted from davidbwaters.macos-modern-theme by davidbwaters (MIT)."
+    },
+    {
+      "name": "look-mayukai-mirage",
+      "source": "./plugins/look-mayukai-mirage",
+      "description": "Mayukai Mirage: a dark theme for the Claude desktop and mobile apps. Colors adapted from GulajavaMinistudio.mayukaithemevsc by GulajavaMinistudio (MIT)."
+    },
+    {
+      "name": "look-narutodark",
+      "source": "./plugins/look-narutodark",
+      "description": "NarutoDark: a dark theme for the Claude desktop and mobile apps. Colors adapted from Thomaz.preparing by Thomaz (MIT)."
+    },
+    {
+      "name": "look-pink-cat-boo",
+      "source": "./plugins/look-pink-cat-boo",
+      "description": "Pink Cat Boo: a dark theme for the Claude desktop and mobile apps. Colors adapted from ftsamoyed.theme-pink-cat-boo by ftsamoyed (MIT)."
+    },
+    {
+      "name": "look-gitpod-dark",
+      "source": "./plugins/look-gitpod-dark",
+      "description": "Gitpod Dark: a dark theme for the Claude desktop and mobile apps. Colors adapted from gitpod.gitpod-theme by gitpod (MIT)."
+    },
+    {
+      "name": "look-gitpod-light",
+      "source": "./plugins/look-gitpod-light",
+      "description": "Gitpod Light: a light theme for the Claude desktop and mobile apps. Colors adapted from gitpod.gitpod-theme by gitpod (MIT)."
+    },
+    {
+      "name": "look-lunar-pink",
+      "source": "./plugins/look-lunar-pink",
+      "description": "Lunar Pink: a dark theme for the Claude desktop and mobile apps. Colors adapted from nicolasdschmidt.lunar-pink by nicolasdschmidt (MIT)."
+    },
+    {
+      "name": "look-black",
+      "source": "./plugins/look-black",
+      "description": "Black: a dark theme for the Claude desktop and mobile apps. Colors adapted from Jaakko.black by Jaakko (Unlicense)."
+    },
+    {
+      "name": "look-hack-the-box",
+      "source": "./plugins/look-hack-the-box",
+      "description": "Hack The Box: a dark theme for the Claude desktop and mobile apps. Colors adapted from silofy.hackthebox by silofy (MIT)."
+    },
+    {
+      "name": "look-bear-theme",
+      "source": "./plugins/look-bear-theme",
+      "description": "Bear Theme: a dark theme for the Claude desktop and mobile apps. Colors adapted from dahong.theme-bear by dahong (MIT)."
+    },
+    {
+      "name": "look-night-pink",
+      "source": "./plugins/look-night-pink",
+      "description": "Night Pink: a dark theme for the Claude desktop and mobile apps. Colors adapted from SamRC.night-pink by SamRC (MIT)."
+    },
+    {
+      "name": "look-vim-dark-medium",
+      "source": "./plugins/look-vim-dark-medium",
+      "description": "Vim Dark Medium: a dark theme for the Claude desktop and mobile apps. Colors adapted from HarryHopkinson.vim-theme by HarryHopkinson (MIT)."
+    },
+    {
+      "name": "look-vim-light-medium",
+      "source": "./plugins/look-vim-light-medium",
+      "description": "Vim Light Medium: a light theme for the Claude desktop and mobile apps. Colors adapted from HarryHopkinson.vim-theme by HarryHopkinson (MIT)."
+    },
+    {
+      "name": "look-halcyon",
+      "source": "./plugins/look-halcyon",
+      "description": "Halcyon: a dark theme for the Claude desktop and mobile apps. Colors adapted from brittanychiang.halcyon-vscode by brittanychiang (MIT)."
+    },
+    {
+      "name": "look-firefly-pro",
+      "source": "./plugins/look-firefly-pro",
+      "description": "FireFly Pro: a dark theme for the Claude desktop and mobile apps. Colors adapted from ankitcode.firefly by ankitcode (Apache-2.0)."
+    },
+    {
+      "name": "look-codestackr-theme",
+      "source": "./plugins/look-codestackr-theme",
+      "description": "codeSTACKr Theme: a dark theme for the Claude desktop and mobile apps. Colors adapted from codestackr.codestackr-theme by codestackr (MIT)."
+    },
+    {
+      "name": "look-firefox-dark",
+      "source": "./plugins/look-firefox-dark",
+      "description": "Firefox Dark: a dark theme for the Claude desktop and mobile apps. Colors adapted from Heron.firefox-devtools-theme by Heron (MIT)."
+    },
+    {
+      "name": "look-firefox-light",
+      "source": "./plugins/look-firefox-light",
+      "description": "Firefox Light: a light theme for the Claude desktop and mobile apps. Colors adapted from Heron.firefox-devtools-theme by Heron (MIT)."
+    },
+    {
+      "name": "look-xcode-classic-dark",
+      "source": "./plugins/look-xcode-classic-dark",
+      "description": "Xcode Classic (Dark): a dark theme for the Claude desktop and mobile apps. Colors adapted from MateoCERQUETELLA.xcode-12-theme by MateoCERQUETELLA (MIT)."
+    },
+    {
+      "name": "look-snazzy-operator",
+      "source": "./plugins/look-snazzy-operator",
+      "description": "Snazzy Operator: a dark theme for the Claude desktop and mobile apps. Colors adapted from aaronthomas.vscode-snazzy-operator by aaronthomas (MIT)."
+    },
+    {
+      "name": "look-dark-low-contrast",
+      "source": "./plugins/look-dark-low-contrast",
+      "description": "Dark Low Contrast: a dark theme for the Claude desktop and mobile apps. Colors adapted from EvgeniyPetukhov.dark-low-contrast by EvgeniyPetukhov (MIT)."
+    },
+    {
+      "name": "look-pitch-black",
+      "source": "./plugins/look-pitch-black",
+      "description": "Pitch Black: a dark theme for the Claude desktop and mobile apps. Colors adapted from viktorqvarfordt.vscode-pitch-black-theme by viktorqvarfordt (MIT)."
+    },
+    {
+      "name": "look-netbeans-light-theme",
+      "source": "./plugins/look-netbeans-light-theme",
+      "description": "NetBeans Light Theme: a light theme for the Claude desktop and mobile apps. Colors adapted from obrejla.netbeans-light-theme by obrejla (MIT)."
+    },
+    {
+      "name": "look-horizon",
+      "source": "./plugins/look-horizon",
+      "description": "Horizon: a dark theme for the Claude desktop and mobile apps. Colors adapted from alexandernanberg.horizon-theme-vscode by alexandernanberg (MIT)."
+    },
+    {
+      "name": "look-horizon-bright",
+      "source": "./plugins/look-horizon-bright",
+      "description": "Horizon Bright: a light theme for the Claude desktop and mobile apps. Colors adapted from alexandernanberg.horizon-theme-vscode by alexandernanberg (MIT)."
+    },
+    {
+      "name": "look-snazzy-light",
+      "source": "./plugins/look-snazzy-light",
+      "description": "Snazzy Light: a light theme for the Claude desktop and mobile apps. Colors adapted from loilo.snazzy-light by loilo (MIT)."
+    },
+    {
+      "name": "look-poimandres",
+      "source": "./plugins/look-poimandres",
+      "description": "poimandres: a dark theme for the Claude desktop and mobile apps. Colors adapted from pmndrs.pmndrs by pmndrs (MIT)."
+    },
+    {
+      "name": "look-monokai-vibrant",
+      "source": "./plugins/look-monokai-vibrant",
+      "description": "Monokai Vibrant: a dark theme for the Claude desktop and mobile apps. Colors adapted from s3gf4ult.monokai-vibrant by s3gf4ult (MIT)."
+    },
+    {
+      "name": "look-code-blue",
+      "source": "./plugins/look-code-blue",
+      "description": "Code Blue: a dark theme for the Claude desktop and mobile apps. Colors adapted from Sujan.code-blue by Sujan (MIT)."
+    },
+    {
+      "name": "look-august-arstotzka",
+      "source": "./plugins/look-august-arstotzka",
+      "description": "August - Arstotzka: a dark theme for the Claude desktop and mobile apps. Colors adapted from inci-august.august-themes by inci-august (MIT)."
+    },
+    {
+      "name": "look-pycharm-original-theme",
+      "source": "./plugins/look-pycharm-original-theme",
+      "description": "Pycharm Original Theme: a dark theme for the Claude desktop and mobile apps. Colors adapted from nicohlr.pycharm by nicohlr (MIT)."
+    },
+    {
+      "name": "look-radical",
+      "source": "./plugins/look-radical",
+      "description": "Radical: a dark theme for the Claude desktop and mobile apps. Colors adapted from dhedgecock.radical-vscode by dhedgecock (ISC)."
+    },
+    {
+      "name": "look-field-lights",
+      "source": "./plugins/look-field-lights",
+      "description": "Field Lights: a dark theme for the Claude desktop and mobile apps. Colors adapted from sveggiani.vscode-field-lights by sveggiani (MIT)."
+    },
+    {
+      "name": "look-plastic",
+      "source": "./plugins/look-plastic",
+      "description": "Plastic: a dark theme for the Claude desktop and mobile apps. Colors adapted from will-stone.plastic by will-stone (MIT)."
+    },
+    {
+      "name": "look-matrix",
+      "source": "./plugins/look-matrix",
+      "description": "Matrix: a dark theme for the Claude desktop and mobile apps. Colors adapted from UstymUkhman.matrix-theme by UstymUkhman (MIT)."
+    },
+    {
+      "name": "look-quiet-light-for-vsc",
+      "source": "./plugins/look-quiet-light-for-vsc",
+      "description": "Quiet Light for VSC: a light theme for the Claude desktop and mobile apps. Colors adapted from onecrayon.theme-quietlight-vsc by onecrayon (MIT)."
+    },
+    {
+      "name": "look-pop-n-lock-theme-by-luxcium",
+      "source": "./plugins/look-pop-n-lock-theme-by-luxcium",
+      "description": "Pop N' Lock Theme by Luxcium ✨: a dark theme for the Claude desktop and mobile apps. Colors adapted from Luxcium.pop-n-lock-theme-vscode by Luxcium (MIT)."
+    },
+    {
+      "name": "look-cobalt-next",
+      "source": "./plugins/look-cobalt-next",
+      "description": "Cobalt Next: a dark theme for the Claude desktop and mobile apps. Colors adapted from dline.CobaltNext by dline (MIT)."
+    },
+    {
+      "name": "look-ui-one-dark",
+      "source": "./plugins/look-ui-one-dark",
+      "description": "βui - One Dark: a dark theme for the Claude desktop and mobile apps. Colors adapted from swashata.beautiful-ui by swashata (MIT)."
+    },
+    {
+      "name": "look-ui-one-light",
+      "source": "./plugins/look-ui-one-light",
+      "description": "βui - One Light: a light theme for the Claude desktop and mobile apps. Colors adapted from swashata.beautiful-ui by swashata (MIT)."
     }
   ]
 }

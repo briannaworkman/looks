@@ -1,0 +1,8 @@
+{
+  "name": "look-hack-the-box",
+  "version": "0.2.0",
+  "description": "Hack The Box: a dark theme for the Claude desktop and mobile apps. Colors adapted from silofy.hackthebox by silofy (MIT).",
+  "author": {
+    "name": "briannaworkman"
+  }
+}

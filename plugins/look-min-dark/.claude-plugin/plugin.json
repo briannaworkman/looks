@@ -1,0 +1,8 @@
+{
+  "name": "look-min-dark",
+  "version": "0.2.0",
+  "description": "Min Dark: a dark theme for the Claude desktop and mobile apps. Colors adapted from miguelsolorio.min-theme by miguelsolorio (MIT).",
+  "author": {
+    "name": "briannaworkman"
+  }
+}

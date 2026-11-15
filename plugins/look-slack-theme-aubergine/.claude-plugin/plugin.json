@@ -1,0 +1,8 @@
+{
+  "name": "look-slack-theme-aubergine",
+  "version": "0.2.0",
+  "description": "Slack Theme Aubergine: a light theme for the Claude desktop and mobile apps. Colors adapted from felipe-mendes.slack-theme by felipe-mendes (MIT).",
+  "author": {
+    "name": "briannaworkman"
+  }
+}

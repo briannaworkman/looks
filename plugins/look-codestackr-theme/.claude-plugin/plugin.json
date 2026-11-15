@@ -1,0 +1,8 @@
+{
+  "name": "look-codestackr-theme",
+  "version": "0.2.0",
+  "description": "codeSTACKr Theme: a dark theme for the Claude desktop and mobile apps. Colors adapted from codestackr.codestackr-theme by codestackr (MIT).",
+  "author": {
+    "name": "briannaworkman"
+  }
+}

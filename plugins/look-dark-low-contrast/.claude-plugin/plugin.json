@@ -1,0 +1,8 @@
+{
+  "name": "look-dark-low-contrast",
+  "version": "0.2.0",
+  "description": "Dark Low Contrast: a dark theme for the Claude desktop and mobile apps. Colors adapted from EvgeniyPetukhov.dark-low-contrast by EvgeniyPetukhov (MIT).",
+  "author": {
+    "name": "briannaworkman"
+  }
+}

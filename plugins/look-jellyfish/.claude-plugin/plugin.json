@@ -1,0 +1,8 @@
+{
+  "name": "look-jellyfish",
+  "version": "0.2.0",
+  "description": "JellyFish: a dark theme for the Claude desktop and mobile apps. Colors adapted from PawelBorkar.jellyfish by PawelBorkar (Apache-2.0).",
+  "author": {
+    "name": "briannaworkman"
+  }
+}

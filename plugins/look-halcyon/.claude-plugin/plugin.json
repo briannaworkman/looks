@@ -1,0 +1,8 @@
+{
+  "name": "look-halcyon",
+  "version": "0.2.0",
+  "description": "Halcyon: a dark theme for the Claude desktop and mobile apps. Colors adapted from brittanychiang.halcyon-vscode by brittanychiang (MIT).",
+  "author": {
+    "name": "briannaworkman"
+  }
+}

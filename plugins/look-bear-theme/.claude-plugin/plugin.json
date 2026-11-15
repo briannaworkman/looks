@@ -1,0 +1,8 @@
+{
+  "name": "look-bear-theme",
+  "version": "0.2.0",
+  "description": "Bear Theme: a dark theme for the Claude desktop and mobile apps. Colors adapted from dahong.theme-bear by dahong (MIT).",
+  "author": {
+    "name": "briannaworkman"
+  }
+}

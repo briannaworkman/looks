@@ -1,0 +1,8 @@
+{
+  "name": "look-min-light",
+  "version": "0.2.0",
+  "description": "Min Light: a light theme for the Claude desktop and mobile apps. Colors adapted from miguelsolorio.min-theme by miguelsolorio (MIT).",
+  "author": {
+    "name": "briannaworkman"
+  }
+}

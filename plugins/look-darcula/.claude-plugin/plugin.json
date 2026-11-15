@@ -1,0 +1,8 @@
+{
+  "name": "look-darcula",
+  "version": "0.2.0",
+  "description": "Darcula: a dark theme for the Claude desktop and mobile apps. Colors adapted from rokoroku.vscode-theme-darcula by rokoroku (MIT).",
+  "author": {
+    "name": "briannaworkman"
+  }
+}

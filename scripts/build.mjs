@@ -11,6 +11,7 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import { makeColors } from '../src/make-colors.js'
+import { ORIGINALS, PALETTE_CREDITS } from '../src/credits.js'
 import { LOOKS } from '../src/themes.js'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
@@ -155,7 +156,7 @@ write(
 )
 
 // The README's tables, between its markers.
-const originals = new Set(['deep-sea', 'mint-chocolate', 'paper', 'sakura', 'amber-crt'])
+const originals = new Set(ORIGINALS)
 const table = mode => {
   const rows = LOOKS.filter(look => look.mode === mode).map(
     look => `| \`${look.id}\` | ${look.name}${originals.has(look.id) ? ' (original)' : ''} | \`look-${look.id}\` |`,
@@ -187,25 +188,51 @@ if (existsSync(readmePath)) {
   )
 }
 
-// CREDITS.md: where every look adapted from a VS Code theme comes from.
+// CREDITS.md: every look's origin in one place. A look with no credit anywhere
+// fails the build, so a new look cannot ship unattributed.
 const adapted = LOOKS.filter(look => look.credit)
-const creditRows = adapted.map(
-  look =>
-    `| ${look.name} | ${look.credit.author} | [${look.credit.extension}](https://github.com/${look.credit.repo}) | ${look.credit.license} |`,
-)
+const palettes = LOOKS.filter(look => !look.credit && PALETTE_CREDITS[look.id])
+const originalLooks = LOOKS.filter(look => ORIGINALS.includes(look.id))
+const uncredited = LOOKS.filter(look => !look.credit && !PALETTE_CREDITS[look.id] && !ORIGINALS.includes(look.id))
+
+if (uncredited.length > 0) {
+  console.error(`No credit for: ${uncredited.map(look => look.id).join(', ')}. Add each to ORIGINALS or PALETTE_CREDITS in src/credits.js.`)
+  process.exit(1)
+}
 
 write(
   join(ROOT, 'CREDITS.md'),
   [
     '# Credits',
     '',
-    `${adapted.length} of the looks are adapted from themes published as VS Code extensions. For each one, the colors were read from the theme's own published color file, and the layout (surfaces, text steps, backdrop) is this gallery's. Each is listed with its author, its source repository and that repository's license, which was an open-source license when the look was added.`,
+    `Every look in this gallery and where it comes from: ${palettes.length} use published color palettes, ${adapted.length} are adapted from VS Code themes, and ${originalLooks.length} are new. This repository is not affiliated with any of these projects, and the credit for their colors belongs to their authors.`,
     '',
-    'The other looks use the published palettes of the same names, credited to their authors in the README.',
+    '## Looks that use a published palette',
+    '',
+    `These ${palettes.length} use the colors of a well-known palette. The palette's name and its maker are given; see each project for its own license terms. The layout (surfaces, text steps, backdrop) is this gallery's.`,
+    '',
+    '| Look | Palette | Made by |',
+    '| --- | --- | --- |',
+    ...palettes.map(look => `| ${look.name} | ${PALETTE_CREDITS[look.id][0]} | ${PALETTE_CREDITS[look.id][1]} |`),
+    '',
+    '## Looks adapted from VS Code themes',
+    '',
+    `These ${adapted.length} are adapted from themes published as VS Code extensions. The colors were read from each theme's own published color file, and the layout is this gallery's. Each is listed with its author, its source repository and that repository's license, which was an open-source license when the look was added.`,
     '',
     '| Look | Author | Source | License |',
     '| --- | --- | --- | --- |',
-    ...creditRows,
+    ...adapted.map(
+      look =>
+        `| ${look.name} | ${look.credit.author} | [${look.credit.extension}](https://github.com/${look.credit.repo}) | ${look.credit.license} |`,
+    ),
+    '',
+    '## Original looks',
+    '',
+    `These ${originalLooks.length} are new, made for this gallery: ${originalLooks.map(look => look.name).join(', ')}.`,
+    '',
+    '## Code',
+    '',
+    "`src/make-colors.js` is the color helper from Claude Code's mod authoring kit, included unchanged. It keeps its own origin; it is not covered by this repository's MIT license.",
     '',
   ].join('\n'),
 )

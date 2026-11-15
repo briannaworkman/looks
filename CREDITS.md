@@ -1,8 +1,47 @@
 # Credits
 
-60 of the looks are adapted from themes published as VS Code extensions. For each one, the colors were read from the theme's own published color file, and the layout (surfaces, text steps, backdrop) is this gallery's. Each is listed with its author, its source repository and that repository's license, which was an open-source license when the look was added.
+Every look in this gallery and where it comes from: 30 use published color palettes, 60 are adapted from VS Code themes, and 5 are new. This repository is not affiliated with any of these projects, and the credit for their colors belongs to their authors.
 
-The other looks use the published palettes of the same names, credited to their authors in the README.
+## Looks that use a published palette
+
+These 30 use the colors of a well-known palette. The palette's name and its maker are given; see each project for its own license terms. The layout (surfaces, text steps, backdrop) is this gallery's.
+
+| Look | Palette | Made by |
+| --- | --- | --- |
+| Catppuccin Mocha | Catppuccin Mocha | Catppuccin |
+| Catppuccin Latte | Catppuccin Latte | Catppuccin |
+| Nord | Nord | Arctic Ice Studio |
+| Dracula | Dracula | the Dracula Theme project |
+| Tokyo Night | Tokyo Night | enkia |
+| Gruvbox Dark | Gruvbox (dark) | Pavel Pertsev (morhetz) |
+| Rosé Pine | Rosé Pine | the Rosé Pine project |
+| Everforest | Everforest (dark) | sainnhe |
+| Solarized Dark | Solarized (dark) | Ethan Schoonover |
+| Solarized Light | Solarized (light) | Ethan Schoonover |
+| Catppuccin Frappé | Catppuccin Frappé | Catppuccin |
+| Catppuccin Macchiato | Catppuccin Macchiato | Catppuccin |
+| One Dark | One Dark | the Atom project |
+| Kanagawa | Kanagawa | rebelot |
+| Ayu Mirage | Ayu Mirage | the Ayu project |
+| GitHub Dark | GitHub Dark | GitHub (Primer) |
+| GitHub Light | GitHub Light | GitHub (Primer) |
+| Gruvbox Light | Gruvbox (light) | Pavel Pertsev (morhetz) |
+| Rosé Pine Dawn | Rosé Pine Dawn | the Rosé Pine project |
+| Night Owl | Night Owl | Sarah Drasner |
+| Synthwave '84 | SynthWave '84 | Robb Owen |
+| Monokai | Monokai | Wimer Hazenberg |
+| Tokyo Night Storm | Tokyo Night (Storm) | enkia |
+| Nightfox | Nightfox | EdenEast |
+| Oxocarbon | Oxocarbon (based on the IBM Carbon colors) | the Oxocarbon project |
+| Material Ocean | Material Theme Ocean | the Material Theme project |
+| Zenburn | Zenburn | Jani Nurminen |
+| Ayu Light | Ayu Light | the Ayu project |
+| Everforest Light | Everforest (light) | sainnhe |
+| Nord Snow | Nord (its Snow Storm colors, arranged as a light look here) | Arctic Ice Studio |
+
+## Looks adapted from VS Code themes
+
+These 60 are adapted from themes published as VS Code extensions. The colors were read from each theme's own published color file, and the layout is this gallery's. Each is listed with its author, its source repository and that repository's license, which was an open-source license when the look was added.
 
 | Look | Author | Source | License |
 | --- | --- | --- | --- |
@@ -66,3 +105,11 @@ The other looks use the published palettes of the same names, credited to their 
 | Cobalt Next | dline | [dline.CobaltNext](https://github.com/davidleininger/cobaltnext-vscode) | MIT |
 | βui - One Dark | swashata | [swashata.beautiful-ui](https://github.com/swashata/vscode-beautiful-ui) | MIT |
 | βui - One Light | swashata | [swashata.beautiful-ui](https://github.com/swashata/vscode-beautiful-ui) | MIT |
+
+## Original looks
+
+These 5 are new, made for this gallery: Amber CRT, Deep Sea, Mint Chocolate, Paper Notebook, Sakura.
+
+## Code
+
+`src/make-colors.js` is the color helper from Claude Code's mod authoring kit, included unchanged. It keeps its own origin; it is not covered by this repository's MIT license.

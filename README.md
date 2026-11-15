@@ -170,10 +170,8 @@ Two things keep a look readable:
 
 ## Credits
 
-The first 35 looks use the published color schemes of the same names, and the credit for their colors belongs to their authors. The five marked "original" are new. The rest are adapted from themes published as VS Code extensions: [CREDITS.md](CREDITS.md) lists each one's author, source repository and license. This repository is not affiliated with any of those projects.
-
-`src/make-colors.js` is the color helper from Claude Code's mod authoring kit, included unchanged.
+Every look's origin, and the credit its colors are owed, is in [CREDITS.md](CREDITS.md): the published palettes, the themes adapted from VS Code extensions (with each one's author, source repository and license), the original looks, and the color helper.
 
 ## License
 
-MIT, see [LICENSE](LICENSE). The color helper keeps its own origin as noted above.
+MIT, see [LICENSE](LICENSE). The color helper in `src/make-colors.js` keeps its own origin, noted in [CREDITS.md](CREDITS.md).
